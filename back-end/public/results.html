@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>NYUSH Restaurant Database</title>
+    <link rel="stylesheet" type="text/css" href="style/resultstyle.css">
+    
+  </head>
+  <body>
+
+    <div id="main">
+      <form class="search" action="results1.html" method="post">
+        <fieldset>
+          <div id="fields">
+            <input name="fname" type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name" id="lname">
+          <input type="text" placeholder="Year" id="year">
+          <select name="nationality" id="nation">
+            <option value="null">-- Select Nationality --</option>
+            <option value="Ireland">Ireland</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="ETC">ETC</option>
+          </select>
+          <select name="gender" id="gender">
+            <option value="null">-- Select Gender --</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+          </select>
+          <!-- <input type="checkbox" id="rest" name="rest" value="rest">
+          <label for="rest"> Include Restaurant Names</label> -->
+          <input id="submit" type="submit" value="Submit">
+          </div>
+        </fieldset>
+      </form> 
+      <input id="generate" type="submit" value="Generate CSV">
+    </div>
+
+    <div id="results">
+        <table id="table_results">
+            
+            <!--tr>
+              <th>ID</th>
+              <th>Year</th>
+              <th>Directory</th>
+              <th>Nationality</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>Address</th>
+            </tr-->
+            
+          
+            
+          </table>
+    </div>
+    <div id="oo"></div>
+    <script src="main.js"></script>
+
+    <script src="results.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>NYUSH Restaurant Database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <title>
+        Document
+    </title>
+    </head>
+    <body id="search-box">
+    <div id="main">
+        
+                <br>
+                <br>
+                <fieldset>
+                    <h3>Select values to use in the search</h3>
+
+                    <form >
+
+                     
+                       
+                        <input class="in" type="checkbox" id="year_ch" value="YR"> Year
+                        <input class="in" type="checkbox" id="dir_ch" value="DIR" > Directory
+                        <input class="in" type="checkbox" id="nation_ch" value="NATION" > Nationality
+                        <input class="in" type="checkbox" id="address_ch" value="ADDRESS" > Street Name
+                        <br> <br>
+                        <input  type="button" id="btn_ch" value="Submit" onClick="makeVisible()">
+                        <br><br>
+                    </form>
+                <form action="">
+                   
+                    
+                    <label id="label-startyear" for="startyear">Year from:</label>
+                    <input type="text" id="startyear" name="startyear"> 
+                      <label id="label-endyear" for="endyear">to:</label>
+                    <input type="text" id="endyear" name="endyear">
+                    <br><br>
+                    <input type="text"  id="dir" name="dir" placeholder="Directory" ><br><br>
+                        <select name="nation" id="nation" multiple>
+                        <option value="null">-- Select Nationality --</option>
+                    
+                        <option value="Armenia">Armenia</option>
+                    <option value="Asia">Asia, General</option>
+                    <option value="China">Asia, China</option>
+                    <option value="Japan">Asia, Japan</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Barbados">Barbados</option>
+                    <option value="Bavaria">Bavaria</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Bohemia">Bohemia</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="England">England</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="Galicia">Galicia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Holland">Holland</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Prussia">Prussia</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Scotland">Scotland</option>
+                    <option value="Serbia">Serbia</option>
+                    <option value="Sicily">Sicily</option>
+                    <option value="South America">South America</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Syria">Syria</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="US">US, General</option>
+                    <option value="Alabama">US, Alabama</option>
+                    <option value="Arkansas">US, Arkansas</option>
+                    <option value="California">US,California</option>
+                    <option value="Colorado">US, Colorado</option>
+                    <option value="Connecticut">US, Connecticut</option>
+                    <option value="DC">US, DC</option>
+                    <option value="Delaware">US, Delaware</option>
+                    <option value="Florida">US, Florida</option>
+                    <option value="Georgia">US, Georgia</option>
+                    <option value="Illinois">US, Illinois</option>
+                    <option value="Indiana">US, Indiana</option>
+                    <option value="Iowa">US, Iowa</option>
+                    <option value="Kentucky">US, Kentucky</option>
+                    <option value="Maine">US, Maine</option>
+                    <option value="Maryland">US, Maryland</option>
+                    <option value="Massachusetts">US, Massachusetts</option>
+                    <option value="Michigan">US, Michigan</option>
+                    <option value="Mississippi">US, Mississippi</option>
+                    <option value="Missouri">US, Missouri</option>
+                    <option value="New Hampshire">US, New Hampshire</option>
+                    <option value="New Jersey">US, New Jersey</option>
+                    <option value="New York">US, New York</option>
+                    <option value="North Carolina">US, North Carolina</option>
+                    <option value="Ohio">US, Ohio</option>
+                    <option value="Pennsylvania">US, Pennsylvania</option>
+                    <option value="Rhode Island">US, Rhode Island</option>
+                    <option value="South Carolina">US, South Carolina</option>
+                    <option value="Tennessee">US, Tennessee</option>
+                    <option value="Texas">US, Texas</option>
+                    <option value="Vermont">US, Vermont</option>
+                    <option value="Virginia">US, Virginia</option>
+                    <option value="West Virginia">US, West Virginia</option>
+                    <option value="Wisconsin">US, Wisconsin</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Wales">Wales</option>
+                    <option value="West Indies">West Indies</option>
+                    <option value="Other">Other</option>
+                    
+                    </select>
+                    <br><br>
+                    
+                    <input type="text" id="address" name="address" placeholder="Street Name"><br><br>
+                    <!---input type="submit" value="Submit"--->
+                    
+                
+                </form>
+                <h3>Select values to be in the result output</h3>
+  <form class="search" id="ch_out">                
+    <input type="checkbox"  class="out" value="YR" id="year_ch_out"  > Year
+    <input type="checkbox"  class="out" value="DIR" id="dir_ch_out"  > Directory
+    <input type="checkbox"  class="out" value="NATION" id="nation_ch_out" > Nationality
+     <input type="checkbox" class="out" value="ADDRESS" id="address_ch_out" > Street Name
+    <br> <br>
+    <input  type="button" id="btn_out" value="Submit" >
+    <br><br>
+</form>
+
+<button id="btn">
+    Request & Download
+        </button>
+        <script>
+            /*
+            var appD=   (document.getElementById("app")).value;
+
+            function waitForCondition() {
+  return new Promise(resolve => {
+    
+    function checkFlag() {
+      if (appD!=null) {
+        console.log('met');
+        resolve();
+      } else {
+        window.setTimeout(checkFlag, 30000); 
+      }
+    }
+    checkFlag();
+  });
+}
+
+async function run() {
+  console.log('before');
+  await waitForCondition()
+  console.log('after');
+}
+run(); */
+        </script>
+        <br><br>
+        <p id="announce"></p>
+        <br><br>
+        <button id="results_btn" onclick="location.href='results.html';">View results</button>
+
+<br>
+<br>
+<button id="btn2">
+    Add Row
+        </button>
+        <br>
+        <br>
+                        
+                </fieldset>
+                    
+    </div>
+
+
+
+
+        <div  id="app"></div>
+        <a id="downloadAnchorElem" style="display:none"></a>
+        <button id="btn3" style="display:none">
+            Clear
+                </button>
+       <script src="main.js"></script> 
+
+    </body>
+</html>

@@ -1,0 +1,76 @@
+#search-box {
+  top: 30%;
+  justify-content: center;
+
+}
+fieldset {
+  background-color: white;
+  width: 50vw;
+  padding: 50px;
+}
+
+
+#main {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+#submit {
+  background-color: white;
+}
+#label-startyear,
+#label-endyear,
+#startyear,
+#endyear {
+  visibility: hidden;
+}
+
+#nation {
+  visibility: hidden;
+}
+
+
+#gender {
+  visibility: hidden;
+}
+
+#address {
+  visibility: hidden;
+}
+
+#results_btn {
+  visibility: hidden;
+}
+
+
+#app,
+#dir {
+  visibility: hidden;
+}
+#btn_ch {
+  left: 50%;
+}
+
+select {
+  grid-template-areas: "select";
+  /*align-items: center;
+  display: grid;
+  position: relative;
+  resize:both;
+  */
+  width: 20vw;
+  height: 20vw;
+  font-size: medium;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  background-color: #e9f2fd;
+  padding: 1rem;
+}
+

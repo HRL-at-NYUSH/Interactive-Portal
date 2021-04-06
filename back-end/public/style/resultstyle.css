@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+}
+
+#search-box {
+  position: absolute;
+}
+
+fieldset {
+  background-color: whitesmoke;
+}
+
+#fields {
+  word-spacing: 20px;
+}
+
+#submit {
+  width: 100px;
+  background-color: white;
+}
+
+#results {
+  margin-left: 5px;
+  position: absolute;
+  top: 20%;
+}
+
+table {
+  text-align: left;
+  width: 90%;
+  color: black;
+  border-collapse: collapse;
+  border: 1px solid black;
+  background-color: whitesmoke;
+}
+
+td {
+  border: 1px solid black;
+  padding-left: 10px;
+}
+
+th {
+  background-color: lightblue;
+  padding: 5px;
+  padding-left: 10px;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+tr {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+#generate {
+  top: 20%;
+  left: 100%;
+  width: 150px;
+  background-color: lightblue;
+}
+#year,
+#gender,
+#nation,
+#first_name,
+#last_name,
+#address,
+#id {
+  visibility: hidden;
+}
