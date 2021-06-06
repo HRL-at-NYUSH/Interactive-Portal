@@ -1,6 +1,6 @@
 # Interactive Data Portal
 
-## Project Description
+### Project Description
 
 The IDP is a flexible, real-time data visualization tool for historical research. The IDP was built for internal use at NYU Shanghai.
 
