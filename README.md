@@ -1,7 +1,5 @@
 # Interactive Data Portal
 
-[![Build Status](https://travis-ci.com/agile-dev-assignments/project-setup-team-hatsukaichi-dynamic.svg?branch=master)](https://travis-ci.com/agile-dev-assignments/project-setup-team-hatsukaichi-dynamic)
-
 ## Project Description
 
 The IDP is a flexible, real-time data visualization tool for historical research. The IDP was built for internal use at NYU Shanghai.
