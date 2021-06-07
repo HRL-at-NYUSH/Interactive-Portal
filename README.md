@@ -35,9 +35,7 @@ To contribute to the project, please refer to the 'Rules for contributors' and '
 
 To run the project, ensure all of the software above is installed. Then, complete the following steps:
 
-1. Fork the repository
-
-2. Clone repository that you have just forked. You can clone the repo using VS Code interface or type in the terminal the following command:<br>
+Clone the repository. You can clone the repo using VS Code interface or type in the terminal the following command:<br>
 - git clone (Repository link). <br>
 
 After, change your current directory to the project repository by running: <br>
