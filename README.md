@@ -1,4 +1,4 @@
-# Interactive Data Portal
+# Interactive Data Portal for Humanities Research Lab
 
 ### Project Description
 
