@@ -1,60 +1,41 @@
-# Interactive Data Portal
+# Server installation
 
-### Project Description
+1. In the terminal, go to the 'back-end' directory
+```
+cd back-end
+```
 
-The IDP is a flexible, real-time data visualization tool for historical research. The IDP was built for internal use at NYU Shanghai.
+2. Create a file named .env <br>
+Inside the file, put the following line: 
+```
+SCRIPT_API_ID=script_id
+```
+script_id is API ID. For example, if script_id is 12345, then .env will contain the following line:
 
-### Team Members
+```
+SCRIPT_API_ID=12345
+```
 
-- [Alma Kapan](https://github.com/almazhankapan)
-- [Sarah Tahir](https://github.com/saraaahh63)
-- [Tim Wu](https://github.com/TimWGY)
-- Kai Elwood-Dieu
-- Olivia Lin
-- Pamela Pan
-- Winny Wang
-- Yufeng Zhao
+3. In the terminal, run 'npm install' (current directory is back-end)
+```
+npm install
+```
 
-### Minimum Viable Product
+4. In the terminal, run 'npm start' (current directory is back-end)
+```
+npm start
+```
+<br>
+Note that you have to close the tab, stop the server and start it again every time you make changes to the code
 
-The user will be able to query the database and vizualize selected data through six chart types: histogram, bar chart, boxplot, scatter pot, matrix, and line graph. The user will be able to save their session history and selected graphs to their profile for future use.
+5. After successful start, in the browser, go to [http://localhost:3000](http://localhost:3000/) to check the sample GET request to the home page <br>
+Go to the [http://localhost:3000/search-page](http://localhost:3000/search-page) to check the sample GET request to the search page
 
-### Contributing and More
-
-If you would like to contribute to this project, please take a look at the CONTRIBUTING.md file and follow the instructions there.
-
-### Building and Testing
-
-To build the project, please install the following software:   <br>
-- Install [Git](https://git-scm.com/) to follow the git workflow specified for team members and external contributors. 
-- Install [Node.js](https://nodejs.org/) to contribute to and test the code. 
-- Install [React.js](https://reactjs.org/) to contribute to and test the code. 
-- Install [Visual Studio Code](https://code.visualstudio.com/download) and recommended linter to standardize the formatting of the code. <br>
-To contribute to the project, please refer to the 'Rules for contributors' and 'Git workflow for team members' sections in the [CONTRIBUTING.md](./CONTRIBUTING.md) file. 
-
-To run the project, ensure all of the dependencies are added, which include node and react. On your local machine do the following command:<br>
-- git clone (Repository link). <br>
-
-After, change your current directory to the project repository by running: <br>
-- cd (directory name) <br>
-
-Within the project folder, change the directory to front-end by doing the following command: <br>
-- cd front-end <br>
-
-Before starting the react-app run the following npm commands in the ./front-end path: <br>
- - npm install --save <br>
-
-To start the react-app: <br>
-- npm start <br>
-
-- Before starting the back-end server, navigate within the project folder in a different terminal and change the directory to back-end by doing the following command: <br>
-- cd back-end <br>
-
-Before starting the back-end server run the following commands in the ./back-end path: <br>
- - npm install --save <br>
-
-To start the server: <br>
-- npm start <br>
+6. In the browser, go to [http://localhost:3000/example-api](http://localhost:3000/example-api) to check the GET request to the API
 
 
+# Installed dependencies
+**Express** - Node.js library for server interaction<br>
+**Axios** - Node.js library for API interaction<br>
+**Dotenv** - Node.js library for Authentication<br>
 
