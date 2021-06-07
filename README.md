@@ -43,7 +43,7 @@ Within the project folder, change the directory to front-end by doing the follow
 - cd front-end <br>
 
 Before starting the react-app run the following npm commands in the ./front-end path: <br>
- - npm install --save <br>
+ - npm install <br>
 
 To start the react-app: <br>
 - npm start <br>
@@ -52,7 +52,7 @@ To start the react-app: <br>
 - cd back-end <br>
 
 Before starting the back-end server run the following commands in the ./back-end path: <br>
- - npm install --save <br>
+ - npm install <br>
 
 To start the server: <br>
 - npm start <br>
