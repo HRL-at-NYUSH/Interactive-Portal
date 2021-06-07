@@ -54,9 +54,9 @@ git clone url
 git checkout main
 git pull origin main
 ```
-3. Create a new branch (from master) when working on a task/spike (except for working on .md files) and switch to that branch:
+3. Create a new branch (from master) when working on a task/spike (except for working on .md files) and switch to that branch. Note that name of the branch should consist of the issue number and short description of the task. For example, if you are working on issue #81 with the title 'update readme', your new branch can be named as issue-81-update-readme
 ```
-git checkout -b newbranch
+git checkout -b issue-81-update-readme
 ```
 4. Commit your changes and add a short, meaningful message. If you are working on a specific task/spike, mention issue id of the task in the commit message: 
 ```
@@ -65,7 +65,7 @@ git commit -m'some changes for the task/spike with issue id #XX'
 
 5. Push your changes to the branch. If have not pushed before: 
 ```
-git push --set-upstream origin newbranch
+git push --set-upstream origin issue-2-update-readme
 ```
 Otherwise: <br>
 ```
