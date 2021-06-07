@@ -21,7 +21,7 @@ The user will be able to query the database and vizualize selected data through 
 
 ### Contributing and More
 
-If you would like to contribute to this project, please take a look at the CONTRIBUTING.md file and follow the instructions there.
+If you would like to contribute to this project, please take a look at the [CONTRIBUTING.md](./CONTRIBUTING.md) file and follow the instructions there.
 
 ### Building and Testing
 
