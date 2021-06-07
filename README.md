@@ -31,7 +31,7 @@ To build the project, please install the following software:   <br>
 - Install [Visual Studio Code](https://code.visualstudio.com/download) and recommended linter to standardize the formatting of the code. <br>
 To contribute to the project, please refer to the 'Rules for contributors' and 'Git workflow for team members' sections in the [CONTRIBUTING.md](./CONTRIBUTING.md) file. 
 
-To run the project, ensure all of the dependencies are added, which include node and react. On your local machine do the following command:<br>
+To run the project, ensure all of the software above is installed. On your local machine do the following command:<br>
 - git clone (Repository link). <br>
 
 After, change your current directory to the project repository by running: <br>
