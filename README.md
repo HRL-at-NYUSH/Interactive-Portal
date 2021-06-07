@@ -28,7 +28,6 @@ If you would like to contribute to this project, please take a look at the [CONT
 To build the project, please install the following software:   <br>
 - Install [Git](https://git-scm.com/) to follow the git workflow specified for team members and external contributors. 
 - Install [Node.js](https://nodejs.org/) to contribute to and test the code. 
-- Install [React.js](https://reactjs.org/) to contribute to and test the code. 
 - Install [Visual Studio Code](https://code.visualstudio.com/download) and recommended linter to standardize the formatting of the code. <br>
 To contribute to the project, please refer to the 'Rules for contributors' and 'Git workflow for team members' sections in the [CONTRIBUTING.md](./CONTRIBUTING.md) file. 
 
