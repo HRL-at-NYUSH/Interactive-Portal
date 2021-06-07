@@ -6,7 +6,7 @@ The IDP is a flexible, real-time data visualization tool for historical research
 
 ### Team Members
 
-- [Almazhan Kapan](https://github.com/almazhankapan)
+- [Alma Kapan](https://github.com/almazhankapan)
 - [Sarah Tahir](https://github.com/saraaahh63)
 - [Tim Wu](https://github.com/TimWGY)
 - Kai Elwood-Dieu
