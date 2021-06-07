@@ -1,5 +1,9 @@
+## Git Workflow Exercise
+
 In this exercise, you will practice git workflow and make your first contribution to the Interactive Data portal project :)
+
 View more information about git workflow and version control with Git [here](https://knowledge.kitchen/Version_control_with_Git_and_GitHub)
+
 You should complete the exercise by Friday, June 11th. Please follow the steps below and watch the tutorial to complete the exercise.
 
 1. In Visual Studio Code, clone the repository from your forked folder following the steps below outlined in the [Readme](https://github.com/HRL-at-NYUSH/Interactive-Portal#readme) file and [project setup tutorial](link).
