@@ -51,8 +51,8 @@ git clone url
 ```
 2. Pull changes from the master branch to the local repo: 
 ```
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
 ```
 3. Create a new branch (from master) when working on a task/spike (except for working on .md files) and switch to that branch:
 ```
