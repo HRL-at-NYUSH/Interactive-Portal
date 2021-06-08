@@ -1,5 +1,5 @@
-Name: 
+Name: Alma
 
-Favorite color: 
+Favorite color: Pink
 
-Favorite movie: 
+Favorite movie: Star Trek
