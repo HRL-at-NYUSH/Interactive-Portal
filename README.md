@@ -1,4 +1,4 @@
-# Interactive Data Portal for Humanities Research Lab
+# Interactive Data Portal for Humanities Research Lab Summer 2021
 
 ### Project Description
 
