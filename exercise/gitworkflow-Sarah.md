@@ -1,7 +1,7 @@
-Name: 
+Name: Sarah
 
-Favorite color: 
+Favorite color: Blue
 
-Favorite movie: 
+Favorite movie: Spirited Away
 
 
