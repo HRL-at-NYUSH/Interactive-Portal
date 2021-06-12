@@ -2,6 +2,6 @@ Name: winny
 
 Favorite color: black
 
-Favorite movie: not sure
+Favorite movie: none
 
 
