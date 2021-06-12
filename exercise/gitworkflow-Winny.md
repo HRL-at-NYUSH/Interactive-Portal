@@ -1,7 +1,7 @@
-Name: 
+Name: winny
 
-Favorite color: 
+Favorite color: black
 
-Favorite movie: 
+Favorite movie: not sure
 
 
