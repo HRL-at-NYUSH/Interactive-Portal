@@ -1,7 +1,7 @@
-Name: 
+Name: Guangyu (Tim) Wu
 
-Favorite color: 
+Favorite color: Sky Blue
 
-Favorite movie: 
+Favorite movie: North by Northwest
 
 
