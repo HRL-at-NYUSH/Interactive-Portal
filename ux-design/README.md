@@ -8,7 +8,7 @@ The prototype includes both old and new versions of the wireframes. The final ve
 
 3. You can view and edit wireframes on the draw.io website [here](https://app.diagrams.net/#G1r1msHg7VZ971lZnvIo_0tSoqD1FM_E1l) and [here](https://app.diagrams.net/#G1TIWTO3uz7qCdaP8uLbQi3V-WYXaf5yEc). 
 
-For now, only Professor, Sarah, Tim and Alma have edit access to the wireframes - let us know if you would like to edit them. 
+For now, only Professor Lee, Sarah, Tim and Alma have edit access to the wireframes - let us know if you would like to edit the wireframes. 
 
 4. In the [archived](https://github.com/HRL-at-NYUSH/Interactive-Portal/tree/main/ux-design/archived) folder, you can view the old version of the wireframes. 
 
