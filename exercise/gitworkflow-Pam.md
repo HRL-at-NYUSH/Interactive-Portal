@@ -1,7 +1,7 @@
-Name: 
+Name: Pam
 
-Favorite color: 
+Favorite color: Light Blue
 
-Favorite movie: 
+Favorite movie: The Way We Are by Ann Hui
 
 
