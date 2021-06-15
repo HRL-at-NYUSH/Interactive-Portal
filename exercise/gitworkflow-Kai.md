@@ -1,6 +1,6 @@
-Name: 
+Name: Kai
 
-Favorite color: 
+Favorite color: Blue
 
-Favorite movie: 
+Favorite movie: Inside LLywen Davis
 
