@@ -40,14 +40,19 @@ const Header = () => {
         />
 
         <div className="login-signup-buttons">
-          {/*loggedInUser ? (
+          {
+            <LoginButton />
+
+            /*loggedInUser ? (
             <LogoutButton />
           ) : (
             <>
               <LoginButton />
               <SignupButton />
             </>
-          )*/}
+          )*/
+          }
+          <SignupButton />
         </div>
       </div>
     </div>
