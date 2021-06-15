@@ -10,6 +10,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^7.23.0",
+    "http-proxy-middleware": "^2.0.0",
     "react": "^17.0.1",
     "react-burger-menu": "^3.0.4",
     "react-copy-to-clipboard": "^5.0.3",
@@ -48,5 +49,5 @@
   "devDependenccies": {
     "prettier": "^2.2.1"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000/"
 }
