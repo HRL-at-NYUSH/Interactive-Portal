@@ -32,7 +32,7 @@
   - Lucy (extended), Kai
   - Status: Assigned
 
-- Explore data and write about 1-2 additional graphs inside the assigned issue
+- Explore data and fill out the graph brainstorm form
 
   - Yufeng, Winny, Amanda, Pam, Kai
 
@@ -43,6 +43,10 @@
 - Data page (Wireframes, prototype)
 
   - Olivia
+
+- Login, Signup (Front-end)
+
+  - Kai
 
 - Visualize page (Front-end)
 
@@ -82,8 +86,8 @@
   - TBD
 
 - Frequently asked question page (placeholder)
+
   - TBD
 
 - Integrate graphs into dashboard
   - TBD
-
