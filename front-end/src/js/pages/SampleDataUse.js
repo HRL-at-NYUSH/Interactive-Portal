@@ -24,8 +24,6 @@ function SampleDataUse() {
           components:)
         </h2>
         <div className="block">
-          <br />
-
           <DataDisplay
             data={dataNonGeo}
             title={titleNonGeo}
