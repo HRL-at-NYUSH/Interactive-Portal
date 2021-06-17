@@ -8,6 +8,7 @@ import Questions from './js/pages/Questions.js'
 import Profile from './js/pages/Profile.js'
 import Login from './js/pages/Login.js'
 import Signup from './js/pages/Signup.js'
+import SampleDataUse from './js/pages/SampleDataUse.js'
 
 require('dotenv').config()
 
@@ -59,6 +60,9 @@ const App = () => {
             </Route>
             <Route path="/Signup">
               <Signup />
+            </Route>
+            <Route path="/SampleDataUse">
+              <SampleDataUse />
             </Route>
             <Route path="/">
               <Home />
