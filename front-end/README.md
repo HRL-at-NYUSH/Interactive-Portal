@@ -20,7 +20,7 @@ const { dataNonGeo } = require('../utils/MockNonGeo.js')
 
 const { dataGeo } = require('../utils/MockGeo.js')
 
-Then, you can call/modify the data inside your component. One particular use of the mock data is provided in the DataDisplay component - all items (in arrays) are displayed using the map function.
+Then, you can call/modify the data inside your component. One particular use of the mock data is provided in the DataDisplay component - selected key-value pairs (from MockGeo.js and MockNonGeo.js files) are displayed using the map function.
 
 **Resources**
 
