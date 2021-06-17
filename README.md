@@ -70,5 +70,3 @@ To start the server: <br>
 ### Contribute to the project
 
 Follow the steps outlined in the [contributing guide for developers](https://github.com/HRL-at-NYUSH/Interactive-Portal/blob/main/CONTRIBUTING.md#the-git-workflow-that-the-team-follows)
-
-
