@@ -14,7 +14,7 @@
 - Explore data and write about 1-2 additional graphs inside the assigned issue
 
   - Completed: Olivia
-  - Waiting: Yufeng, Winny, Amanda, Pam, Kai
+  - Waiting: Yufeng, Winny, Amanda, Pam, Kai, Lucy
 
 - Complete on-boarding tasks
 
