@@ -2,7 +2,7 @@
 
 ## Week 1:
 
-Welcome to the HRL Interactive Portal team! You are contributing to a high impact project with potentially hundreds of users from NYU Shanghai community and beyond! This will look great on your CV and you can always show the evidence of your work to the employees and/or graduate schools ^-^ Good luck!
+Welcome to the HRL Interactive Portal team! You are contributing to a high impact project with potentially hundreds of users from NYU Shanghai community and beyond! This will look great on your CV ^-^ Good luck!
 
 View git workflow recorded tutorial, install React and complete the exercise. For troubleshooting, reach out to Alma or Sarah.
 
@@ -16,7 +16,7 @@ MockNonGeo.js contains data without geospatial information (no latitude, longitu
 
 To view a sample React file that includes components and imports the data, take a look at the SampleDataUse.js file and visit the SampleDataUse route (you can find it on the [menu panel](https://github.com/HRL-at-NYUSH/Interactive-Portal/blob/main/front-end/images/menu.png) of the React app). On the SampleDataUse page, you should see the an example of using geospatial and nongeospatial mock data (using the same component):
 <img src="https://github.com/HRL-at-NYUSH/Interactive-Portal/blob/main/front-end/images/main.png"/>
-<br/>
+<br/><br/>
 Firstly, to import the data, include the following lines in your javascript file:
 
 const { dataNonGeo } = require('../utils/MockNonGeo.js')
