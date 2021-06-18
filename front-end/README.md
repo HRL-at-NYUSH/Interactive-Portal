@@ -2,7 +2,7 @@
 
 ## Week 1:
 
-Welcome to the HRL Development team! You are contributing to a high impact project with potentially hundreds of users from NYU Shanghai community and beyond! This will look great on your CV and you can always show the evidence of your work to the employees and/or graduate schools ^-^ Good luck!
+Welcome to the HRL Interactive Portal team! You are contributing to a high impact project with potentially hundreds of users from NYU Shanghai community and beyond! This will look great on your CV and you can always show the evidence of your work to the employees and/or graduate schools ^-^ Good luck!
 
 View git workflow recorded tutorial, install React and complete the exercise. For troubleshooting, reach out to Alma or Sarah.
 
@@ -32,4 +32,4 @@ The following articles might be helpful:
 - [React Functional Components from geeksforgeeks](https://www.geeksforgeeks.org/reactjs-functional-components/)
 - [How to use React components](https://www.infoworld.com/article/3603276/how-to-use-react-functional-components.html)
 
-Let Alma and Sarah know if you have any questions! If you have React/JS/setup related questions, reach out to Alma and if you have graph/visualization/D3/JS related questions, reach out to Sarah ^-^
+Let Alma and Sarah know if you have any questions! If you have React/JS/setup related questions, reach out to Alma, if you have graph/visualization/D3/JS related questions, reach out to Sarah and if you have data visualization and data cleaning related questions, reach out to Tim ^-^
