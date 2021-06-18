@@ -16,7 +16,7 @@ MockNonGeo.js contains data without geospatial information (no latitude, longitu
 
 To view a sample React file that includes components and imports the data, take a look at the SampleDataUse.js file and visit the SampleDataUse route (you can find it on the [menu panel](https://github.com/HRL-at-NYUSH/Interactive-Portal/blob/main/front-end/images/menu.png) of the React app). On the SampleDataUse page, you should see the an example of using geospatial and nongeospatial mock data (using the same component):
 <img src="https://github.com/HRL-at-NYUSH/Interactive-Portal/blob/main/front-end/images/main.png"/>
-
+<br/>
 Firstly, to import the data, include the following lines in your javascript file:
 
 const { dataNonGeo } = require('../utils/MockNonGeo.js')
