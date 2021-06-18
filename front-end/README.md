@@ -10,7 +10,7 @@ View git workflow recorded tutorial, install React and complete the exercise. Fo
 
 **Mock JS data**
 
-Mock JS data is uploaded in the [utils]() folder - you can start playing with the data!
+Mock JS data is uploaded in the [utils](https://docs.google.com/forms/d/e/1FAIpQLScHZWErUzf4Va2pIp-jfaT0APpLI42g3VxjmACjSkuPjB2OMQ/viewform?usp=sf_link) folder - you can start playing with the data!
 There are two files: MockNonGeo.js and MockGeo.js. <br/>
 MockNonGeo.js contains data without geospatial information (no latitude, longitude info) and MockGeo.js contains geospatial information.
 
