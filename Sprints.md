@@ -34,7 +34,7 @@
 
 - Explore data and fill out the graph brainstorm form
 
-  - Yufeng, Winny, Amanda, Pam, Kai
+  - Yufeng, Winny, Amanda, Pam, Kai, Lucy
 
 - Profile page (together with week 3)
 
@@ -47,6 +47,10 @@
 - Login, Signup (Front-end)
 
   - Kai
+
+- Build tab functionality for dashboard
+
+  - Sarah
 
 - Visualize page (Front-end)
 
@@ -72,8 +76,6 @@
 
   - Winny
 
-- Build menu toolbar for dashboard:
-  - Alma
 
 **Not yet assigned tasks:**
 
@@ -90,4 +92,9 @@
   - TBD
 
 - Integrate graphs into dashboard
+
+  - TBD
+
+- Build menu toolbar for dashboard:
+
   - TBD
