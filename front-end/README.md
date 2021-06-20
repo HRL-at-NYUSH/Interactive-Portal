@@ -35,4 +35,4 @@ The following articles might be helpful:
 - [React Functional Components from geeksforgeeks](https://www.geeksforgeeks.org/reactjs-functional-components/)
 - [How to use React components](https://www.infoworld.com/article/3603276/how-to-use-react-functional-components.html)
 
-Let team leaders know if you have any questions! If you have React/Express/JS/setup related questions, reach out to Alma, if you have graphs/visualization/D3/JS related questions, reach out to Sarah and if you have data visualization and data cleaning related questions, reach out to Tim ^-^
+Let team leaders know if you have any questions! If you have React/Express/JS/setup related questions, reach out to Alma, if you have graphs/visualization/D3/JS related questions, reach out to Sarah and if you have data visualization and data cleaning, python related questions, reach out to Tim ^-^
