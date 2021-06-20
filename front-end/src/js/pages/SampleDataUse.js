@@ -8,7 +8,7 @@ const { dataGeo } = require('../utils/MockGeo.js')
 
 //Main component that displays the data and renders page html elements
 //Components in React can be in the form of functions, classes etc.
-//and consists of both javascript code and html code (html is the return value)
+//and consist of both javascript code and html code (html is the return value)
 function SampleDataUse() {
   //Javascript code inside component. JS code can be also written inside brackets within the html code
   // See example below inside the DataDisplay component
