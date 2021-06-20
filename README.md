@@ -6,14 +6,14 @@ The IDP is a flexible, real-time data visualization tool for historical research
 
 ### Team Members
 
-- [Alma Kapan](https://github.com/almazhankapan)
 - [Sarah Tahir](https://github.com/saraaahh63)
 - [Tim Wu](https://github.com/TimWGY)
-- Kai Elwood-Dieu
-- Olivia Lin
-- Pamela Pan
-- Winny Wang
-- Yufeng Zhao
+- [Alma Kapan](https://github.com/almazhankapan)
+- [Kai Elwood-Dieu](https://github.com/KaiElwood)
+- [Olivia Lin](https://github.com/oliviafroglin)
+- [Pamela Pan](https://github.com/pamela-pan)
+- [Winny Wang](https://github.com/winnyww)
+- [Yufeng Zhao](https://github.com/yz3440)
 
 ### Minimum Viable Product
 
