@@ -46,6 +46,9 @@ const Hamburger = (props) => {
       <Link to="/SampleDataUse" className="menu-item">
         Sample Data Use
       </Link>
+      <Link to="/Dashboard" className="menu-item">
+        Dashboard
+      </Link>
     </Menu>
   )
 }
