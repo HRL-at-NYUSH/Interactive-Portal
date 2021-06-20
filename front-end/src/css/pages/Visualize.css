@@ -1,16 +1,85 @@
-.block {
-  border: 1px solid black;
+.vis-body {
+  background-color: rgb(40, 40, 92);
+}
+.header-text-vis {
+  text-align: center;
+  color: lightyellow;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.vis-body a:link {
+  color: black;
+}
+
+.vis-body a:visited {
+  color: rgb(33, 33, 97);
+}
+
+.vis-body a:hover {
+  color: rgb(160, 33, 33);
+}
+
+.vis-body a:active {
+  color: black;
+}
+
+.grid-container {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 45vh;
+  grid-gap: 1em;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Times New Roman', Times, serif;
 }
 
+/* can ignore styles below; decorative only */
+.grid-container {
+  background-color: lightyellow;
+  border: 1px solid #bbb;
+  padding: 1em;
+  -webkit-text-stroke: 0.5px black;
+}
+.grid-container p {
+  border: 1px solid lightyellow;
+  margin-top: 5%;
+  font-size: 1.3em;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: lightyellow;
+  padding: 1%;
+}
+.grid-item {
+  text-align: center;
+  background-color: lightgrey;
+  border: 1px solid #ccc;
+}
+.grid-item img {
+  width: 50%;
+}
+
+.block-vis {
+  width: 100%;
+  height: 100vh;
+}
 @media screen and (max-width: 2400px) {
   .full-text {
     font-size: 16px;
   }
-  .header-text {
-    font-size: 35.5px;
+  .header-text-vis {
+    font-size: 38px;
+  }
+  .grid-item img {
+    width: 360px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .grid-item img {
+    width: 300px;
   }
 }
 
@@ -18,8 +87,11 @@
   .full-text {
     font-size: 14px;
   }
-  .header-text {
+  .header-text-vis {
     font-size: 35px;
+  }
+  .grid-item img {
+    width: 300px;
   }
 }
 
@@ -30,7 +102,16 @@
   .full-img {
     width: 95%;
   }
-  .header-text {
-    font-size: 22px;
+  .header-text-vis {
+    font-size: 26px;
+  }
+  .grid-item img {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .grid-item img {
+    width: 200px;
   }
 }
