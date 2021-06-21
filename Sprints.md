@@ -8,13 +8,13 @@
 
 - Git Workflow
 
-  - Completed: Sarah, Tim, Yufeng, Winny, Amanda, Olivia, Pam, Alma
-  - Waiting: Lucy (extended), Kai
+  - Completed: Sarah, Tim, Yufeng, Winny, Amanda, Olivia, Pam, Alma, Kai
+  - Waiting: Lucy (extended)
 
 - Explore data and write about 1-2 additional graphs inside the assigned issue
 
-  - Completed: Olivia
-  - Waiting: Yufeng, Winny, Amanda, Pam, Kai, Lucy
+  - Completed: Olivia, Pam, Winny
+  - Waiting: Yufeng, Amanda, Kai, Lucy
 
 - Complete on-boarding tasks
 
@@ -29,7 +29,7 @@
 
 - Git Workflow
 
-  - Lucy (extended), Kai
+  - Lucy (extended)
   - Status: Assigned
 
 - Explore data and fill out the graph brainstorm form
