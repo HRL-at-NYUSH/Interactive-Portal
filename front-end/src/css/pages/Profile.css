@@ -61,18 +61,14 @@
 
 .chart-element {
   position: relative;
-
   width: 300px;
   height: 200px;
   background: grey;
   border: 1px solid black;
-  /* margin: auto; */
   margin: 1em;
+  cursor: pointer;
 }
-/* 
-.chart-container div:last-child {
-  margin-right: auto;
-} */
+
 .chart-element:hover .chart-hover {
   opacity: 1;
 }
@@ -85,4 +81,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+.pop-up-modal {
+  width: 60vw;
+  height: 60vh;
+  border: 5px solid #ffff00;
+  background: rgba(100, 100, 100, 0.8);
+  display: flex;
+  justify-content: center;
+  color: white;
 }

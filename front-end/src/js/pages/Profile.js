@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../../css/pages/Profile.css";
 import Tabs from "../components/Tabs";
+import Popup from "reactjs-popup";
 
 const Profile = () => {
   const data = {
@@ -69,6 +70,7 @@ const Profile = () => {
                   <th>Date</th>
                   <th>Tabs</th>
                   <th>Note</th>
+                  <th>Action</th>
                 </tr>
                 {data.sessionHistory
                   // sort the history in descending order
@@ -78,6 +80,13 @@ const Profile = () => {
                       <td>{session.date}</td>
                       <td>{session.tabs}</td>
                       <td>{session.note}</td>
+                      <td>
+                        <Popup trigger={<button>Retrieve</button>} modal>
+                          <div className="pop-up-modal">
+                            <h1> {session.note}</h1>
+                          </div>
+                        </Popup>
+                      </td>
                     </tr>
                   ))}
               </table>
@@ -86,9 +95,18 @@ const Profile = () => {
             <div label="Saved Charts">
               <div className="chart-container">
                 {data.savedCharts.map((chart, i) => (
-                  <div key={`chart${i}`} className="chart-element">
-                    <div className="chart-hover">{chart.title}</div>
-                  </div>
+                  <Popup
+                    trigger={
+                      <div key={`chart${i}`} className="chart-element">
+                        <p className="chart-hover">{chart.title}</p>
+                      </div>
+                    }
+                    modal
+                  >
+                    <div className="pop-up-modal">
+                      <h1> {chart.title}</h1>
+                    </div>
+                  </Popup>
                 ))}
               </div>
             </div>
