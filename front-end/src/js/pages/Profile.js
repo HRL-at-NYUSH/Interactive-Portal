@@ -1,39 +1,39 @@
-import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import "../../css/pages/Profile.css";
-import Tabs from "../components/Tabs";
-import Popup from "reactjs-popup";
+import React from 'react'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import '../../css/pages/Profile.css'
+import Tabs from '../components/Tabs'
+import Popup from 'reactjs-popup'
 
 const Profile = () => {
   const data = {
     user: {
-      name: "Adam Smith",
+      name: 'Adam Smith',
     },
     sessionHistory: [
-      { date: "2020-10-24", tabs: 2, note: "Birthplace - Women" },
-      { date: "2020-10-25", tabs: 2, note: "Birthplace - Women + Men" },
+      { date: '2020-10-24', tabs: 2, note: 'Birthplace - Women' },
+      { date: '2020-10-25', tabs: 2, note: 'Birthplace - Women + Men' },
       {
-        date: "2020-10-27",
+        date: '2020-10-27',
         tabs: 3,
-        note: "Birthplace - Women + Men（Playground)",
+        note: 'Birthplace - Women + Men（Playground)',
       },
       {
-        date: "2020-10-30",
+        date: '2020-10-30',
         tabs: 2,
-        note: "Birthplace & Literacy - Women + Men",
+        note: 'Birthplace & Literacy - Women + Men',
       },
     ],
     savedCharts: [
-      { title: "Chart Title #1" },
-      { title: "Chart Title #2" },
-      { title: "Chart Title #3" },
-      { title: "Chart Title #4" },
-      { title: "Chart Title #5" },
-      { title: "Chart Title #6" },
-      { title: "Chart Title #7" },
+      { title: 'Chart Title #1' },
+      { title: 'Chart Title #2' },
+      { title: 'Chart Title #3' },
+      { title: 'Chart Title #4' },
+      { title: 'Chart Title #5' },
+      { title: 'Chart Title #6' },
+      { title: 'Chart Title #7' },
     ],
-  };
+  }
 
   return (
     <>
@@ -50,14 +50,13 @@ const Profile = () => {
                 </p>
               </section>
               <section>
-                <h2>Edit</h2>
-                <div>
-                  <button>Change Your Email</button>
-                  <button>Change Your Password</button>
-                </div>
+                <h4>Email</h4>
+                <button>Change Your Email</button>
+                <h4>Password</h4>
+                <button>Change Your Password</button>
               </section>
               <section>
-                <h2>Accessibility</h2>
+                <h4>Accessibility</h4>
                 <div>
                   <button>Toggle High Contrast Display</button>
                 </div>
@@ -114,7 +113,7 @@ const Profile = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
