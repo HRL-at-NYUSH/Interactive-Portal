@@ -49,3 +49,45 @@
     font-size: 22px;
   }
 }
+
+.chart-container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: auto;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.chart-element {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: grey;
+  border: 1px solid black;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.chart-element:hover .chart-hover {
+  opacity: 1;
+}
+
+.chart-hover {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.pop-up-modal {
+  /* width: 60vw; */
+  /* height: 60vh; */
+  border: 1px solid #000000;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 3em;
+}
