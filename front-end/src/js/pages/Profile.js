@@ -1,9 +1,10 @@
-import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import '../../css/pages/Profile.css'
-import Tabs from '../components/Tabs'
-import Popup from 'reactjs-popup'
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../../css/pages/Profile.css';
+import Tabs from '../components/Tabs';
+import Popup from 'reactjs-popup';
+import { titleCase } from '../../utils';
 
 const Profile = () => {
   const data = {
@@ -11,16 +12,24 @@ const Profile = () => {
       name: 'Adam Smith',
     },
     sessionHistory: [
-      { date: '2020-10-24', tabs: 2, note: 'Birthplace - Women' },
-      { date: '2020-10-25', tabs: 2, note: 'Birthplace - Women + Men' },
+      {
+        date: '2020-10-24',
+        tabs: [{ name: 'time' }, { name: 'distribution' }],
+        note: 'Birthplace - Women',
+      },
+      {
+        date: '2020-10-25',
+        tabs: [{ name: 'time' }, { name: 'distribution' }],
+        note: 'Birthplace - Women + Men',
+      },
       {
         date: '2020-10-27',
-        tabs: 3,
+        tabs: [{ name: 'time' }, { name: 'distribution' }],
         note: 'Birthplace - Women + Men（Playground)',
       },
       {
         date: '2020-10-30',
-        tabs: 2,
+        tabs: [{ name: 'time' }, { name: 'distribution' }],
         note: 'Birthplace & Literacy - Women + Men',
       },
     ],
@@ -33,16 +42,16 @@ const Profile = () => {
       { title: 'Chart Title #6' },
       { title: 'Chart Title #7' },
     ],
-  }
+  };
 
   return (
     <>
       <Header />
-      <div className="home">
-        <h2 className="header-text">Profile page </h2>
-        <div className="block">
+      <div className='home'>
+        <h2 className='header-text'>Profile page </h2>
+        <div className='block'>
           <Tabs>
-            <div label="Preferences">
+            <div label='Preferences'>
               <section>
                 <h2>Profile</h2>
                 <p>
@@ -63,7 +72,8 @@ const Profile = () => {
               </section>
             </div>
 
-            <div label="Session History">
+            {/* Session History tab content */}
+            <div label='Session History'>
               <table>
                 <tr>
                   <th>Date</th>
@@ -77,12 +87,28 @@ const Profile = () => {
                   .map((session, i) => (
                     <tr key={`session-${i}`}>
                       <td>{session.date}</td>
-                      <td>{session.tabs}</td>
+                      <td>{session.tabs.length}</td>
                       <td>{session.note}</td>
                       <td>
                         <Popup trigger={<button>Retrieve</button>} modal>
-                          <div className="pop-up-modal">
-                            <h1> {session.note}</h1>
+                          <div className='pop-up-modal'>
+                            <p>Restore session history from {session.date}?</p>
+                            <p>This session includes:</p>
+                            <ul style={{ 'font-weight': 'bold' }}>
+                              {session.tabs.map((tab) => (
+                                <li>{titleCase(tab.name)} Tab</li>
+                              ))}
+                              <li>Note: {session.note}</li>
+                            </ul>
+
+                            <div
+                              style={{ marginTop: '1em', textAlign: 'right' }}
+                            >
+                              <button>Cancel</button>
+                              <button style={{ background: '#B7E6FF' }}>
+                                Restore
+                              </button>
+                            </div>
                           </div>
                         </Popup>
                       </td>
@@ -91,19 +117,60 @@ const Profile = () => {
               </table>
             </div>
 
-            <div label="Saved Charts">
-              <div className="chart-container">
+            {/* Saved Charts tab content */}
+            <div label='Saved Charts'>
+              <div className='chart-container'>
                 {data.savedCharts.map((chart, i) => (
                   <Popup
                     trigger={
-                      <div key={`chart${i}`} className="chart-element">
-                        <p className="chart-hover">{chart.title}</p>
+                      <div key={`chart${i}`} className='chart-element'>
+                        <p className='chart-hover'>{chart.title}</p>
                       </div>
                     }
                     modal
                   >
-                    <div className="pop-up-modal">
-                      <h1> {chart.title}</h1>
+                    <div className='pop-up-modal'>
+                      <p>Would you like to open {chart.title}?</p>
+                      <section>
+                        <input
+                          type='radio'
+                          id='visualize-tab'
+                          name='open-chart-tab'
+                          value='visualize-tab'
+                          checked
+                        ></input>
+                        <label for='visualize-tab'>
+                          Open in new Visualize tab
+                        </label>
+                        <br />
+                        <input
+                          type='radio'
+                          id='existing-tab'
+                          name='open-chart-tab'
+                          value='existing-tab'
+                        ></input>
+                        <label for='existing-tab'>
+                          Add to existing tab:{' '}
+                          <select name='existing-tabs' id='existing-tab-select'>
+                            <option value='tab1'>Tab #1</option>
+                            <option value='tab2'>Tab #2</option>
+                            <option value='tab3'>Tab #3</option>
+                            <option value='tab4'>Tab #4</option>
+                            <option value='tab5'>Tab #5</option>
+                          </select>
+                        </label>
+                      </section>
+                      {/* <ul style={{ 'font-weight': 'bold' }}>
+                              {session.tabs.map((tab) => (
+                                <li>{titleCase(tab.name)} Tab</li>
+                              ))}
+                              <li>Note: {session.note}</li>
+                            </ul> */}
+
+                      <div style={{ marginTop: '1em', textAlign: 'right' }}>
+                        <button>Cancel</button>
+                        <button style={{ background: '#B7E6FF' }}>Open</button>
+                      </div>
                     </div>
                   </Popup>
                 ))}
@@ -113,7 +180,7 @@ const Profile = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
