@@ -1,4 +1,5 @@
 import React from 'react'
+import DashTab from '../components/DashTabs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import '../../css/pages/Dashboard.css'
@@ -10,8 +11,7 @@ function Dashboard() {
       <div>
         <h2 className="header-text">Dashboard page </h2>
         <div className="block">
-          <br />
-          <p className="full-text">TBH</p>
+        <DashTab />
         </div>
       </div>
     </>
