@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Tabs, TabList, Tab, PanelList, Panel, ExtraButton} from '../../../node_modules/react-tabtab';
 import { FaPlus } from '../../../node_modules/react-icons/fa';
-import {makeData} from '../../../node_modules/react-tabtab/docs/components/utils';
+import {makeData} from '../components/DashTabUtils';
 
 export default class Closable extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ export default class Closable extends Component {
     const {tabs} = this.state;
     const newTabs = [...tabs, {title: 'New Tab', content: 'New Content'}];
     this.setState({tabs: newTabs, activeIndex: newTabs.length - 1});
+    console.log("New Tab");
   }
 
   handleTabChange = (index) => {
