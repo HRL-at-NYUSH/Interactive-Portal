@@ -10,6 +10,7 @@ import Login from './js/pages/Login.js'
 import Signup from './js/pages/Signup.js'
 import SampleDataUse from './js/pages/SampleDataUse.js'
 import Dashboard from './js/pages/Dashboard'
+import Navbar from './js/components/NavBar/NavBar'
 
 require('dotenv').config()
 
@@ -43,6 +44,8 @@ const App = () => {
         */
       >
         <Router>
+          <Navbar />
+          
           <Switch>
             <Route path="/Data">
               <Data />
