@@ -45,7 +45,6 @@ const App = () => {
       >
         <Router>
           <Navbar />
-          
           <Switch>
             <Route path="/Data">
               <Data />

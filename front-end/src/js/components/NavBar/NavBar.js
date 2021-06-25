@@ -16,7 +16,7 @@ const Navbar = () => {
         <Bars />
   
         <NavMenu>
-          <NavLink to='/Home' activeStyle>
+          <NavLink to='/' activeStyle>
             Humanities Research Lab
           </NavLink>
           <NavLink to='/Data' activeStyle>
@@ -28,8 +28,14 @@ const Navbar = () => {
           <NavLink to='/Questions' activeStyle>
             FAQ
           </NavLink>
+          <NavLink to='/SampleDataUse' activeStyle>
+            Sample Data Use
+          </NavLink>
           <NavLink to='/Login' activeStyle>
             Login
+          </NavLink>
+          <NavLink to='/Signup' activeStyle>
+            SignUp
           </NavLink>
         </NavMenu>
       </Nav>

@@ -8,7 +8,7 @@ import SignupButton from './SignupButton'
 import LoginButton from './LoginButton'
 import { AuthContext } from '../../App'
 import LogoutButton from './LogoutButton'
-
+import Navbar from '../components/NavBar/NavBar'
 const Header = () => {
   const [isSticky, setSticky] = useState(false)
   const wrapper = useRef(null)
@@ -29,6 +29,8 @@ const Header = () => {
   }, [])
 */
   return (
+    <>
+    <Navbar />
     <div
       className={`header-root sticky-wrapper${isSticky ? ' sticky' : ''}`}
       ref={wrapper}
@@ -38,24 +40,9 @@ const Header = () => {
           pageWrapId={'page-wrap'}
           outerContainerId={'outer-container'}
         />
-
-        <div className="login-signup-buttons">
-          {
-            <LoginButton />
-
-            /*loggedInUser ? (
-            <LogoutButton />
-          ) : (
-            <>
-              <LoginButton />
-              <SignupButton />
-            </>
-          )*/
-          }
-          <SignupButton />
-        </div>
       </div>
     </div>
+    </>
   )
 }
 
