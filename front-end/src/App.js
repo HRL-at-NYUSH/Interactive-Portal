@@ -10,7 +10,7 @@ import Login from './js/pages/Login.js'
 import Signup from './js/pages/Signup.js'
 import SampleDataUse from './js/pages/SampleDataUse.js'
 import Dashboard from './js/pages/Dashboard'
-import Navbar from './js/components/NavBar/NavBar'
+import Navbar from './js/components/NavBar.js'
 
 require('dotenv').config()
 
