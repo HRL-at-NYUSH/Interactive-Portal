@@ -8,6 +8,10 @@
   background-color: #130909;
 }
 
+.NavLink:hover {
+  color: rgb(201, 126, 130);
+}
+
 .NavLink {
   color: white;
   display: flex;
