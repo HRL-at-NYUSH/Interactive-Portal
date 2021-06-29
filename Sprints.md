@@ -9,12 +9,11 @@
 - Git Workflow
 
   - Completed: Sarah, Tim, Yufeng, Winny, Amanda, Olivia, Pam, Alma, Kai
-  - Waiting: Lucy (extended)
 
 - Explore data and write about 1-2 additional graphs inside the assigned issue
 
-  - Completed: Olivia, Pam, Winny
-  - Waiting: Yufeng, Amanda, Kai, Lucy
+  - Completed: Olivia, Pam, Winny, Yufeng,
+  - Waiting: Kai
 
 - Complete on-boarding tasks
 
@@ -23,14 +22,9 @@
 - Prototype finish, basic components setup
   - Completed: Alma
 
-### Week 2 and Week 3
+### Week 2-4
 
 **Assigned tasks:**
-
-- Git Workflow
-
-  - Lucy (extended)
-  - Status: Assigned
 
 - Explore data and fill out the graph brainstorm form
 
@@ -75,6 +69,19 @@
 - Data page (Front-end)
 
   - Winny
+ 
+- Menu header - reusable across all pages
+
+  - Olivia
+
+- Frequently asked question page (placeholder)
+
+  - Olivia
+
+- Build menu toolbar for dashboard:
+
+  - Alma
+
 
 
 **Not yet assigned tasks:**
@@ -83,18 +90,9 @@
 
   - TBD
 
-- Menu header - reusable across all pages
-
-  - TBD
-
-- Frequently asked question page (placeholder)
-
-  - TBD
 
 - Integrate graphs into dashboard
 
   - TBD
 
-- Build menu toolbar for dashboard:
 
-  - TBD
