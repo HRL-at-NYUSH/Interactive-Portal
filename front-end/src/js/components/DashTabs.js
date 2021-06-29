@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Tabs, TabList, Tab, PanelList, Panel, ExtraButton} from '../../../node_modules/react-tabtab';
-import { FaPlus } from '../../../node_modules/react-icons/fa';
+import {Tabs, TabList, Tab, PanelList, Panel, ExtraButton} from 'react-tabtab';
+import { FaPlus } from 'react-icons/fa';
 import {makeData} from '../components/DashTabUtils';
 
 export default class Closable extends Component {
