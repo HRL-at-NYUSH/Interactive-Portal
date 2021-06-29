@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 const Header = () => {
   const location = useLocation();
   return (
-    <header className='flex items-center justify-between py-10'>
+    <header className='flex items-center justify-between py-6'>
       <div>
         <Link
           href='/'
@@ -23,10 +23,10 @@ const Header = () => {
             <Link
               key={link.title}
               href={link.href}
-              className={`p-1 font-medium ${
+              className={`p-1  ${
                 location.pathname === link.href
-                  ? 'text-gray-900'
-                  : 'text-gray-700'
+                  ? 'text-gray-900 font-bold'
+                  : 'text-gray-600 font-medium'
               }  sm:p-4 hover:text-gray-500`}
             >
               {link.title}
