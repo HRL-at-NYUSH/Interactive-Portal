@@ -64,8 +64,19 @@ h {
   margin-bottom: 40px;
 }
 
+h1 {
+  font-size: calc(9px + 1vmin);
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 p {
   font-size: calc(10px + 1vmin);
+}
+
+p1 {
+  font-size: calc(8px + 1vmin);
 }
 
 #header-text {
@@ -85,11 +96,73 @@ p {
 
 .App-content {
   background-color: white;
-  min-height: 200vh;
+  min-height: 70vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: black;
+  padding-top: 25vh;
+}
+
+.App-content-2 {
+  background-color: white;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: black;
+  padding-top: 25vh;
+}
+
+#decoration-2 {
+  position: absolute;
+  text-align: center;
+  left: 35%;
+  width: 30%;
+  margin-top: 18vh;
+}
+
+.App-content > div {
+  background-color: transparent;
+  width: 25%;
+  height: 50vh;
+  text-align: left;
+  line-height: auto;
+  font-size: 18px;
+  margin: 80px;
+}
+
+.App-content-2 > div {
+  background-color: transparent;
+  width: 15%;
+  height: 50vh;
+  text-align: left;
+  line-height: auto;
+  font-size: 18px;
+  margin: 70px;
+}
+
+#headshot {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#introduction {
+  position: relative;
+  margin-top: 240px;
+  text-align: center;
+}
+
+.App-footer {
+  background-color: white;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  padding-top: 25vh;
 }
