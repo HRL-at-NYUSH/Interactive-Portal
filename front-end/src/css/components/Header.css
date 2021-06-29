@@ -6,13 +6,12 @@
   position: relative;
   margin-top: -8em !important;
   height: 8em;
-  background: #1a1a1a;
+  background: #130909;
 }
 
 .sticky-inner {
   background: #1a1a1a;
 }
-
 .sticky .sticky-inner {
   position: fixed;
   left: 0;

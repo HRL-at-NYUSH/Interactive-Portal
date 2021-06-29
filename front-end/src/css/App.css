@@ -8,11 +8,11 @@ p {
 }
 
 .text a {
-  color: #acf39d;
+  color: white;
 }
 
 .text a:hover {
-  color: #3cdd1b;
+  color: red;
 }
 
 footer {
@@ -51,7 +51,7 @@ footer {
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #3cdd1b;
+  background: rgb(201, 126, 130);
 }
 
 /* Position and sizing of clickable cross button */
@@ -77,7 +77,7 @@ footer {
 
 /* General sidebar styles */
 .bm-menu {
-  background: #333333;
+  background: #130909;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -96,7 +96,7 @@ footer {
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: #acf39d;
+  color: white;
   margin-bottom: 10px;
   text-align: left;
   text-decoration: none;
@@ -104,7 +104,7 @@ footer {
 }
 
 .bm-item:hover {
-  color: #3cdd1b;
+  color: rgb(201, 126, 130);
 }
 
 /* Styling of overlay */
