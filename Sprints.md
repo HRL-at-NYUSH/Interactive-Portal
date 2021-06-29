@@ -82,6 +82,10 @@
 
   - Alma
 
+- Histogram chart with mock data:
+
+  - Yufeng?
+
 
 
 **Not yet assigned tasks:**
