@@ -42,6 +42,7 @@ const Header = () => {
         <div className="login-signup-buttons">
           {
             <LoginButton />
+            
 
             /*loggedInUser ? (
             <LogoutButton />
@@ -52,6 +53,7 @@ const Header = () => {
             </>
           )*/
           }
+          <LogoutButton />
           <SignupButton />
         </div>
       </div>
