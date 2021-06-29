@@ -13,35 +13,36 @@ import map from '../../images-src/map.png'
 function Visualize() {
   return (
     <>
-      <div className="vis-body">
+      <div className="vis-body-f">
         <Header />
-
-        <h2 className="header-text-vis">Visualize </h2>
-        <div className="block-vis">
-          <div className="grid-container">
-            <div className="grid-item">
-              <Link to="/Dashboard" className="link">
-                <p>Distribution</p>
-                <img alt="histogram img" src={hist} />
-              </Link>
-            </div>
-            <div className="grid-item">
-              <Link to="/Dashboard" className="link">
-                <p>Correlation</p>
-                <img alt="correlation img" src={correl} />
-              </Link>
-            </div>
-            <div className="grid-item">
-              <Link to="/Dashboard" className="link">
-                <p>Time</p>
-                <img alt="time img" src={time} />
-              </Link>
-            </div>
-            <div className="grid-item">
-              <Link to="/Dashboard" className="link">
-                <p>Space</p>
-                <img alt="map img" src={map} />
-              </Link>
+        <div className="vis-body">
+          <h2 className="header-text-vis">Visualize </h2>
+          <div className="block-vis">
+            <div className="grid-container">
+              <div className="grid-item">
+                <Link to="/Dashboard" className="link">
+                  <p>Distribution</p>
+                  <img alt="histogram img" src={hist} />
+                </Link>
+              </div>
+              <div className="grid-item">
+                <Link to="/Dashboard" className="link">
+                  <p>Correlation</p>
+                  <img alt="correlation img" src={correl} />
+                </Link>
+              </div>
+              <div className="grid-item">
+                <Link to="/Dashboard" className="link">
+                  <p>Time</p>
+                  <img alt="time img" src={time} />
+                </Link>
+              </div>
+              <div className="grid-item">
+                <Link to="/Dashboard" className="link">
+                  <p>Space</p>
+                  <img alt="map img" src={map} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
