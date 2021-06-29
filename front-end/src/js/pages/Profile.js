@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import '../../css/pages/Profile.css';
 import Tabs from '../components/Tabs';
 import Popup from 'reactjs-popup';
@@ -46,7 +44,6 @@ const Profile = () => {
 
   return (
     <>
-      <Header />
       <div className='home'>
         <h2 className='header-text'>Profile page </h2>
         <div className='block'>
