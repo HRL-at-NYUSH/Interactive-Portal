@@ -8,34 +8,16 @@ import SignupButton from './SignupButton'
 import LoginButton from './LoginButton'
 import { AuthContext } from '../../App'
 import LogoutButton from './LogoutButton'
-import Navbar from './NavBar'
 
 const Header = () => {
   const [isSticky, setSticky] = useState(false)
   const wrapper = useRef(null)
-  const [isMobile, setMobile] = useState(false)
+
   const handleScroll = () => {
     if (wrapper.current) {
       setSticky(wrapper.current.getBoundingClientRect().top <= 0)
     }
   }
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window
-    return {
-      width,
-      height,
-    }
-  }
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions(),
-  )
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions())
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
   /*
   const { loggedInUser } = React.useContext(AuthContext)
 
@@ -47,27 +29,33 @@ const Header = () => {
   }, [])
 */
   return (
-    <>
-      <div
-        className={`header-root sticky-wrapper${isSticky ? ' sticky' : ''}`}
-        ref={wrapper}
-      >
-        <div className="sticky-inner">
-          {windowDimensions['width'] > 1000 ? (
-            <Navbar
-              pageWrapId={'page-wrap'}
-              outerContainerId={'outer-container'}
-              className="sticky-inner"
-            />
+    <div
+      className={`header-root sticky-wrapper${isSticky ? ' sticky' : ''}`}
+      ref={wrapper}
+    >
+      <div className="sticky-inner">
+        <Hamburger
+          pageWrapId={'page-wrap'}
+          outerContainerId={'outer-container'}
+        />
+
+        <div className="login-signup-buttons">
+          {
+            <LoginButton />
+
+            /*loggedInUser ? (
+            <LogoutButton />
           ) : (
-            <Hamburger
-              pageWrapId={'page-wrap'}
-              outerContainerId={'outer-container'}
-            />
-          )}
+            <>
+              <LoginButton />
+              <SignupButton />
+            </>
+          )*/
+          }
+          <SignupButton />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
