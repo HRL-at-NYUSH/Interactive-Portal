@@ -6,7 +6,7 @@ const LayoutWrapper = ({ children }) => {
   return (
     <SectionContainer>
       <div className='flex flex-col justify-between h-screen'>
-        <Header></Header>
+        <Header />
         <main className='mb-auto'>{children}</main>
         <Footer />
       </div>
