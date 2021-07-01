@@ -54,7 +54,7 @@ const Header = () => {
           )*/
           }
           <LogoutButton />
-          <SignupButton />
+          {/* <SignupButton /> */}
         </div>
       </div>
     </div>
