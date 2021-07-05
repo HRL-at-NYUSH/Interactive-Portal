@@ -57,6 +57,12 @@ There are extensions/plugins for text editors to help you code Tailwind CSS more
 
 [Heroicons](https://heroicons.com/) is an icon pack made by the Tailwind CSS team. To use it in the react project, see the example here:
 
+To load this icon:
+
+![heroicons-question-mark](./images/heroicons-question-mark.png)
+
+The code looks like this:
+
 ```javascript
 import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
 export default function () {
@@ -65,8 +71,6 @@ export default function () {
   );
 }
 ```
-
-![heroicons-question-mark](./images/heroicons-question-mark.png)
 
 ## Resources
 
