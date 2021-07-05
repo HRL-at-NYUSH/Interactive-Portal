@@ -46,33 +46,18 @@ const App = () => {
         <Router>
           <LayoutWrapper>
             <Switch>
-              <Route path='/data'>
-                <Data />
-              </Route>
-              <Route path='/visualize'>
-                <Visualize />
-              </Route>
-              <Route path='/questions'>
-                <Questions />
-              </Route>
-              <Route path='/profile'>
-                <Profile />
-              </Route>
-              <Route path='/login'>
-                <Login />
-              </Route>
-              <Route path='/signup'>
-                <Signup />
-              </Route>
-              <Route path='/SampleDataUse'>
-                <SampleDataUse />
-              </Route>
-              <Route path='/dashboard'>
-                <Dashboard />
-              </Route>
-              <Route path='/'>
-                <Home />
-              </Route>
+              <Route exact path='/' component={Home} />
+              <Route path='/profile' component={Profile} />
+              <Route path='/data' component={Data} />
+              <Route path='/visualize' component={Visualize} />
+              <Route path='/dashboard' component={Dashboard} />
+
+              <Route path='/login' component={Login} />
+              <Route path='/signup' component={Signup} />
+
+              <Route path='/SampleDataUse' component={SampleDataUse} />
+
+              <Route path='/questions' component={Questions} />
             </Switch>
           </LayoutWrapper>
         </Router>
