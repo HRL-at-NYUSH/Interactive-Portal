@@ -6,6 +6,7 @@ import React from 'react'
 
 
 
+
 const DashTabs = ({ children }) => {
 
   const [activeTab, setActiveTab] = useState(children[0].props.label);
@@ -21,6 +22,7 @@ const DashTabs = ({ children }) => {
       <ul className={styles.tabs}>
         {children.map((tab) => {
           const tabName = tab.props.label;
+          const close = tab.props.close;
 
           return (
             <>
@@ -31,6 +33,7 @@ const DashTabs = ({ children }) => {
               <a href="#" onClick={(e) => handleTabClick(e, tabName)}>
                 {tabName}
               </a>
+              {tab.props.close}
             </li>
             </>
           );

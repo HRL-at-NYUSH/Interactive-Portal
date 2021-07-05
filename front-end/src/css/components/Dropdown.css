@@ -14,7 +14,7 @@ a {
     color: black;
     height: 40px;
     background-color: lightgrey;
-    padding: 0 1rem;
+    padding: 0px 0px 5px 0px;
     border-bottom: 1px solid #474a4d;
 }
 
@@ -79,4 +79,12 @@ a {
 
 .menu-item:hover {
     background-color: rgb(247, 245, 245);
+}
+
+.close {
+    margin-left: 10px;
+    margin-right: 0px;
+    padding-right: 0px;
+    font-size: 1.5em;
+    color: black;
 }

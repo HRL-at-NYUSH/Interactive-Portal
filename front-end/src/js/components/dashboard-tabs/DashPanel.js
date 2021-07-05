@@ -1,43 +1,23 @@
-import React, { useState } from 'react'
-import Highcharts from 'highcharts'
-import LineGraph from '../graphs/LineGraph'
+import React from 'react'
 import DashTabs from '../dashboard-tabs/DashTabs'
 import TabItem from '../dashboard-tabs/TabItem'
 import DropNav from '../dropdown/DropNav'
 import Item from '../dropdown/DropItem'
 import { FaPlus } from 'react-icons/fa'
+import {AiFillCloseSquare} from 'react-icons/ai'
 import '../../../css/components/Dropdown.css'
-
-
-
-var newTab = "None";
-
-// ----------- temporary ----------
-const data = {
-  title: {
-    text: 'Sample 1'
-  },
-  series: [{
-    data: [1,2,3],
-
-  }],
-  chart: {
-    width: 300,
-    height: 250,
-    borderWidth: 2
-  },
-  credits: {
-    enabled: false
-  },
-}
-
-// -------------------------------
+import Distribution from '../dashboard-tabs/Distribution'
+import Time from '../dashboard-tabs/Time'
+import Space from '../dashboard-tabs/Space'
+import Playground from '../dashboard-tabs/Playground'
+import Correlation from '../dashboard-tabs/Correlation'
 
 let dcount = 0;
 let tcount = 0;
 let scount = 0;
 let ccount = 0;
 let pcount = 0;
+let overallcount = 2;
 
 class DashPanel extends React.Component {
 
@@ -45,40 +25,56 @@ class DashPanel extends React.Component {
     super(props);
 
     this.state = {
-      tabitems: [{label: "Distribution"},{label: "Time"}],
+      tabitems: [{label: "Distribution", element: <Distribution />},{label: "Time", element: <Time />}],
     }
   }
 
   handleStateChange = (entry) => {
-    if (entry == "Distribution" && this.state.tabitems.length < 7) {
+    if (isNaN(entry)) {
+      if (overallcount > 5) {
+        alert("Sorry! Too many tabs");
+      }
+      else if (entry == "Distribution") {
+        this.setState(prevState => ({
+          tabitems: [...prevState.tabitems, {label: (entry + " " + dcount), element: <Distribution /> }]
+        }))
+        dcount += 1;
+        overallcount += 1;
+      } else if (entry == "Time") {
+        this.setState(prevState => ({
+          tabitems: [...prevState.tabitems, {label: (entry + " " + tcount), element: <Time />}]
+        }))
+        tcount += 1;
+        overallcount += 1;
+      }
+      else if (entry == "Space") {
+        this.setState(prevState => ({
+          tabitems: [...prevState.tabitems, {label: (entry + " " + scount), element: <Space />}]
+        }))
+        scount += 1;
+        overallcount += 1;
+      }
+      else if (entry == "Correlation") {
+        this.setState(prevState => ({
+          tabitems: [...prevState.tabitems, {label: (entry + " " + ccount), element:<Correlation />}]
+        }))
+        ccount += 1;
+        overallcount += 1;
+      }
+      else if (entry == "Playground") {
+        this.setState(prevState => ({
+          tabitems: [...prevState.tabitems, {label: (entry + " " + pcount), element: <Playground />}]
+        }))
+        pcount += 1;
+        overallcount += 1;
+      }
+    } else if (typeof(entry) == 'number' && overallcount > 1) {
       this.setState(prevState => ({
-        tabitems: [...prevState.tabitems, {label: (entry + " " + dcount)}]
+        tabitems: [...prevState.tabitems.slice(0, entry), ...prevState.tabitems.slice(entry + 1)]
       }))
-      dcount += 1;
-    } else if (entry == "Time") {
-      this.setState(prevState => ({
-        tabitems: [...prevState.tabitems, {label: (entry + " " + tcount)}]
-      }))
-      tcount += 1;
+      overallcount -= 1;
     }
-    else if (entry == "Space") {
-      this.setState(prevState => ({
-        tabitems: [...prevState.tabitems, {label: (entry + " " + scount)}]
-      }))
-      scount += 1;
-    }
-    else if (entry == "Correlation") {
-      this.setState(prevState => ({
-        tabitems: [...prevState.tabitems, {label: (entry + " " + ccount)}]
-      }))
-      ccount += 1;
-    }
-    else if (entry == "Playground") {
-      this.setState(prevState => ({
-        tabitems: [...prevState.tabitems, {label: (entry + " " + pcount)}]
-      }))
-      pcount += 1;
-    }
+    console.log(overallcount);
   }
 
   render(){
@@ -111,9 +107,9 @@ class DashPanel extends React.Component {
         </div>
         <div className="tab-container">
         <DashTabs>
-        {this.state.tabitems.map(d => (
-          <TabItem label={d.label}>
-          <LineGraph options={data} highcharts={Highcharts} />
+        {this.state.tabitems.map((d, i) => (
+          <TabItem label={d.label} close={<AiFillCloseSquare className="close" id={i} onClick={() => this.handleStateChange(i)}/>}>
+          {d.element}
           </TabItem>
         ))}
         </DashTabs>

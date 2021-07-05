@@ -1,5 +1,5 @@
 .container {
-    display: inline-flex;
+    display: inline-block;
     justify-content: left;
     align-items: left;
 }
@@ -13,7 +13,6 @@
     list-style: none;
     margin: 0;
     min-width: 85%;
-  
     flex-shrink: 0;
 }
 
@@ -24,7 +23,7 @@ ul {
 
 li {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 10px 30px 7px 30px;
 }
   
   .current {
@@ -35,30 +34,12 @@ li {
   }
   
   .content {
-    width: 750px;
-    height: 510px;
+    width: 1000px;
+    height: max-content;
     background: white;
-    padding: 20px;
+    padding: 10px;
+    padding-left: 60px;
   }
   
-  button {
-    padding: 0.33em;
-    margin-right: 20px;
-  }
-  
-  .content table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .content td,
-  th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  .content tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+
   
