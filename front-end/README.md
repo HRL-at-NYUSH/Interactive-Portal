@@ -55,6 +55,19 @@ There are extensions/plugins for text editors to help you code Tailwind CSS more
 <img class="w-16 md:w-32 lg:w-48" src="..." />
 ```
 
+[Heroicons](https://heroicons.com/) is an icon pack made by the Tailwind CSS team. To use it in the react project, see the example here:
+
+```javascript
+import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
+export default function () {
+  return (
+    <QuestionMarkCircleIcon className='w-8 h-8 fill-current text-green-500 group-hover:text-green-600'></QuestionMarkCircleIcon>
+  );
+}
+```
+
+![heroicons-question-mark](./images/heroicons-question-mark.png)
+
 ## Resources
 
 The following articles might be helpful:
