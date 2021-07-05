@@ -12,6 +12,10 @@
   -webkit-text-stroke: 1px black;
 }
 
+.graph-container {
+  padding: 1.5em;
+}
+
 .header {
   margin-top: 2.5em;
   padding: 0;
