@@ -9,7 +9,7 @@ function Dashboard() {
   return (
     <>
       <div>
-        <h2 className="header-text">Dashboard page </h2>
+        <h2 className="header-text"> </h2>
         <DashPanel />
       </div>
     </>
