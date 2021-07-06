@@ -34,7 +34,6 @@ function Home() {
           </p>
         </div>
       </section>
-
       <section className='-mx-16 sm:mx-0 px-32 py-16'>
         <div className='text-center font-bold italic text-3xl leading-10 mb-16'>
           Courses & Highlights
@@ -42,7 +41,7 @@ function Home() {
         <div className='flex w-full justify-evenly'>
           <div className='w-72 text-lg'>
             It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
+            the readable content of the page when looking at its layout. The point
             of using Lorem Ipsum is that it has a more-or-less normal
             distribution of letters, as opposed to using 'Content here, content
             here', making it look like readable English. Many desktop publishing
