@@ -1,8 +1,7 @@
 import React from 'react';
 import '../../css/pages/SampleDataUse.css';
 //Important! Below the mock data is imported from the utils folder
-const { dataNonGeo } = require('../utils/MockNonGeo.js');
-const { dataGeo } = require('../utils/MockGeo.js');
+import { dataGeo, dataNonGeo } from '../utils/MockData.js';
 
 //Main component that displays the data and renders page html elements
 //Components in React can be in the form of functions, classes etc.
