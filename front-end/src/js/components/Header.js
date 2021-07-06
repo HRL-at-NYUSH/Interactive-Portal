@@ -27,7 +27,7 @@ const Header = () => {
                 location.pathname === link.href
                   ? 'text-gray-900 font-bold'
                   : 'text-gray-600 font-medium'
-              }  sm:p-4 hover:text-gray-500`}
+              }  sm:p-4 hover:text-gray-500 whitespace-nowrap`}
             >
               {link.title}
             </Link>
