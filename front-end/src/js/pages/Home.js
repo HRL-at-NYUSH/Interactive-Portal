@@ -3,16 +3,16 @@ import { facultyMembers, landingCover } from '../../data/homePageResources';
 
 function Home() {
   return (
-    <div>
+    <>
       {/* -mx-72 is to counter the container's width to make image fullscreen*/}
       {/* -mt-32 is to counter the header's height to make image fullscreen*/}
       <section
         className='bg-cover bg-center px-32 py-56
-        -mx-72 -mt-32 
+        -mx-72 -mt-36 
         '
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.4),
-           rgba(255,255,255,0.4)), 
+           rgba(255,255,255,0.5)), 
            url(${landingCover})`,
         }}
       >
@@ -97,7 +97,7 @@ function Home() {
       <section className='-mx-16 sm:mx-0 px-32 py-16'>
         <div className='text-center'>copyright@2021</div>
       </section>
-    </div>
+    </>
   );
 }
 export default Home;
