@@ -1,20 +1,45 @@
 import React from 'react';
-import graphs from '../../data/visualizePageResources';
+import { Link } from 'react-router-dom';
 
+import '../../css/pages/Visualize.css';
+
+import time from '../../images-src/time.png';
+import correl from '../../images-src/correl.png';
+import hist from '../../images-src/hist.png';
+import map from '../../images-src/map.png';
 function Visualize() {
   return (
     <>
-      <div class='flex flex-wrap justify-evenly'>
-        {graphs.map((graph) => {
-          return (
-            <div className='max-w-md rounded bg-gray-100 overflow-hidden shadow-lg m-8'>
-              <div className='text-center px-6 py-4'>
-                <div className='font-bold text-xl mb-2'>{graph.title}</div>
-              </div>
-              <img className='w-full' src={graph.image} alt={graph.type} />
+      <div className='vis-body'>
+        <h2 className='header-text-vis'>Visualize </h2>
+        <div className='block-vis'>
+          <div className='grid-container'>
+            <div className='grid-item'>
+              <Link to='/Dashboard' className='link'>
+                <p>Distribution</p>
+                <img alt='histogram img' src={hist} />
+              </Link>
             </div>
-          );
-        })}
+            <div className='grid-item'>
+              <Link to='/Dashboard' className='link'>
+                <p>Correlation</p>
+                <img alt='correlation img' src={correl} />
+              </Link>
+            </div>
+            <div className='grid-item'>
+              <Link to='/Dashboard' className='link'>
+                <p>Time</p>
+                <img alt='time img' src={time} />
+              </Link>
+            </div>
+            <div className='grid-item'>
+              <Link to='/Dashboard' className='link'>
+                <p>Space</p>
+                <img alt='map img' src={map} />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
