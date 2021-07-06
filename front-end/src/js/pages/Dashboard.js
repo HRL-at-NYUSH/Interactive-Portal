@@ -7,7 +7,6 @@ import '../../css/pages/Dashboard.css'
 function Dashboard() {
   return (
     <>
-      <Header />
       <div>
         <h2 className="header-text">Dashboard page </h2>
         <div className="block">
