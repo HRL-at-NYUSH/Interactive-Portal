@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../css/pages/SampleDataUse.css';
 //Important! Below the mock data is imported from the utils folder
 import { dataGeo, dataNonGeo } from '../utils/MockData.js';
 
@@ -14,18 +13,14 @@ function SampleDataUse() {
   //Below is the html code (return value)
   return (
     <>
-      <div className='home'>
-        <h2 className='header-text'>
-          This page demonstrates a sample usage of the mock data and react
-          components:)
-        </h2>
-        <div className='block'>
-          <DataDisplay
-            data={dataNonGeo}
-            title={titleNonGeo}
-            geospatial={false}
-          />
-          <DataDisplay data={dataGeo} title={titleGeo} geospatial={true} />
+      <div>
+        <HeaderText>
+          A sample usage of the mock data and react components
+        </HeaderText>
+
+        <div className=''>
+          <DataDisplay data={dataNonGeo} title={titleNonGeo} />
+          <DataDisplay data={dataGeo} title={titleGeo} />
           <br />
         </div>
       </div>
@@ -36,51 +31,58 @@ function SampleDataUse() {
 //and geospatial (boolean; indicates whether data is geospatial or not)
 //and returns an html element that displays the data as output based on the inputs
 
-function DataDisplay({ data, title, geospatial }) {
+function DataDisplay({ data, title }) {
+  // get attribute list from data
+  const dataKeys = Object.keys(data[0]);
   return (
     <>
-      <div className='home'>
-        <h2 className='header-text'>{title}</h2>
-        <div className='block'>
-          <br />
-          <div className='data-container'>
-            {data.map((data, key) => {
+      <HeaderText>{title}</HeaderText>
+
+      <div>
+        <table className='min-w-max w-full table-fixed'>
+          {/* table head */}
+          <thead>
+            <tr className='bg-gray-200 text-gray-600 uppercase text-sm leading-normal'>
+              {dataKeys.map((key) => (
+                <th className='py-3 text-center'>{key}</th>
+              ))}
+            </tr>
+          </thead>
+
+          <tbody className='text-gray-600 text-sm font-semibold'>
+            {/* iterate through data items for each row*/}
+            {data.map((datum, i) => {
               return (
-                <>
-                  <div key={key}>
-                    {
-                      //Note that only certain keys (name, entity etc. ) are displayed.
-                      //You can display more characteristics by referencing data.KEY
-                      'ID: ' +
-                        data.ID +
-                        ' , ' +
-                        'Time: ' +
-                        data.Time +
-                        ' ,' +
-                        'Entity: ' +
-                        data.Entity +
-                        ', ' +
-                        'Name: ' +
-                        data.Name + //If data is geospatial, display latitude and longitude.
-                        //Otherwise, display an empty string
-                        (!geospatial
-                          ? ''
-                          : ' ,' +
-                            'Latitude: ' +
-                            data.Latitude +
-                            ', ' +
-                            'Longitude: ' +
-                            data.Longitude)
-                    }
-                  </div>
-                  <br />
-                </>
+                <tr
+                  key={`data-${i}`}
+                  className='border-b border-gray-200 hover:bg-gray-100'
+                >
+                  {/* iterate through data attributes each cell in each row*/}
+                  {dataKeys.map((dataKey) => {
+                    return (
+                      <td
+                        key={`data-${i}-${dataKey}`}
+                        className='py-3 text-center'
+                      >
+                        {datum[dataKey]}
+                      </td>
+                    );
+                  })}
+                </tr>
               );
             })}
-          </div>
-        </div>
+          </tbody>
+        </table>
       </div>
     </>
+  );
+}
+
+function HeaderText({ children }) {
+  return (
+    <h2 className='my-8 text-4xl text-center font-medium leading-10'>
+      {children}
+    </h2>
   );
 }
 
