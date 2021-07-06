@@ -57,8 +57,12 @@
   background-color: lightgrey;
   border: 1px solid #ccc;
 }
-.grid-item img {
-  width: 50%;
+.grid-container img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  width: 80%;
+  height: 60%;
 }
 
 .block-vis {
@@ -72,26 +76,14 @@
   .header-text-vis {
     font-size: 38px;
   }
-  .grid-item img {
-    width: 360px;
-  }
 }
 
-@media screen and (max-width: 1600px) {
-  .grid-item img {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 910px) {
   .full-text {
     font-size: 14px;
   }
   .header-text-vis {
     font-size: 35px;
-  }
-  .grid-item img {
-    width: 300px;
   }
 }
 
@@ -105,13 +97,7 @@
   .header-text-vis {
     font-size: 26px;
   }
-  .grid-item img {
-    width: 260px;
-  }
 }
 
 @media screen and (max-width: 500px) {
-  .grid-item img {
-    width: 200px;
-  }
 }
