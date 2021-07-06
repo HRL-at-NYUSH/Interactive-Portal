@@ -1,16 +1,6 @@
 import React from 'react';
 import Link from './Link';
 import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
-// footer {
-//   margin-top: 2em;
-//   background-color: #262626;
-//   width: 100%;
-//   text-align: center;
-//   position: static;
-//   left: 0;
-//   bottom: 0;
-//   line-height: 50px;
-// }
 
 function Footer() {
   return (
