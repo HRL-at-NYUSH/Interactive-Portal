@@ -38,13 +38,13 @@ ul.breadcrumb li a {
 }
 
 .App-header {
-  background-color: #f0f0f0;
+  background-color: transparent;
   min-height: 65vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: black;
-  padding-top: 25vh;
+  padding-top: 15%;
 }
 
 #background-pic {
@@ -55,6 +55,12 @@ ul.breadcrumb li a {
   right: 0;
   top: 0;
   opacity: 0.4;
+}
+
+#test {
+  width: 60%;
+  height: auto;
+  margin-top: 2vh;
 }
 
 h {
@@ -81,88 +87,160 @@ p1 {
 
 #header-text {
   position: relative;
-  width: 60%;
+  width: 50%;
   margin-left: 15%;
 }
 
 #decoration {
   position: absolute;
   background-color: #474747;
-  width: 4%;
-  height: 8%;
+  width: 10vh;
+  height: 10vh;
   right: 0;
-  margin-top: -2%;
+  top: 85vh;
 }
 
 .App-content {
   background-color: white;
   min-height: 70vh;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  align-content: center;
   justify-content: center;
   color: black;
-  padding-top: 25vh;
+  padding-top: 20vh;
 }
 
 .App-content-2 {
   background-color: white;
-  min-height: 70vh;
+  min-height: 60vh;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  padding-top: 25vh;
+}
+
+.App-content-3 {
+  background-color: #474747;
+  margin-top: 20vh;
+  min-height: 60vh;
+  text-align: center;
+  justify-content: center;
+  color: black;
+  padding-top: 15vh;
+}
+
+.App-content-4 {
+  background-color: white;
+  min-height: 110vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   color: black;
-  padding-top: 25vh;
+  padding-top: 35vh;
+  padding-left: 18%;
+  padding-right: 18%;
 }
 
-#decoration-2 {
+#title {
   position: absolute;
   text-align: center;
   left: 35%;
   width: 30%;
-  margin-top: 18vh;
+  margin-top: 15vh;
+}
+
+#title-change {
+  position: absolute;
+  text-align: center;
+  left: 35%;
+  width: 30%;
+  margin-top: 30vh;
+  color: white;
+}
+
+#decoration-2 {
+  position: absolute;
+  background-color: #474747;
+  width: 200px;
+  right: 5%;
+  height: 1px;
+  margin-top: 20px;
 }
 
 .App-content > div {
   background-color: transparent;
-  width: 25%;
-  height: 50vh;
+  width: 30%;
   text-align: left;
   line-height: auto;
   font-size: 18px;
-  margin: 80px;
+  margin: 50px;
 }
 
 .App-content-2 > div {
+  margin: 30px;
+}
+
+.App-content-4 > div {
   background-color: transparent;
-  width: 15%;
+  width: 33.33%;
   height: 50vh;
-  text-align: left;
+  text-align: center;
   line-height: auto;
   font-size: 18px;
-  margin: 70px;
+}
+
+#profile {
+  text-align: center;
 }
 
 #headshot {
-  position: absolute;
+  position: relative;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
 }
 
+#eventImg {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+}
+
+#eventImg-half {
+  width: 150px;
+  height: 300px;
+  object-fit: cover;
+  right: 0;
+}
+
 #introduction {
   position: relative;
-  margin-top: 240px;
-  text-align: center;
+  margin-top: 20px;
+}
+
+#event-info {
+  position: relative;
+  width: 300px;
+  left: 180px;
+  margin-top: 20px;
+  text-align: right;
 }
 
 .App-footer {
-  background-color: white;
+  background-color: #474747;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  color: black;
-  padding-top: 25vh;
+  color: white;
+  padding-top: 30vh;
+}
+
+.App-footer > div {
+  margin: 0 100px;
 }
