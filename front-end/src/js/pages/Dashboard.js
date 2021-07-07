@@ -7,14 +7,11 @@ import '../../css/pages/Dashboard.css'
 function Dashboard() {
   return (
     <>
-      <div>
-        <h2 className="header-text">Dashboard page </h2>
-        <div className="block">
-          <Menu />
-          <br />
-          <p className="full-text">TBH</p>
-        </div>
-      </div>
+      <h2 className="header-text">Dashboard page </h2>
+
+      <Menu />
+      <br />
+      <p className="full-text">TBH</p>
     </>
   )
 }
