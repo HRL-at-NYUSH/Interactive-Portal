@@ -13,6 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^7.23.0",
+    "highcharts": "^9.1.2",
+    "highcharts-react-official": "^3.0.0",
     "http-proxy-middleware": "^2.0.0",
     "plotly.js": "^2.2.0",
     "react": "^17.0.1",
