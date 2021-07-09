@@ -7,22 +7,23 @@ const mongoose = require('mongoose') //library for connecting to mongodb
 const bodyParser = require('body-parser') //middleware
 //home route
 app.get('/', (req, res) => {
-  res.send('HRL page!')
+  res.send('Welcome to HRL!  ')
 })
-
-//Database connection
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-
-const db = mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('Connected to MongoDB database...'))
 
 app.use(express.json())
-const mockDataRouter = require('./routes/mockdata')
-app.use('/mockdata', mockDataRouter)
+const mockDataRouter = require('./routes/routeMockdata')
+app.use('/routeMockdata', mockDataRouter)
+
+//Database connection
+mongoose.connect(
+  `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.cc5yp.mongodb.net/development?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => console.log('Connected to the MongoDB database'),
+)
+
 //route displaying script API
 app.get('/example-api', (req, res, next) => {
   axios
