@@ -4,6 +4,9 @@
 
 The IDP is a flexible, real-time data visualization tool for historical research. The IDP was built for internal use at NYU Shanghai.
 
+### Team Leaders
+[Sarah Tahir](https://github.com/saraaahh63) and [Alma Kapan](https://github.com/almazhankapan) are Full-stack developers leading the development cycle both on the front-end (ReactJS, UX Design) and back-end (ExpressJS).
+
 ### Team Members
 
 - [Sarah Tahir](https://github.com/saraaahh63)
