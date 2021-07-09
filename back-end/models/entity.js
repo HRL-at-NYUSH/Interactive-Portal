@@ -17,11 +17,11 @@ const entitySchema = new mongoose.Schema({
   Person: { type: Boolean, required: true },
   Company: { type: Boolean, required: true },
   Name: { type: String, required: true },
-  Occupation: { type: String, required: true },
+  Occupation: { type: String, required: false },
   Address: { type: String, required: true },
   Birthplace: { type: String, required: true },
-  State: { type: String, required: true },
-  Gender: { type: String, required: true },
+  State: { type: String, required: false },
+  Gender: { type: String, required: false },
   Age: {
     type: Number,
     required: true,
@@ -38,8 +38,8 @@ const entitySchema = new mongoose.Schema({
       message: '{VALUE} is not an integer value',
     },
   },
-  Latitude: { type: Number, required: true },
-  Longitude: { type: Number, required: true },
+  Latitude: { type: Number, required: false },
+  Longitude: { type: Number, required: false },
 })
 
-module.exports = mongoose.model('Entity', entitySchema)
+module.exports = mongoose.model('Entities', entitySchema)
