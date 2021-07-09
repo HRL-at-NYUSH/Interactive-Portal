@@ -94,7 +94,7 @@ MongoDB represents each user internally with a user object that includes a uniqu
 
 **Frontend to Backend Connection**
 
-Each chart takes the data and rendering style as props. To pull the saved chart into user data + profile page, we can create a component that stores the chart attributes as state and in the database. This component will also fill the dashboard with the appropriate charts according to user interaction. The main idea here is that we are storing the html of a component in the backend as a string and then rerendering it when the user restores the chart. This is the same idea for session; we will store the html that makes up the session as a string in the database then retrieve and rerender the html when the user logs back in/returns to the page. According to my research, axios is the most commonly used library to handle HTTP requests, but we can use whatever library works best. The sample code below is a work in progress. The purpose is to give an idea of how this plan could be structured, but it is not set in stone.
+Each chart takes the data and rendering style as props. To pull the saved chart into user data + profile page, we can create a component that stores the chart attributes as state and in the database. This component will also fill the dashboard with the appropriate charts according to user interaction. The main idea here is that we are storing the html of a component in the backend as a string and then rerendering it when the user restores the chart. This is the same idea for session; we will store the html that makes up the session as a string in the database then retrieve and rerender the html when the user logs back in/returns to the page. The sample code below is just an example of how this plan could be structured.
 
 **Sample Code for Saved Charts**
 
@@ -218,7 +218,7 @@ Display Saved Charts on Profile Page
 
 Restore Chart to Dashboard
 
-This functionality requires use to pass data from one component to another (unrelated) component since the user will restore charts from their profile page and open them up in the dashboard.
+This functionality requires us to pass data from one component to another (unrelated) component since the user will restore charts from their profile page and open them up in the dashboard.
 
 There are two "react" ways we could do this:
 * Using Redux and maintaining the states of all child components in a global store and getting data from that store
