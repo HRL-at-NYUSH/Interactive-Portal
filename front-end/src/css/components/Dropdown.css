@@ -57,9 +57,9 @@ a {
 
 .dropdown {
     position: absolute;
-    top: 135px;
+    top: 171px;
     width: 120px;
-    transform: translateX(-37%);
+    transform: translateX(-41%);
     background-color: rgb(233, 230, 230);
     border: 1px solid #474a4d;
     overflow: hidden;
@@ -82,9 +82,12 @@ a {
 }
 
 .close {
+    display: inline;
     margin-left: 10px;
     margin-right: 0px;
-    padding-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
     font-size: 1.5em;
     color: black;
 }
