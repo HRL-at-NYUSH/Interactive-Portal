@@ -1,14 +1,10 @@
 const mongoose = require('mongoose')
 
-const entitySchema = new mongoose.Schema({
+const EntitySchema = new mongoose.Schema({
   ID: {
     type: Number,
     required: true,
     unique: true,
-    validate: {
-      validator: Number.isInteger,
-      message: '{VALUE} is not an integer value',
-    },
   },
   Time: {
     type: Number,
@@ -25,21 +21,15 @@ const entitySchema = new mongoose.Schema({
   Age: {
     type: Number,
     required: true,
-    validate: {
-      validator: Number.isInteger,
-      message: '{VALUE} is not an integer value',
-    },
   },
   Immigration_year: {
     type: Number,
     required: true,
-    validate: {
-      validator: Number.isInteger,
-      message: '{VALUE} is not an integer value',
-    },
   },
   Latitude: { type: Number, required: false },
   Longitude: { type: Number, required: false },
 })
 
-module.exports = mongoose.model('Entities', entitySchema)
+const Entity = mongoose.model('entity', EntitySchema)
+
+module.exports = Entity

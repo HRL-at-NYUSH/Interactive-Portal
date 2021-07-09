@@ -2,19 +2,26 @@
 const express = require('express') // CommonJS import style!
 const app = express() // instantiate an Express object
 const axios = require('axios') //library to handle API calls
-require('dotenv').config() //dotenv setup for authentication
 const mongoose = require('mongoose') //library for connecting to mongodb
-const bodyParser = require('body-parser') //middleware
+require('dotenv').config({ silent: true }) //dotenv setup for authentication
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 //home route
 app.get('/', (req, res) => {
   res.send('Welcome to HRL!  ')
 })
-
-app.use(express.json())
+//Mock data routes
 const mockDataRouter = require('./routes/routeMockdata')
 app.use('/routeMockdata', mockDataRouter)
 
+//User routes
+const userRouter = require('./routes/routeUsers')
+app.use('/routeUsers', userRouter)
+
 //Database connection
+
 mongoose.connect(
   `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.cc5yp.mongodb.net/development?retryWrites=true&w=majority`,
   {
@@ -41,5 +48,4 @@ app.get('/search-page', (req, res) => {
   res.sendFile('/public/index.html', { root: __dirname })
 })
 
-app.use
 app.listen(4000, console.log('Express app listening on port 4000'))
