@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
+const autoIncrement = require('mongoose-sequence')(mongoose)
 
 const EntitySchema = new mongoose.Schema({
+  idM: { type: Number },
   ID: {
     type: Number,
     required: true,
@@ -30,6 +32,8 @@ const EntitySchema = new mongoose.Schema({
   Longitude: { type: Number, required: false },
 })
 
-const Entity = mongoose.model('entity', EntitySchema)
+EntitySchema.plugin(autoIncrement, { inc_field: 'idM' })
+
+const Entity = mongoose.model('Entity', EntitySchema)
 
 module.exports = Entity
