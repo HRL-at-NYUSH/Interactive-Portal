@@ -153,7 +153,7 @@ You should replace the following items in the command above:
 ### Postman Setup
 
 - Postman is a desktop app that allows you to trigger custom HTTP requests to your local development web server, which relieves you from having to write (and debug) front-end code while your focus is on perfecting the back-end.
-- To set up a postman application download it [here](https://web.postman.co/home)
+- To set up a postman application download it [here](https://www.postman.com/downloads/)
 - Once installed, get started by clicking the Create a request link on the Launchpad screen. Enter a route you have set up in express, such as http://localhost:3000/, and click the Send button.
 - It is possible to save requests you want to run frequently so you can quickly test them as you work on the code.
 - You can find a file called [express-js-starter-app.postman_collection.json](/back-end/utils/express-js-starter-app.postman_collection.json) that can be imported into Postman to easily try out all these routes.
