@@ -90,7 +90,7 @@ Follow the steps outlined in the [contributing guide for developers](https://git
 
 ### Dependencies
 
-To view the list of front-end dependencies, please refer to the file [here](front-end/package.json).
+To view the list of front-end dependencies, please refer to the file [here](front-end/package.json) and [here](front-end/README.md).
 
 To view the list of front-end dependencies, please refer to the file [here](back-end/package.json).
 
