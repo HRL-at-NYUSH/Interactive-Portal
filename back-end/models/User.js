@@ -4,14 +4,17 @@ const uniqueValidator = require('mongoose-unique-validator')
 const saltRounds = 10
 const autoIncrement = require('mongoose-sequence')(mongoose)
 
-const UserSchema = new mongoose.Schema({
-  id: { type: Number },
-  netid: { type: String, required: true, unique: true, min: 2 },
-  username: { type: String, required: true, unique: true, min: 2 },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, min: 8, max: 1024 },
-  dateSigned: { type: Date, required: false, default: Date.now },
-})
+const UserSchema = new mongoose.Schema(
+  {
+    id: { type: Number },
+    netid: { type: String, required: true, unique: true, min: 2 },
+    username: { type: String, required: true, unique: true, min: 2 },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true, min: 8, max: 1024 },
+    dateSigned: { type: Date, required: false, default: Date.now },
+  },
+  { collection: 'users' },
+)
 
 UserSchema.plugin(autoIncrement, { inc_field: 'id' })
 
