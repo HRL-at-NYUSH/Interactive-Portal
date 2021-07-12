@@ -5,8 +5,9 @@
 The IDP is a flexible, real-time data visualization tool for historical research. The IDP was built for internal use at NYU Shanghai.
 
 ### Team Leaders
+
 [Sarah Tahir](https://github.com/saraaahh63) and [Alma Kapan](https://github.com/almazhankapan) are Full-stack developers leading the development cycle both on the front-end (ReactJS, UX Design) and back-end (ExpressJS).
-[Tim Wu](https://github.com/TimWGY) is leading the team on Data Visualization and Research, Data Mining 
+[Tim Wu](https://github.com/TimWGY) is leading the team on Data Visualization and Research, Data Mining
 
 ### Team Members
 
@@ -156,4 +157,4 @@ You should replace the following items in the command above:
 - Once installed, get started by clicking the Create a request link on the Launchpad screen. Enter a route you have set up in express, such as http://localhost:3000/, and click the Send button.
 - It is possible to save requests you want to run frequently so you can quickly test them as you work on the code.
 - You can find a file called [express-js-starter-app.postman_collection.json](/back-end/utils/express-js-starter-app.postman_collection.json) that can be imported into Postman to easily try out all these routes.
-- The list of routes that you can test are in the [back-end folder](back-end/). For a more detailed explanation on the routes, please see the video tutorial on back-end routes below.
+- The list of routes that you can test are in the [back-end folder](back-end/). For a more detailed explanation on the routes, please see the video tutorial on back-end routes.
