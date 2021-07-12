@@ -106,6 +106,13 @@ To set up your account, please complete the following steps:
 3. Go to the **Database Access** tab and click on **Add a new database user** and register a new user - select a username and password and remember them for the future use. View the gif with instructions below.<br>
    ![MongoDB instructions](front-end/images/mongodb.gif)
 
+4. Go to the [back-end](back-end) directory and create a file called .env. In that file, please include the following two lines with these changes - replace _your_username_ with your username (e.g. alma) from step 3 and _your_password_ with your password (e.g. asads123) from step 3. Refer to an example file [here](back-end/.env-example). Note that your file should be called _.env_
+
+```
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
 ### MongoDB Data Upload
 
 1. Convert data from csv to json using the open source projects as [this one](https://csvjson.com/csv2json). The mock data which is currently uploaded to the database is available in csv format [here](https://docs.google.com/spreadsheets/d/1KWH-BrgNkeRjoB60bMJh1dfcQ_HHSIWIOPR8jO6rRCg/edit#gid=1479728107) and json format [here](front-end/src/js/utils/raw).
@@ -136,7 +143,7 @@ You should replace the following items in the command above:
 
 6. To view the newly uploaded data, in the MongoDB Atlas, go to your Cluster (Cluster 0) and click on _Collections_ - here you will be able to see the datasets. View the gif with instructions below.
 
-   ![MongoDB instructions](front-end/images/mongodb.gif)
+   ![MongoDB instructions](front-end/images/mongodb_upload.gif)
 
 ### Postman Setup
 
