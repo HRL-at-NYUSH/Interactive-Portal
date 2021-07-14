@@ -103,46 +103,11 @@ async function getEntity(req, res, next) {
   next()
 }
 
-//get entities by variable type and value
-//get request should have a format such as get('routeMockData/findAll/type=Occupation&value=Clerk)
-router.get('/entities/', async (req, res) => {
+//get request to retrieve all Person or Company entities
+
+router.get('/person/:boolean', async (req, res) => {
   try {
-    if (req.query.type == 'Occupation') {
-      entities = await Entity.find({ Occupation: req.query.value })
-    }
-    if (req.query.type == 'ID') {
-      entities = await Entity.findOne({ ID: req.query.value })
-    }
-    if (req.query.type == 'Time') {
-      entities = await Entity.find({ Time: req.query.value })
-    }
-    if (req.query.type == 'Person') {
-      entities = await Entity.find({ Person: req.query.value })
-    }
-    if (req.query.type == 'Company') {
-      entities = await Entity.find({ Company: req.query.value })
-    }
-    if (req.query.type == 'Name') {
-      entities = await Entity.find({ Name: req.query.value })
-    }
-    if (req.query.type == 'Address') {
-      entities = await Entity.find({ Address: req.query.value })
-    }
-    if (req.query.type == 'Birthplace') {
-      entities = await Entity.find({ Birthplace: req.query.value })
-    }
-    if (req.query.type == 'State') {
-      entities = await Entity.find({ State: req.query.value })
-    }
-    if (req.query.type == 'Gender') {
-      entities = await Entity.find({ Gender: req.query.value })
-    }
-    if (req.query.type == 'Age') {
-      entities = await Entity.find({ Age: req.query.value })
-    }
-    if (req.query.type == 'Immigration_year') {
-      entities = await Entity.find({ Immigration_year: req.query.value })
-    }
+    entities = await Entity.find({ Person: req.params.boolean })
     if (entities == null) {
       return res.status(404).json({ message: 'Cannot find entity' })
     } else {
@@ -153,7 +118,141 @@ router.get('/entities/', async (req, res) => {
   }
 })
 
-//create one element
+//get request to retrieve all entities with time=value
+
+router.get('/time/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Time: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with occupation=value
+
+router.get('/occupation/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Occupation: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with name=value
+
+router.get('/name/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Name: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with address=value
+
+router.get('/address/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Address: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with birthplace=value
+
+router.get('/birthplace/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Person: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with state=value
+
+router.get('/state/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ State: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with gender=value
+
+router.get('/gender/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Gender: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with age=value
+
+router.get('/age/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Age: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+
+//get request to retrieve all entities with imm_year=value
+
+router.get('/imm_year/:value', async (req, res) => {
+  try {
+    entities = await Entity.find({ Immigration_year: req.params.value })
+    if (entities == null) {
+      return res.status(404).json({ message: 'Cannot find entity' })
+    } else {
+      return res.status(500).json(entities)
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message })
+  }
+})
+//create a new entity element
 router.post('/', async (req, res) => {
   //create new schema - database object
   const myentity = new Entity({
@@ -176,11 +275,9 @@ router.post('/', async (req, res) => {
   await myentity
     .save()
     .then((result) => {
-      //res.json(result);
       res.status(201).json(result)
     })
     .catch((err) => {
-      //res.json({ message: err });
       res.status(400).json({ message: err.message })
     })
 })

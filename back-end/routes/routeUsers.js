@@ -11,42 +11,69 @@ router.use(express.json())
 router.get('/', async (req, res) => {
   try {
     const allUsers = await User.find()
-    res.json(allUsers)
-  } catch (err) {
-    res.status(500).json({ message: err.message })
-  }
-})
-//get user based on id
-router.get('/:id', async (req, res) => {
-  try {
-    const user = await User.findOne({ id: req.params.id })
-    res.json(user)
-  } catch (err) {
-    res.status(500).json({ message: err.message })
-  }
-})
-//get user by variable type and value
-//get request should have a format such as get('routeUsers/user/type=email&value=aa5456@nyu.edu)
-router.get('/user/', async (req, res) => {
-  try {
-    if (req.query.type == 'email') {
-      user = await User.find({ email: req.query.value })
-    }
-    if (req.query.type == 'username') {
-      user = await User.findOne({ username: req.query.value })
-    }
-    if (req.query.type == 'netid') {
-      user = await User.findOne({ netid: req.query.value })
+    if (allUsers != null) {
+      res.json(allUsers)
+    } else {
+      res.json({ message: 'No users recorded. ' })
     }
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
 })
 
+//get user based on email
+router.get('/email/:value', async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.params.value })
+    if (user == null) {
+      res.json({ message: 'No user found with this email address' })
+    } else {
+      res.json(user)
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+//get user based on netid
+router.get('/netid/:value', async (req, res) => {
+  try {
+    const user = await User.findOne({ netid: req.params.value })
+    res.json(user)
+    if (user == null) {
+      res.json({ message: 'No user found with this netid' })
+    } else {
+      res.json(user)
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+//get user based on username
+router.get('/username/:value', async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.params.value })
+    if (user == null) {
+      res.json({ message: 'No user found with this username' })
+    } else {
+      res.json(user)
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
+
+//get user based on id
 router.get('/:id', async (req, res) => {
   try {
     const user = await User.findOne({ id: req.params.id })
     res.json(user)
+    if (user == null) {
+      res.json({ message: 'No user found with this id' })
+    } else {
+      res.json(user)
+    }
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
@@ -74,6 +101,7 @@ router.post('/', async (req, res) => {
     })
 })
 
+//update user based on id
 router.patch('/:id', async (req, res) => {
   const finalUser = await User.findOne({ id: req.params.id })
   let patchUser = finalUser
@@ -124,8 +152,6 @@ router.patch('/:id', async (req, res) => {
     return res.status(201).json(patchUser)
   }
 })
-
-//update user info based on id
 
 //delete user based on id
 router.delete('/:id', async (req, res) => {

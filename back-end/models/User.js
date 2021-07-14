@@ -4,41 +4,17 @@ const uniqueValidator = require('mongoose-unique-validator')
 const saltRounds = 10
 const autoIncrement = require('mongoose-sequence')(mongoose)
 
-const UserSchema = new mongoose.Schema({
-  id: { type: Number },
-  netid: { type: String, required: true, unique: true, min: 2 },
-  username: { type: String, required: true, unique: true, min: 2 },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true, min: 8, max: 1024 },
-  dateSigned: { type: Date, required: false, default: Date.now },
-  savedchart: [{
-    chartid: {type: mongoose.ObjectIds},
-    title: {type: String},
-    charttype: {type: String, required: true},
-    data: [{
-      dataset: {type: String, required: true},
-      xvar: {type: String},
-      yvar: {type: String},
-    }],
-    options: {type: mongoose.Mixed}
-  }],
-  session: [{
-    tabs: [{
-      category: {type: String, required: true},
-      charts: [{
-        chartid: {type: mongoose.ObjectIds},
-        title: {type: String},
-        charttype: {type: String, required: true},
-        data: [{
-          dataset: {type: String, required: true},
-          xvar: {type: String},
-          yvar: {type: String},
-        }],
-        options: {type: mongoose.Mixed}
-      }]
-    }]
-  }]
-})
+const UserSchema = new mongoose.Schema(
+  {
+    id: { type: Number },
+    netid: { type: String, required: true, unique: true, min: 2 },
+    username: { type: String, required: true, unique: true, min: 2 },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true, min: 8, max: 1024 },
+    dateSigned: { type: Date, required: false, default: Date.now },
+  },
+  { collection: 'users' },
+)
 
 UserSchema.plugin(autoIncrement, { inc_field: 'id' })
 
