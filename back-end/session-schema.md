@@ -1,19 +1,20 @@
 ## How to Build Session History
 
 **User Requirements**
-* User will be able to save 6 charts and retrieve them during future sessions
-* User will be able to return to their work the next time they log in
+
+- User will be able to save 6 charts and retrieve them during future sessions
+- User will be able to return to their work the next time they log in
 
 **General Sources**
-* [Intro to React Database Connections](https://www.youtube.com/watch?v=HVdMhKN2ng4)
-* [How to use Axios with React](https://www.digitalocean.com/community/tutorials/react-axios-react)
-* [React + Node + Express + MongoDB Example](https://bezkoder.com/react-node-express-mongodb-mern-stack/)
-* [How to render dynamic component defined in React](https://www.storyblok.com/tp/react-dynamic-component-from-json)
-* [Custom User Data in MongoDB](https://docs.mongodb.com/realm/users/enable-custom-user-data/)
-* [MERN Complete Guide from MongoDB](https://www.mongodb.com/languages/mern-stack-tutorial)
-* [Server Sessions in MongoDB](https://docs.mongodb.com/manual/reference/server-sessions/)
-* [User Session Question on Stack Overflow](https://stackoverflow.com/questions/35970427/only-save-user-session-on-certain-requests)
 
+- [Intro to React Database Connections](https://www.youtube.com/watch?v=HVdMhKN2ng4)
+- [How to use Axios with React](https://www.digitalocean.com/community/tutorials/react-axios-react)
+- [React + Node + Express + MongoDB Example](https://bezkoder.com/react-node-express-mongodb-mern-stack/)
+- [How to render dynamic component defined in React](https://www.storyblok.com/tp/react-dynamic-component-from-json)
+- [Custom User Data in MongoDB](https://docs.mongodb.com/realm/users/enable-custom-user-data/)
+- [MERN Complete Guide from MongoDB](https://www.mongodb.com/languages/mern-stack-tutorial)
+- [Server Sessions in MongoDB](https://docs.mongodb.com/manual/reference/server-sessions/)
+- [User Session Question on Stack Overflow](https://stackoverflow.com/questions/35970427/only-save-user-session-on-certain-requests)
 
 **MongoDB Schema**
 
@@ -156,7 +157,7 @@ Save Component
               })
                 .catch(() => {
                     console.log('Server error');
-                });          
+                });
         };
 
         handleEdit = ({ target }) => {
@@ -221,9 +222,10 @@ Restore Chart to Dashboard
 This functionality requires us to pass data from one component to another (unrelated) component since the user will restore charts from their profile page and open them up in the dashboard.
 
 There are two "react" ways we could do this:
-* Using Redux and maintaining the states of all child components in a global store and getting data from that store
-* Using React Context API
-* [More information on passing data between components](https://www.pluralsight.com/guides/how-to-pass-data-between-react-components)
+
+- Using Redux and maintaining the states of all child components in a global store and getting data from that store
+- Using React Context API
+- [More information on passing data between components](https://www.pluralsight.com/guides/how-to-pass-data-between-react-components)
 
 Another way we can push a saved chart from user data into the dashboard session is to utilize local storage temporarily. Both the session and the saved charts will already be stored in the database, so the local storage will only be used as a way to transfer the data from one component to another. The basic idea is that when the user clicks "restore" on the profile page, the chart data gets cached into local storage and the page redirects to the dahsboard. At the same time, the dashboard component reads the data from local storage and pushes it into the state.charts array. This would render the chart alongside the other charts already on the page. This would work best if all restored charts only render in Playground tabs as opposed to category specific tabs.
 
