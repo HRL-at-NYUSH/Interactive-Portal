@@ -483,7 +483,7 @@ const dataGeo = [
     Latitude: 40.72075707,
     Longitude: -73.99948285,
   },
-];
+]
 
 const dataNonGeo = [
   {
@@ -908,6 +908,6 @@ const dataNonGeo = [
     Age: null,
     Immigration_year: 1923,
   },
-];
+]
 
-export { dataGeo, dataNonGeo };
+export { dataGeo, dataNonGeo }
