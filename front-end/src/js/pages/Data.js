@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../css/pages/Data.css';
 
 function Data() {
   return (
