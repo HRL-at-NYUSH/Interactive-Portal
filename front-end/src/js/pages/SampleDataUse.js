@@ -38,7 +38,7 @@ function SampleDataUse() {
               <div className=' font-bold text-xl py-2'>
                 Histogram of Non-Geo Data
               </div>
-              <div className='inline-block relative w-64'>
+              <div className='m-auto w-64'>
                 <SelectBox
                   data={selectBoxData}
                   onValueChange={setHistoXAttr}
