@@ -2,7 +2,8 @@ import React from 'react';
 //Important! Below the mock data is imported from the utils folder
 import { dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from '../../graphs/Histogram';
-import { ChevronDownIcon } from '@heroicons/react/solid';
+import HeaderText from '../components/HeaderText.js';
+import SelectBox from '../components/SelectBox.js';
 import { useState } from 'react';
 
 //Main component that displays the data and renders page html elements
@@ -15,6 +16,8 @@ function SampleDataUse() {
   const titleGeo = 'Using geospatial data ';
 
   const dataKeys = Object.keys(dataNonGeo[0]);
+  const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
+  console.log(selectBoxData);
   const [histoXAttr, setHistoXAttr] = useState('ID');
   //Below is the html code (return value)
   return (
@@ -36,19 +39,10 @@ function SampleDataUse() {
                 Histogram of Non-Geo Data
               </div>
               <div className='inline-block relative w-64'>
-                <select
-                  className='block appearance-none w-full h-9 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline'
-                  onChange={(e) => setHistoXAttr(e.target.value)}
-                >
-                  {dataKeys.map((key) => (
-                    <option key={key} value={key}>
-                      {key}
-                    </option>
-                  ))}
-                </select>
-                <div className='w-9 h-9 pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
-                  <ChevronDownIcon></ChevronDownIcon>
-                </div>
+                <SelectBox
+                  data={selectBoxData}
+                  onValueChange={setHistoXAttr}
+                ></SelectBox>
               </div>
             </div>
           </div>
@@ -111,14 +105,6 @@ function DataDisplay({ data, title }) {
         </table>
       </div>
     </>
-  );
-}
-
-function HeaderText({ children }) {
-  return (
-    <h2 className='my-8 text-4xl text-center font-medium leading-10'>
-      {children}
-    </h2>
   );
 }
 
