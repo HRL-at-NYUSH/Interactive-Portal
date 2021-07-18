@@ -18,6 +18,8 @@ const Histogram = ({ data, xAxisAttribute, title }) => {
     yaxis: { title: 'Count' },
   };
 
+  var config = {responsive: true}
+
   let xData = data.map((d) => {
     if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === 'NULL') {
       return 'UNKOWN';

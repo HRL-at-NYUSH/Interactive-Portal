@@ -11,6 +11,11 @@ import Signup from './js/pages/Signup.js';
 import SampleDataUse from './js/pages/SampleDataUse.js';
 import Dashboard from './js/pages/Dashboard';
 
+// ---------------------- TEMP ------------------------------
+import LineDemo from './graphs-temp/line/LineDemo';
+
+// ----------------------------------------------------------
+
 import LayoutWrapper from './js/components/LayoutWrapper';
 require('dotenv').config();
 
@@ -58,6 +63,11 @@ const App = () => {
               <Route path='/SampleDataUse' component={SampleDataUse} />
 
               <Route path='/questions' component={Questions} />
+
+              {/* temp */}
+              <Route path='/linedemo' component={LineDemo} />
+              {/* temp */}
+
             </Switch>
           </LayoutWrapper>
         </Router>

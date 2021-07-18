@@ -1,7 +1,7 @@
 import React from 'react';
 //Important! Below the mock data is imported from the utils folder
 import { dataGeo, dataNonGeo } from '../utils/MockData.js';
-import Histogram from '../../graphs/Histogram';
+import Histogram from '../../graphs-temp/Histogram';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 
