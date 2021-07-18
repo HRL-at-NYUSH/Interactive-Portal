@@ -24,7 +24,7 @@ class Line extends React.Component {
   componentDidMount() {
     const container = this.chartComponent.current.container.current;
 
-    container.style.height = "99%";
+    container.style.height = "100%";
     container.style.width = "100%";
     this.chartComponent.current.chart.reflow();
   }
