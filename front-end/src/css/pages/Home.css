@@ -2,49 +2,15 @@
   min-height: 100vh;
 }
 
-.menu-bar {
-  padding: 8px;
-  background: white;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-#left {
-  text-align: left;
-  padding-left: 3%;
-  position: absolute;
-}
-#right {
-  text-align: right;
-  padding-right: 5%;
-}
-ul.breadcrumb {
-  list-style: none;
-  background: transparent;
-}
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-ul.breadcrumb li + li:before {
-  padding: 20px;
-  content: " ";
-}
-ul.breadcrumb li a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
-
 .App-header {
-  background-color: transparent;
-  min-height: 65vh;
+  background-color: #f5f0dc;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: black;
-  padding-top: 15%;
+  color: #333333;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
 }
 
 #background-pic {
@@ -64,21 +30,38 @@ ul.breadcrumb li a {
 }
 
 h {
-  font-size: calc(13px + 2vmin);
-  font-style: italic;
+  font-size: calc(55px + 3vmin);
+  font-family: serif;
+  font-style: normal;
   font-weight: bold;
   margin-bottom: 40px;
 }
 
 h1 {
+  font-size: calc(25px + 2vmin);
+  font-family: serif;
+  font-style: nor;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+h2 {
   font-size: calc(9px + 1vmin);
   font-style: italic;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+h3 {
+  font-size: 40px;
+  font-family: serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 p {
-  font-size: calc(10px + 1vmin);
+  font-family: serif;
+  font-size: calc(12px + 1vmin);
 }
 
 p1 {
@@ -87,21 +70,24 @@ p1 {
 
 #header-text {
   position: relative;
-  width: 50%;
-  margin-left: 15%;
+  max-width: 45%;
+  margin-left: 20vh;
 }
 
 #decoration {
   position: absolute;
-  background-color: #474747;
-  width: 10vh;
-  height: 10vh;
+  background-color: transparent;
   right: 0;
-  top: 85vh;
+  top: 20vh;
+}
+
+#logo {
+  width: 70%;
+  height: auto;
 }
 
 .App-content {
-  background-color: white;
+  background-color: #f5f0dc;
   min-height: 70vh;
   display: flex;
   flex-wrap: wrap;
@@ -113,28 +99,81 @@ p1 {
 }
 
 .App-content-2 {
-  background-color: white;
+  background-color: #f5f0dc;
   min-height: 60vh;
-  margin-left: 100px;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   color: black;
-  padding-top: 25vh;
+  padding-top: 30vh;
+  padding-left: 100px;
+  padding-right: 100px;
+  overflow: auto;
+}
+
+.App-content-2 div {
+  display: inline-block;
+  text-decoration: none;
+  margin: 30px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #89c9ac;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #46a98a;
 }
 
 .App-content-3 {
-  background-color: #474747;
-  margin-top: 20vh;
-  min-height: 60vh;
+  background-color: #f5f0dc;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   color: black;
-  padding-top: 15vh;
+  padding-top: 30vh;
+}
+
+#diagram-cell {
+  text-align: center;
+  margin: 30px;
+}
+
+#diagram {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#develop-info {
+  position: relative;
+  margin-top: 0;
+  line-height: 0%;
+  color: #8e8d8d;
 }
 
 .App-content-4 {
-  background-color: white;
-  min-height: 110vh;
+  background-color: #f5f0dc;
+  min-height: 70vh;
+  max-height: min-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -143,32 +182,16 @@ p1 {
   padding-top: 35vh;
   padding-left: 18%;
   padding-right: 18%;
+  padding-bottom: 20vh;
 }
 
 #title {
   position: absolute;
   text-align: center;
-  left: 35%;
-  width: 30%;
+  left: 10%;
+  width: 80%;
   margin-top: 15vh;
-}
-
-#title-change {
-  position: absolute;
-  text-align: center;
-  left: 35%;
-  width: 30%;
-  margin-top: 30vh;
-  color: white;
-}
-
-#decoration-2 {
-  position: absolute;
-  background-color: #474747;
-  width: 200px;
-  right: 5%;
-  height: 1px;
-  margin-top: 20px;
+  color: #333333;
 }
 
 .App-content > div {
@@ -180,14 +203,10 @@ p1 {
   margin: 50px;
 }
 
-.App-content-2 > div {
-  margin: 30px;
-}
-
 .App-content-4 > div {
   background-color: transparent;
   width: 33.33%;
-  height: 50vh;
+  height: 40vh;
   text-align: center;
   line-height: auto;
   font-size: 18px;
@@ -206,16 +225,13 @@ p1 {
 }
 
 #eventImg {
-  width: 500px;
-  height: 300px;
+  width: 600px;
+  height: 350px;
   object-fit: cover;
 }
 
-#eventImg-half {
-  width: 150px;
-  height: 300px;
-  object-fit: cover;
-  right: 0;
+#eventImg:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #introduction {
@@ -226,13 +242,13 @@ p1 {
 #event-info {
   position: relative;
   width: 300px;
-  left: 180px;
+  left: 260px;
   margin-top: 20px;
   text-align: right;
 }
 
 .App-footer {
-  background-color: #474747;
+  background-color: #8e8d8d;
   min-height: 10vh;
   display: flex;
   flex-direction: row;
