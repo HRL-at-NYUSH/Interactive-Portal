@@ -208,28 +208,28 @@ const Data = ({ match: { path, url } }) => {
         ></SelectBox>
       </div>
 
-      <div className='flex flex-col center text-center border-2 rounded shadow-md p-4 m-4'>
-        <div className='flex justify-between border-b-2'>
+      <div className='flex flex-col flex-wrap text-center border-2 rounded shadow-md p-4 m-4'>
+        <div className='flex justify-around border-b-2'>
           <CustomLink
-            className=' text-lg p-4 leading-4 m-auto hover:text-gray-400'
+            className='text-lg p-4 leading-4 hover:text-gray-400'
             href={url + '/description'}
           >
             Description
           </CustomLink>
           <CustomLink
-            className=' text-lg p-4 leading-4 m-auto hover:text-gray-400'
+            className='text-lg p-4 leading-4 m-auto hover:text-gray-400'
             href={url + '/data-sources'}
           >
             Data Sources
           </CustomLink>
           <CustomLink
-            className=' text-lg p-4 leading-4 m-auto hover:text-gray-400'
+            className='text-lg p-4 leading-4 m-auto hover:text-gray-400'
             href={url + '/dataset-production'}
           >
             Dataset Production
           </CustomLink>
           <CustomLink
-            className=' text-lg p-4 leading-4 m-auto hover:text-gray-400'
+            className='text-lg p-4 leading-4 m-auto hover:text-gray-400'
             href={url + '/variables'}
           >
             Variables
