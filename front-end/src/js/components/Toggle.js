@@ -3,6 +3,7 @@ import ToggleSwitch from './ToggleSwitch'
 
 function Toggle() {
   let [isToggleOn, setToggle] = useState(false)
+  let [display, setDisplay] = useState(false)
 
   const onChange = (checked) => {
     setToggle(checked)
@@ -15,7 +16,7 @@ function Toggle() {
       </div>
 
       <div>
-        <p>Toggle: {isToggleOn ? 'select' : 'query'}</p>
+        {display ? <p>Toggle: {isToggleOn ? 'select' : 'query'}</p> : ''}
       </div>
     </div>
   )

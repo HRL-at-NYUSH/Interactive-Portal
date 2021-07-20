@@ -11,6 +11,8 @@ import Time from '../dashboard-tabs/Time'
 import Space from '../dashboard-tabs/Space'
 import Playground from '../dashboard-tabs/Playground'
 import Correlation from '../dashboard-tabs/Correlation'
+import Menu from '../Menu'
+import '../../../css/components/DashPanel.css'
 
 let dcount = 0
 let tcount = 0
@@ -96,78 +98,82 @@ class DashPanel extends React.Component {
   render() {
     return (
       <>
-        <div className="block">
+        <div className="rows">
           <div>
-            <DropNav>
-              <Item icon={<FaPlus />}>
-                <div className="dropdown">
-                  <div>
-                    <a
-                      href="#"
-                      className="menu-item"
-                      onClick={() => this.handleStateChange('Distribution')}
-                    >
-                      Distribution
-                    </a>
+            <div>
+              <DropNav>
+                <Item icon={<FaPlus />}>
+                  <div className="dropdown">
+                    <div>
+                      <a
+                        href="#"
+                        className="menu-item"
+                        onClick={() => this.handleStateChange('Distribution')}
+                      >
+                        Distribution
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        href="#"
+                        className="menu-item"
+                        onClick={() => this.handleStateChange('Correlation')}
+                      >
+                        Correlation
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        href="#"
+                        className="menu-item"
+                        onClick={() => this.handleStateChange('Time')}
+                      >
+                        Time
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        href="#"
+                        className="menu-item"
+                        onClick={() => this.handleStateChange('Space')}
+                      >
+                        Space
+                      </a>
+                    </div>
+                    <div>
+                      <a
+                        href="#"
+                        className="menu-item"
+                        onClick={() => this.handleStateChange('Playground')}
+                      >
+                        Playground
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="menu-item"
-                      onClick={() => this.handleStateChange('Correlation')}
-                    >
-                      Correlation
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="menu-item"
-                      onClick={() => this.handleStateChange('Time')}
-                    >
-                      Time
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="menu-item"
-                      onClick={() => this.handleStateChange('Space')}
-                    >
-                      Space
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="#"
-                      className="menu-item"
-                      onClick={() => this.handleStateChange('Playground')}
-                    >
-                      Playground
-                    </a>
-                  </div>
-                </div>
-              </Item>
-            </DropNav>
+                </Item>
+              </DropNav>
+            </div>
+
+            <div className="tab-container">
+              <DashTabs>
+                {this.state.tabitems.map((d, i) => (
+                  <TabItem
+                    label={d.label}
+                    close={
+                      <AiFillCloseSquare
+                        className="close"
+                        id={i}
+                        onClick={() => this.handleStateChange(i)}
+                      />
+                    }
+                  >
+                    {d.element}
+                  </TabItem>
+                ))}
+              </DashTabs>
+            </div>
           </div>
-          <div className="tab-container">
-            <DashTabs>
-              {this.state.tabitems.map((d, i) => (
-                <TabItem
-                  label={d.label}
-                  close={
-                    <AiFillCloseSquare
-                      className="close"
-                      id={i}
-                      onClick={() => this.handleStateChange(i)}
-                    />
-                  }
-                >
-                  {d.element}
-                </TabItem>
-              ))}
-            </DashTabs>
-          </div>
+          <Menu />
         </div>
       </>
     )
