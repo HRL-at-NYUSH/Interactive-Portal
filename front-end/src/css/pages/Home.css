@@ -23,12 +23,6 @@
   opacity: 0.4;
 }
 
-#test {
-  width: 60%;
-  height: auto;
-  margin-top: 2vh;
-}
-
 h {
   font-size: calc(55px + 3vmin);
   font-family: serif;
@@ -72,6 +66,15 @@ p1 {
   position: relative;
   max-width: 45%;
   margin-left: 20vh;
+}
+
+#title {
+  position: absolute;
+  text-align: center;
+  left: 10%;
+  width: 80%;
+  margin-top: 15vh;
+  color: #333333;
 }
 
 #decoration {
@@ -140,23 +143,60 @@ p1 {
 
 .App-content-3 {
   background-color: #f5f0dc;
-  min-height: 50vh;
+  top: 0;
+  z-index: -1;
+  position: sticky;
+  min-height: 92vh;
+  padding-top: 15vh;
+  padding-bottom: 3vh;
+  text-align: center;
+}
+
+.diagram-laryout {
+  background-color: transparent;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diagram-layout > img {
+  margin-right: 30px;
+}
+
+.textBox {
+  position: absolute;
+  width: 100%;
+  padding-top: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  text-align: center;
   justify-content: center;
-  color: black;
-  padding-top: 30vh;
 }
 
-#diagram-cell {
-  text-align: center;
-  margin: 30px;
+.textBox > div {
+  margin-right: 30px;
+}
+
+.title {
+  color: #333333;
+  margin-bottom: 80px;
+}
+
+.scrollingContent > div {
+  width: 40vw;
+  margin-left: 20px;
+  padding: 10px;
+  background-color: transparent;
+  margin-bottom: 300px;
+}
+
+.scrollingContent div:last-child {
+  margin-bottom: 0px;
 }
 
 #diagram {
-  position: relative;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -164,15 +204,14 @@ p1 {
 }
 
 #develop-info {
-  position: relative;
-  margin-top: 0;
+  width: 200px;
   line-height: 0%;
-  color: #8e8d8d;
+  color: #333333;
 }
 
 .App-content-4 {
   background-color: #f5f0dc;
-  min-height: 70vh;
+  min-height: 60vh;
   max-height: min-content;
   display: flex;
   flex-direction: row;
@@ -183,15 +222,6 @@ p1 {
   padding-left: 18%;
   padding-right: 18%;
   padding-bottom: 20vh;
-}
-
-#title {
-  position: absolute;
-  text-align: center;
-  left: 10%;
-  width: 80%;
-  margin-top: 15vh;
-  color: #333333;
 }
 
 .App-content > div {
@@ -248,15 +278,31 @@ p1 {
 }
 
 .App-footer {
+  height: 250px;
   background-color: #8e8d8d;
-  min-height: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   color: white;
-  padding-top: 30vh;
+}
+
+#left-box {
+  text-align: left;
+  font-family: serif;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+#right-box {
+  text-align: right;
+  font-family: serif;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 50px;
 }
 
 .App-footer > div {
-  margin: 0 100px;
+  width: 40%;
+  margin: 10%;
 }

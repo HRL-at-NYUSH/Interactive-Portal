@@ -1,5 +1,6 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect }from 'react'
+import * as d3 from "d3";
+import enterView from 'enter-view';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import '../../css/pages/Home.css'
@@ -24,17 +25,117 @@ import diagram5 from '../../images-src/diagram-5.jpeg'
 
 
 function Home() {
-  // useEffect(() => {
-  //   const scriptTag = document.createElement('script');
+  useEffect(() => {
 
-  //   scriptTag.src = "https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js";
-  //   scriptTag.async = true;
+    //d3 animation
+    let w = 1200
+    let h = 150;
+    let color = "#c0fdff";
+  
+    let viz = d3.select(".diagram-d3").append("svg")
+        .style("width", w)
+        .style("height", h)
+        .style("background-color", "transperant")
+        .style('margin-top', '30px')
+    ;
 
-  //   document.body.appendChild(scriptTag);
-  //   return () => {
-  //       document.body.removeChild(scriptTag);
-  //   }
-  // }, []);
+    let myData = [
+      [10, 50, 0, "#5daac9"],
+      [30, 50, 0, "white"],
+      [50, 50, 0, "#76769b"],
+      [70, 50, 0, "#dece73"],
+      [90, 50, 0, "#ffa876"]
+    ]
+
+    let xScale = d3.scaleLinear().domain([0, 100]).range([0, w]);
+    let yScale = d3.scaleLinear().domain([0, 100]).range([0, h]);
+    let rScale = d3.scaleLinear().domain([0, 100]).range([0, 50]);
+    
+    
+    let graphGroup = viz.append("g").attr("class", "graphGroup");
+    
+    function updateGraph(){
+    
+      let elements = graphGroup.selectAll(".datapoint").data(myData);
+    
+      let enteringElements = elements.enter();
+      let exitingElements = elements.exit();
+
+      enteringElements
+      .append("circle")
+        .attr("class", "datapoint")
+        .attr("cx", function(d, i){
+          let x = d[0]
+          return xScale(x)
+        })
+        .attr("cy", function(d, i){
+          let y = d[1]
+          return yScale(y)
+        })
+        .attr("r", function(d, i){
+          let r = d[2]
+          return rScale(r)
+        })
+        .attr("fill", function(d,i){
+          return d[3]
+        })
+        .attr("opacity", "0.5")
+    ;
+
+      elements
+      .transition()
+      .duration(700)
+      .attr("cx", function(d, i){
+        let x = d[0]
+        return xScale(x)
+      })
+      .attr("cy", function(d, i){
+        let y = d[1]
+        return yScale(y)
+      })
+      .attr("r", function(d, i){
+        let r = d[2]
+        return rScale(r)
+      })
+      .attr("fill", function(d,i){
+        return d[3]
+      })
+    ;
+    }
+  
+    
+    updateGraph();
+    
+    
+    
+    enterView({
+      selector: '.animation',
+      enter: function(el) {
+        myData[0][2] = 70
+        myData[1][2] = 100
+        myData[2][2] = 120
+        myData[3][2] = 150
+        myData[4][2] = 90
+        updateGraph();
+    
+      },
+      exit: function(el) {
+        myData[0][2] = 0
+        myData[1][2] = 0
+        myData[2][2] = 0
+        myData[3][2] = 0
+        myData[4][2] = 0
+        updateGraph();
+    
+      },
+      progress: function(el, progress) {
+        // console.log("progress");
+      },
+      offset: 0.3, 
+    });
+    
+
+  }, []);
 
 
   return (
@@ -88,47 +189,59 @@ function Home() {
               </div> 
         </div>
 
-        <div id="title"><h1>Development & More</h1></div>
+        <section>
 
         <div className="App-content-3">
-          <div id="diagram-cell">
+        
+          <div className="diagram-layout">
+            <div className="title"><h1>Development & Information</h1></div>
             <img src={diagram1} id='diagram'></img>
+            <img src={diagram2} id='diagram'></img>
+            <img src={diagram3} id='diagram'></img>
+            <img src={diagram4} id='diagram'></img>
+            <img src={diagram5} id='diagram'></img>
+          </div>
+          <div className="textBox">
             <div id="develop-info">
               <h3>23</h3>
-              <p>datasets</p>
+              <p> datasets</p>
             </div>
-          </div>
-          <div id="diagram-cell">
-            <img src={diagram2} id='diagram'></img>
             <div id="develop-info">
               <h3>10</h3>
               <p> publications</p>
             </div>
-          </div>
-          <div id="diagram-cell">
-            <img src={diagram3} id='diagram'></img>
             <div id="develop-info">
               <h3>5</h3>
               <p> universities</p>
             </div>
-          </div>
-          <div id="diagram-cell">
-            <img src={diagram4} id='diagram'></img>
             <div id="develop-info">
               <h3>51</h3>
               <p> contributors</p>
             </div>
-          </div>
-          <div id="diagram-cell">
-            <img src={diagram5} id='diagram'></img>
             <div id="develop-info">
               <h3>68</h3>
               <p> platforms</p>
             </div>
+           
           </div>
+    
+          <div className="diagram-d3">
+          </div>
+        
         </div>
 
-
+        <div class="scrollingContent">
+        <div>
+              <p class="animation"></p>
+            </div>
+            <div>
+              <p class=""></p>
+            </div>
+            <div>
+              <p class=""></p>
+            </div>
+        </div> 
+        </section>
 
         <div id="title"><h1>Team Members</h1></div>
 
@@ -178,9 +291,10 @@ function Home() {
         </div>
 
         <div className="App-footer">
-        <div><p1>HRL</p1></div>
-        <div><p1>email</p1></div>
-          <div><p1>copyright@2021</p1></div>
+        <div id="left-box">
+          <h1>NYU <br></br>Shanghai</h1>
+        </div>
+        <div id="right-box"><h2>copyright@2021</h2></div>
         </div>
     </div>
   );
