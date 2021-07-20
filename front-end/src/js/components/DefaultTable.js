@@ -2,12 +2,13 @@ const DefaultTable = ({ data }) => {
   const dataKeys = Object.keys(data[0]);
 
   return (
+    // <table className='min-w-max w-full table-fixed'>
     <table className='min-w-max w-full table-fixed'>
       {/* table head */}
       <thead>
         <tr className='bg-gray-200 text-gray-600 uppercase text-sm leading-normal'>
           {dataKeys.map((key) => (
-            <th className='py-3 text-center'>{key}</th>
+            <th className='py-3 px-1 text-center'>{key}</th>
           ))}
         </tr>
       </thead>
@@ -23,7 +24,7 @@ const DefaultTable = ({ data }) => {
               {/* iterate through data attributes each cell in each row*/}
               {dataKeys.map((dataKey) => {
                 return (
-                  <td key={`data-${i}-${dataKey}`} className='py-3 text-center'>
+                  <td key={`data-${i}-${dataKey}`} className='py-1 text-center'>
                     {datum[dataKey]}
                   </td>
                 );
