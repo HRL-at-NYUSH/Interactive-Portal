@@ -13,3 +13,5 @@ body {
   p {
     margin: 5px;
   }
+
+  .rows{display:flex; flex-direction:row;}

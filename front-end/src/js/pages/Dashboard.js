@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import '../../css/pages/Dashboard.css'
 import Menu from '../components/Menu'
 import Toggle from '../components/Toggle'
-import './styles.css'
+//import './styles.css'
 
 function Dashboard() {
   // const { category } = useParams()
@@ -13,8 +13,9 @@ function Dashboard() {
     <>
       <div>
         <h2 className="header-text">Dashboard page </h2>
-        <DashPanel />
-        <Menu />
+        <div className="rows">
+          <DashPanel />
+        </div>
       </div>
     </>
   )
