@@ -2,23 +2,29 @@ import '../../css/components/Menu.css'
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import Toggle from './Toggle'
+import ToggleSwitch from './ToggleSwitch'
 import DropdownMenu from './DropdownMenu'
+import ViewInsights from './ViewInsights'
 import CloseBtn from './CloseBtn'
 import { InboxIcon } from '@heroicons/react/solid'
+//next steps: get the user object
 
 function Search() {
+  let [isToggleOn, setToggle] = useState(false)
+  const onChange = (checked) => {
+    setToggle(checked)
+  }
   const labelDS = 'Select a Dataset'
   const labelGraph = 'Select a Graph'
   const labelX = 'X-axis'
   const labelY = 'Y-axis'
-  const [selectedDS, setSelectedDS] = useState('')
-  const [selectedGraph, setSelectedGraph] = useState('')
-  const [selectedX, setSelectedX] = useState('')
-  const [selectedY, setSelectedY] = useState('')
+  const [database, setDS] = useState('')
+  const [graph, setGraph] = useState('')
+  const [x, setX] = useState('')
+  const [y, setY] = useState('')
   const [selectedVariables, setVariables] = useState('')
   const [variableArray, setVariableArray] = useState([])
-  const chartNames = ['Graph1', 'Graph2']
+  const chartNames = ['Graph1', 'Graph2'] //need to add titles to graphs
   const variables = ['age', 'year', 'birthplace']
   const display = false
   const datasetNames = ['US Census', 'Restaurant Data']
@@ -39,8 +45,10 @@ function Search() {
     }
     return true
   }
-  function getVariables(string) {
-    let array = string.split(',')
+  function getVariables(str) {
+    let array = str.split(',')
+    setVariableArray(array)
+    /*
     let correct = []
     let incorrect = []
 
@@ -53,38 +61,42 @@ function Search() {
       }
     }
     setVariableArray(correct)
+    */
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    const graphObject = { graph, database, x, y }
+    console.log(graphObject)
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <Toggle />
+        <ToggleSwitch id="switch" checked={isToggleOn} onChange={onChange} />
+        {display ? <p>Toggle: {isToggleOn ? 'select' : 'query'}</p> : ''}
         <br />
 
         <DropdownMenu
-          selected={selectedGraph}
-          setSelected={setSelectedGraph}
+          selected={graph}
+          setSelected={setGraph}
           label={labelGraph}
           options={chartNames}
         />
         <br />
-        {display ? <p>Selected Graph is {selectedGraph}</p> : ''}
+        {display ? <p>Selected Graph is {graph}</p> : ''}
         <br />
         <DropdownMenu
-          selected={selectedDS}
-          setSelected={setSelectedDS}
+          selected={database}
+          setSelected={setDS}
           label={labelDS}
           options={datasetNames}
         />
         <br />
-        {display ? <p>Selected Dataset is {selectedDS}</p> : ''}
+        {display ? <p>Selected Dataset is {database}</p> : ''}
         <br />
         <p>
           Enter Variable names <br />
-          <i>For example: age, year, gender</i>
+          <i id="comment">For example: age, year, gender</i>
         </p>
         <input
           id="search-input"
@@ -92,25 +104,43 @@ function Search() {
           value={selectedVariables}
           onChange={(e) => setVariables(e.target.value)}
         ></input>
+        {/*
+        isToggleOn ? (
+          <input
+            id="search-input"
+            type="text"
+            value={selectedVariables}
+            onChange={(e) => setVariables(e.target.value)}
+          ></input>
+        ) : (
+          <DropdownMenu
+            selected={database}
+            setSelected={setDS}
+            label={labelDS}
+            options={datasetNames}
+          />
+        )
+        */}
         <div>
           <p>Selected Variables are {selectedVariables}</p>
           {
             //selectedVariables !== '' ? getVariables(selectedVariables) : ''
-            //{validate(selectedVariables)}
           }
         </div>
         <br />
         <DropdownMenu
-          selected={selectedX}
-          setSelected={setSelectedX}
+          selected={x}
+          setSelected={setX}
           label={'Select Variable for the X-axis'}
-          options={variables}
+          options={
+            variables //to be replaced with variableArray
+          }
         />
         <br />
         <DropdownMenu
           className="drop-axis"
-          selected={selectedY}
-          setSelected={setSelectedY}
+          selected={y}
+          setSelected={setY}
           label={'Select Variable for the Y-axis'}
           options={variables}
         />
@@ -127,13 +157,10 @@ function Menu() {
         <Tabs>
           <TabList>
             <Tab>
-              <p>Search</p>
+              <p className="menu-p">Search</p>
             </Tab>
             <Tab>
-              <p>View Insights</p>
-            </Tab>
-            <Tab>
-              <p>Export</p>
+              <p className="menu-p">View Insights</p>
             </Tab>
           </TabList>
 
@@ -145,12 +172,7 @@ function Menu() {
           </TabPanel>
           <TabPanel>
             <div className="panel-content">
-              <h2>Any content 2</h2>
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div className="panel-content">
-              <h2>Save</h2>
+              <ViewInsights />
             </div>
           </TabPanel>
         </Tabs>

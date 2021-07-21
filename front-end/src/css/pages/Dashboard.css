@@ -80,7 +80,7 @@ body {
 }
 .dropdown-menu .dropdown-btn-menu {
   padding: 15px 15px;
-  background: #cae1eb;
+  background: rgb(224, 236, 229);
   box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
   font-weight: bold;
   color: #333;
@@ -107,5 +107,5 @@ body {
   transition: all 0.2s;
 }
 .dropdown-menu .dropdown-content-menu .dropdown-item-menu:hover {
-  background: #a1dcf3;
+  background: rgb(206, 238, 218);
 }

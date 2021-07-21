@@ -55,14 +55,21 @@ a {
   height: 15px;
 }
 
+svg {
+  fill: #7fca99;
+}
 .dropdown {
   position: absolute;
   top: 171px;
   width: 120px;
   transform: translateX(-41%);
   background-color: rgb(233, 230, 230);
-  border: 1px solid #474a4d;
+  border: 1px solid darkgrey;
   overflow: hidden;
+}
+a.menu-item:hover {
+  color: darkgrey;
+  background-color: #ceeeda;
 }
 
 .menu-item {
@@ -90,4 +97,16 @@ a {
   padding: 0px;
   font-size: 1.5em;
   color: black;
+}
+
+.DashTabs_current__29bHk a {
+  color: rgb(112, 110, 110);
+}
+.DashTabs_current__29bHk {
+  border: 1px solid grey;
+  padding-left: auto;
+  padding-right: auto;
+  padding-bottom: 1%;
+  padding-top: 2%;
+  border: 0.2px solid grey;
 }

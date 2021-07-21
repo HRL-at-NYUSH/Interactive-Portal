@@ -4,14 +4,13 @@ import '../../../css/components/Graph.css'
 //temporary
 
 class BarChart extends React.Component {
-    render() {
-        return (
-            <div className="graph">
-                <p>Bar Chart</p>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="graph">
+        <p className="graph-title">Bar Chart</p>
+      </div>
+    )
+  }
 }
 
 export default BarChart
-

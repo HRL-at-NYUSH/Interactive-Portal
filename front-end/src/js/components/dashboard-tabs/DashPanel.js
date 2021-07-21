@@ -99,6 +99,7 @@ class DashPanel extends React.Component {
     return (
       <>
         <div className="rows">
+          <Menu />
           <div>
             <div>
               <DropNav>
@@ -173,7 +174,6 @@ class DashPanel extends React.Component {
               </DashTabs>
             </div>
           </div>
-          <Menu />
         </div>
       </>
     )
