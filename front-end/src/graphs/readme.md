@@ -20,4 +20,5 @@
 ## Design requirements:
 
 1. Please refer to the Graph Overview slides [here](https://docs.google.com/presentation/d/1PCT_KmKtl4cVDy2kbxht90w56cfO1XbcBfrrry4bJx0/edit#slide=id.p) to explore potential interactions for the graphs.
-2. Otherwise, you have full creative freedom!
+2. Please refer to the Plotly documentation for React [here](https://plotly.com/javascript/react/#plotlyjs-chart-types-and-attributes)
+3. Otherwise, you have full creative freedom!
