@@ -101,7 +101,7 @@ function ViewInsights() {
           }
         />
         {display ? <p>one is {one} </p> : ''}
-
+        <br />
         {one === 'gender' || two === 'gender' ? (
           <DropdownMenu
             className="drop-axis"
@@ -135,7 +135,6 @@ function ViewInsights() {
         ) : (
           ''
         )}
-
         {one === 'birthplace' || two === 'birthplace' ? (
           <DropdownMenu
             className="drop-axis"
