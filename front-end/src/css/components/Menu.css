@@ -1,0 +1,138 @@
+.Menu {
+  font-family: sans-serif;
+  margin-left: 0%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.toggle-cont {
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  height: "100px";
+}
+
+ul.react-tabs__tab-list {
+  margin-left: 0%;
+}
+.react-tabs {
+  display: flex;
+  width: 470px;
+  border: 1px solid #3c3e43;
+}
+
+.react-tabs__tab-list {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: #3c3e43;
+}
+
+.react-tabs__tab {
+  height: 70px;
+  list-style: none;
+  padding: 12px 6px;
+  cursor: pointer;
+  color: #bbb;
+}
+
+.react-tabs__tab--selected {
+  background: #1c1d1f;
+  border-color: #1c1d1f;
+  border-left: 4px solid #6eb800;
+  color: white;
+}
+p {
+  color: black;
+}
+.react-tabs__tab-panel {
+  display: none;
+  width: 300px;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}
+
+.react-tabs__tab {
+  padding-left: 24px;
+}
+
+.react-tabs__tab--selected {
+  padding-left: 21px;
+}
+
+.panel-content {
+  text-align: center;
+}
+
+#search-input {
+  width: 90%;
+  background-color: rgb(224, 236, 229);
+  padding: auto;
+  text-align: center;
+  margin: auto;
+  height: 50px;
+}
+
+.dialog {
+  display: inline-grid;
+  grid-template-columns: 90% 10%;
+  justify-items: center;
+  align-items: center;
+
+  background: white;
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+
+.dialog span {
+  padding: 1%;
+}
+
+.dialog button {
+  margin-right: 2%;
+  height: 24px;
+}
+
+.btn {
+  top: 110%;
+  left: 0;
+  padding: 7px;
+  background: rgb(127, 202, 153);
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 7%;
+  font-weight: 500;
+  color: white;
+  width: 35%;
+  margin-bottom: 3%;
+}
+
+.react-tabs__tab--selected {
+  background: rgb(206, 238, 218);
+}
+
+.react-tabs__tab--selected {
+  border-left: 6px solid rgb(127, 202, 153);
+}
+
+.react-tabs__tab--selected .menu-p {
+  color: rgb(112, 110, 110);
+}
+.react-tabs__tab-list {
+  background-color: #bbb;
+}
+#comment {
+  color: rgb(88, 85, 85);
+}
+
+.react-tabs {
+  border: 1px solid darkgrey;
+}
+
+.navbar {
+  border: 1px solid darkgrey;
+}
