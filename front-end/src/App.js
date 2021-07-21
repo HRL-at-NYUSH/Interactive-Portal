@@ -10,6 +10,7 @@ import Login from './js/pages/Login.js'
 import Signup from './js/pages/Signup.js'
 import SampleDataUse from './js/pages/SampleDataUse.js'
 import Dashboard from './js/pages/Dashboard'
+import GraphDisplay from './graphs/GraphDisplay'
 
 import LayoutWrapper from './js/components/LayoutWrapper'
 require('dotenv').config()
@@ -55,6 +56,7 @@ const App = () => {
               <Route path="/SampleDataUse" component={SampleDataUse} />
               <Route path="/questions" component={Questions} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/graphDisplay" component={GraphDisplay} />
             </Switch>
           </LayoutWrapper>
         </Router>
