@@ -11,10 +11,10 @@ function Dashboard() {
   // const { category } = useParams()
   return (
     <>
-      <div>
-        <h2 className="header-text">Dashboard page </h2>
-        <DashPanel />
-        <Menu />
+      <div className="dash-block">
+        <div className="rows">
+          <DashPanel />
+        </div>
       </div>
     </>
   )
