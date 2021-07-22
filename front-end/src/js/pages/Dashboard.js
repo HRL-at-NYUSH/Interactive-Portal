@@ -12,7 +12,9 @@ function Dashboard() {
   return (
     <>
       <div className="dash-block">
-        <HeaderText>Visualization Dashboard</HeaderText>
+        {/*
+           <HeaderText>Visualization Dashboard</HeaderText>
+           */}
         <div className="rows">
           <DashPanel />
         </div>

@@ -5,6 +5,7 @@ import Home from './js/pages/Home.js'
 import Data from './js/pages/Data.js'
 import Visualize from './js/pages/Visualize.js'
 import Questions from './js/pages/Questions.js'
+import Resources from './js/pages/Resources.js'
 import Profile from './js/pages/Profile.js'
 import Login from './js/pages/Login.js'
 import Signup from './js/pages/Signup.js'
@@ -54,7 +55,8 @@ const App = () => {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <Route path="/SampleDataUse" component={SampleDataUse} />
-              <Route path="/questions" component={Questions} />
+              <Route path="/Questions" component={Questions} />
+              <Route path="/Resources" component={Resources} />
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/graphDisplay" component={GraphDisplay} />
             </Switch>
