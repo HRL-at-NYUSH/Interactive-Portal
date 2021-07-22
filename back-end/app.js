@@ -1,46 +1,46 @@
 // import and instantiate express
-const express = require("express"); // CommonJS import style!
-const app = express(); // instantiate an Express object
-const axios = require("axios"); //library to handle API calls
-const mongoose = require("mongoose"); //library for connecting to mongodb
-const cors = require("cors"); //library for connecting frontend to backend
-const passport = require("passport"); //Auth library
-const cookiesession = require("cookie-session"); //library for cookies
-const session = require("express-session");
-const { OAuth2Client } = require("google-auth-library"); // auth library on backend to verify google users
-const client = new OAuth2Client(process.env.CLIENT_ID);
-require("./passport/passport-setup");
-require("dotenv").config({ silent: true }); //dotenv setup for authentication
+const express = require('express') // CommonJS import style!
+const app = express() // instantiate an Express object
+const axios = require('axios') //library to handle API calls
+const mongoose = require('mongoose') //library for connecting to mongodb
+const cors = require('cors') //library for connecting frontend to backend
+const passport = require('passport') //Auth library
+const cookiesession = require('cookie-session') //library for cookies
+const session = require('express-session')
+const { OAuth2Client } = require('google-auth-library') // auth library on backend to verify google users
+const client = new OAuth2Client(process.env.CLIENT_ID)
+require('./passport/passport-setup')
+require('dotenv').config({ silent: true }) //dotenv setup for authentication
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(session({ secret: "cats" }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(cors());
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(session({ secret: 'cats' }))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(cors())
 // app.use(
 //   cookiesession({
 //     name: "session",
 //     keys: ["key1", "key2"],
 //   })
 // );
-app.options("*", cors());
+app.options('*', cors())
 
 //home route
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.send(
-    "<div>Welcome to HRL!</div> <a href='/google'>Authenticate Here!</a>"
-  );
-});
+    "<div>Welcome to HRL!</div> <a href='/google'>Authenticate Here!</a>",
+  )
+})
 
 //Mock data routes
-const mockDataRouter = require("./routes/routeMockdata");
-app.use("/routeMockdata", mockDataRouter);
+const mockDataRouter = require('./routes/routeMockdata')
+app.use('/routeMockdata', mockDataRouter)
 
 //User routes
-const userRouter = require("./routes/routeUsers");
+const userRouter = require('./routes/routeUsers')
 // const { session } = require("passport");
-app.use("/routeUsers", userRouter);
+app.use('/routeUsers', userRouter)
 
 //Database connection
 
@@ -50,25 +50,25 @@ mongoose.connect(
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
-  () => console.log("Connected to the MongoDB database")
-);
+  () => console.log('Connected to the MongoDB database'),
+)
 
 //route displaying script API
-app.get("/example-api", (req, res, next) => {
+app.get('/example-api', (req, res, next) => {
   axios
     .get(`https://script.google.com/macros/s/${process.env.SCRIPT_API_ID}/exec`)
     .then((response) => {
-      res.json(response.data);
+      res.json(response.data)
     })
     .catch((err) => {
-      next(err);
-    });
-});
+      next(err)
+    })
+})
 
 //route displaying sample html page
-app.get("/search-page", (req, res) => {
-  res.sendFile("/public/index.html", { root: __dirname });
-});
+app.get('/search-page', (req, res) => {
+  res.sendFile('/public/index.html', { root: __dirname })
+})
 
 // -----ADDITIONAL AUTHENTICATION (TWO METHODS – MOST CURRENT IS ONLY UPDATED WITH PASSPORT)------
 
@@ -78,45 +78,45 @@ app.get("/search-page", (req, res) => {
 //   redirecting the user to google.com.  After authorization, Google
 //   will redirect the user back to this application at /auth/google/callback
 app.get(
-  "/google",
-  passport.authenticate("google", {
-    scope: ["https://www.googleapis.com/auth/plus.login"],
-  })
-);
+  '/google',
+  passport.authenticate('google', {
+    scope: ['https://www.googleapis.com/auth/plus.login'],
+  }),
+)
 
 // GET /auth/google/callback
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  If authentication fails, the user will be redirected to the failed page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the good page.
 app.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "/good",
-    failureRedirect: "/failed",
-  })
-);
+  '/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/good',
+    failureRedirect: '/failed',
+  }),
+)
 
 // middle function to check if logged in
 function isLoggedIn(req, res, next) {
-  req.user ? next() : res.sendStatus(401);
+  req.user ? next() : res.sendStatus(401)
 }
 
 // case of failure
-app.get("/failed", (req, res) => {
-  res.send("Login Failed");
-});
+app.get('/failed', (req, res) => {
+  res.send('Login Failed')
+})
 // case of success
-app.get("/good", isLoggedIn, (req, res) => {
-  console.log("THIS IS THE REQ", req.user);
-  res.send(`Login Successful, Welcome ${req.user.displayName}`);
-});
+app.get('/good', isLoggedIn, (req, res) => {
+  console.log('THIS IS THE REQ', req.user)
+  res.send(`Login Successful, Welcome ${req.user.displayName}`)
+})
 
 // logout route
-app.get("/logout", (req, res) => {
-  req.session = null;
-  req.logout();
-  res.redirect("/");
-});
+app.get('/logout', (req, res) => {
+  req.session = null
+  req.logout()
+  res.redirect('/')
+})
 
 // ADDITIONAL AUTH METHOD OPTION
 
@@ -146,6 +146,6 @@ app.get("/logout", (req, res) => {
 //     }
 // })
 
-module.exports = app;
+module.exports = app
 
-app.listen(4000, console.log("Express app listening on port 4000"));
+app.listen(4000, console.log('Express app listening on port 4000'))
