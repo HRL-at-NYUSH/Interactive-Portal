@@ -1,0 +1,49 @@
+.container {
+  display: inline-block;
+  justify-content: left;
+  align-items: left;
+}
+
+.tabs {
+  display: inline;
+  position: relative;
+  top: -40px;
+  width: 100px;
+  background: rgba(0, 0, 0, 0);
+  height: 10px;
+  list-style: none;
+  margin: 0;
+  min-width: 85%;
+  flex-shrink: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: inline-block;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.current {
+  /* background-color: ; */
+  background: #f1f3f5;
+  color: blue;
+  font-weight: bold;
+}
+
+.content {
+  width: 1000px;
+  height: max-content;
+  background: white;
+  padding: 10px;
+  padding-left: 60px;
+}
+.DashTabs_tabs__3a-Le li {
+  border: 1px solid darkgrey;
+}

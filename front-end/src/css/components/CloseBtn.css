@@ -1,0 +1,9 @@
+.content {
+  position: relative;
+  cursor: pointer;
+}
+.content p {
+  position: absolute;
+  top: -45px;
+  right: -9px;
+}

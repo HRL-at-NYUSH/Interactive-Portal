@@ -1,0 +1,112 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: black;
+  text-decoration-line: none;
+  text-align: center;
+}
+
+.navbar {
+  color: black;
+  height: 40px;
+  background-color: lightgrey;
+  padding: 0px 0px 5px 0px;
+  border-bottom: 1px solid #474a4d;
+}
+
+.navbar-nav {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button {
+  --button-size: 20px;
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: rgb(233, 230, 230);
+  border: 1px solid #474a4d;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.2);
+}
+
+.icon-button svg {
+  fill: black;
+  width: 15px;
+  height: 15px;
+}
+
+svg {
+  fill: #7fca99;
+}
+.dropdown {
+  position: absolute;
+  top: 171px;
+  width: 120px;
+  transform: translateX(-41%);
+  background-color: rgb(233, 230, 230);
+  border: 1px solid darkgrey;
+  overflow: hidden;
+}
+a.menu-item:hover {
+  color: darkgrey;
+  background-color: #ceeeda;
+}
+
+.menu-item {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: background 500ms;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.menu-item:hover {
+  background-color: rgb(247, 245, 245);
+}
+
+.close {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  font-size: 1.5em;
+  color: black;
+}
+
+.DashTabs_current__29bHk a {
+  color: rgb(112, 110, 110);
+}
+.DashTabs_current__29bHk {
+  border: 1px solid grey;
+  padding-left: auto;
+  padding-right: auto;
+  padding-bottom: 1%;
+  padding-top: 2%;
+  border: 0.2px solid grey;
+}

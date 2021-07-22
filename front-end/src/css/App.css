@@ -10,26 +10,6 @@
   color: red;
 }
 
-footer {
-  margin-top: 2em;
-  background-color: #262626;
-  width: 100%;
-  text-align: center;
-  position: static;
-  left: 0;
-  bottom: 0;
-  line-height: 50px;
-}
-
-.footer-links {
-  color: #acf39d;
-  padding: 0 10px 0 10px;
-}
-
-.footer-links:hover {
-  color: #3cdd1b;
-}
-
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;

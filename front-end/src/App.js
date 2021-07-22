@@ -10,8 +10,9 @@ import Login from './js/pages/Login.js'
 import Signup from './js/pages/Signup.js'
 import SampleDataUse from './js/pages/SampleDataUse.js'
 import Dashboard from './js/pages/Dashboard'
-import Navbar from './js/components/NavBar.js'
+import GraphDisplay from './graphs/GraphDisplay'
 
+import LayoutWrapper from './js/components/LayoutWrapper'
 require('dotenv').config()
 
 export const AuthContext = React.createContext()
@@ -44,36 +45,20 @@ const App = () => {
         */
       >
         <Router>
-          <Navbar />
-          <Switch>
-            <Route path="/Data">
-              <Data />
-            </Route>
-            <Route path="/Visualize">
-              <Visualize />
-            </Route>
-            <Route path="/Questions">
-              <Questions />
-            </Route>
-            <Route path="/Profile">
-              <Profile />
-            </Route>
-            <Route path="/Login">
-              <Login />
-            </Route>
-            <Route path="/Signup">
-              <Signup />
-            </Route>
-            <Route path="/SampleDataUse">
-              <SampleDataUse />
-            </Route>
-            <Route path="/Dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+          <LayoutWrapper>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/data" component={Data} />
+              <Route path="/visualize" component={Visualize} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/SampleDataUse" component={SampleDataUse} />
+              <Route path="/questions" component={Questions} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/graphDisplay" component={GraphDisplay} />
+            </Switch>
+          </LayoutWrapper>
         </Router>
       </AuthContext.Provider>
     </div>
