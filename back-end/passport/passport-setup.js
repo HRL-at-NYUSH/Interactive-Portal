@@ -39,28 +39,27 @@ passport.use(
       try {
         console.log(profile)
         //Check if email is already registered
-        const idExist = await User.findOne({ googleId: profile.id })
+        const idExist = await User.findOne({ google_id: profile.id })
         if (idExist) {
           return done(err, profile, {
             message: 'Email is already registered, log in instead',
           })
         } else {
+          //Construct a user object
+          const user = new User({
+            google_id: profile.id,
+            displayName: profile.displayName,
+            firstName: profile.name['givenName'],
+            lastName: profile.name['familyName'],
+            img: profile.photos[0]['value'],
+          })
+          console.log(user)
+          //Save user object to the database
+          await user.save()
+          return done(null, user, { message: 'Successful sign up' })
         }
 
-        //Construct a user object
-        const user = new User({
-          google_id: profile.id,
-          displayName: profile.displayName,
-          firstName: profile.name['givenName'],
-          lastName: profile.name['familyName'],
-          img: profile.photos[0]['value'],
-        })
-        console.log(user)
-        //Save user object to the database
-        await user.save()
-
         //Send the user information to the next middleware
-        return done(null, user, { message: 'Successful sign up' })
 
         //Return error message
       } catch (error) {
