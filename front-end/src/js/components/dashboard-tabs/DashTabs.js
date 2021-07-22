@@ -21,6 +21,7 @@ const DashTabs = ({ children }) => {
             return (
               <>
                 <li
+                  id="link"
                   key={tabName}
                   className={tabName === activeTab ? styles.current : ''}
                 >
