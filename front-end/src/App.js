@@ -1,20 +1,21 @@
-import './css/App.css';
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './js/pages/Home.js';
-import Data from './js/pages/Data.js';
-import Visualize from './js/pages/Visualize.js';
-import Questions from './js/pages/Questions.js';
-import Profile from './js/pages/Profile.js';
-import Login from './js/pages/Login.js';
-import Signup from './js/pages/Signup.js';
-import SampleDataUse from './js/pages/SampleDataUse.js';
-import Dashboard from './js/pages/Dashboard';
+import './css/App.css'
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from './js/pages/Home.js'
+import Data from './js/pages/Data.js'
+import Visualize from './js/pages/Visualize.js'
+import Questions from './js/pages/Questions.js'
+import Profile from './js/pages/Profile.js'
+import Login from './js/pages/Login.js'
+import Signup from './js/pages/Signup.js'
+import SampleDataUse from './js/pages/SampleDataUse.js'
+import Dashboard from './js/pages/Dashboard'
+import GraphDisplay from './graphs/GraphDisplay'
 
-import LayoutWrapper from './js/components/LayoutWrapper';
-require('dotenv').config();
+import LayoutWrapper from './js/components/LayoutWrapper'
+require('dotenv').config()
 
-export const AuthContext = React.createContext();
+export const AuthContext = React.createContext()
 
 const App = () => {
   /*
@@ -34,7 +35,7 @@ const App = () => {
   }, [])
 */
   return (
-    <div className='App'>
+    <div className="App">
       <AuthContext.Provider
       /*
         value={{
@@ -46,24 +47,22 @@ const App = () => {
         <Router>
           <LayoutWrapper>
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/profile' component={Profile} />
-              <Route path='/data' component={Data} />
-              <Route path='/visualize' component={Visualize} />
-              <Route path='/dashboard' component={Dashboard} />
-
-              <Route path='/login' component={Login} />
-              <Route path='/signup' component={Signup} />
-
-              <Route path='/SampleDataUse' component={SampleDataUse} />
-
-              <Route path='/questions' component={Questions} />
+              <Route exact path="/" component={Home} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/data" component={Data} />
+              <Route path="/visualize" component={Visualize} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/SampleDataUse" component={SampleDataUse} />
+              <Route path="/questions" component={Questions} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/graphDisplay" component={GraphDisplay} />
             </Switch>
           </LayoutWrapper>
         </Router>
       </AuthContext.Provider>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

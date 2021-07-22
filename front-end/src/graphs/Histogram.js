@@ -1,7 +1,7 @@
-import Plot from 'react-plotly.js';
+import Plot from 'react-plotly.js'
 
 const Histogram = ({ data, xAxisAttribute, title }) => {
-  console.log(data);
+  console.log(data)
   let layout = {
     autosize: true,
     // width: 500,
@@ -16,20 +16,20 @@ const Histogram = ({ data, xAxisAttribute, title }) => {
     title: title || 'Untitled',
     xaxis: { title: xAxisAttribute },
     yaxis: { title: 'Count' },
-  };
+  }
 
   let xData = data.map((d) => {
     if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === 'NULL') {
-      return 'UNKOWN';
+      return 'UNKOWN'
     }
-    return d[xAxisAttribute];
-  });
-  console.log(data);
-  console.log(xData);
+    return d[xAxisAttribute]
+  })
+  console.log(data)
+  console.log(xData)
 
   return (
     <Plot
-      className=''
+      className=""
       data={[
         {
           x: xData,
@@ -46,7 +46,7 @@ const Histogram = ({ data, xAxisAttribute, title }) => {
       ]}
       layout={layout}
     />
-  );
-};
+  )
+}
 
-export default Histogram;
+export default Histogram

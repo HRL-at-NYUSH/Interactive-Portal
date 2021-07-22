@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 //Important! Below the mock data is imported from the utils folder
-import { dataGeo, dataNonGeo } from '../utils/MockData.js';
-import Histogram from '../../graphs/Histogram';
-import HeaderText from '../components/HeaderText.js';
-import SelectBox from '../components/SelectBox.js';
-import DefaultTable from '../components/DefaultTable.js';
-import { useState } from 'react';
+import { dataGeo, dataNonGeo } from '../utils/MockData.js'
+import Histogram from '../../graphs/Histogram'
+import HeaderText from '../components/HeaderText.js'
+import SelectBox from '../components/SelectBox.js'
+import DefaultTable from '../components/DefaultTable.js'
+import { useState } from 'react'
 
 //Main component that displays the data and renders page html elements
 //Components in React can be in the form of functions, classes etc.
@@ -13,13 +13,13 @@ import { useState } from 'react';
 function SampleDataUse() {
   //Javascript code inside component. JS code can be also written inside brackets within the html code
   // See example below inside the DataDisplay component
-  const titleNonGeo = 'Using non-geospatial data';
-  const titleGeo = 'Using geospatial data';
+  const titleNonGeo = 'Using non-geospatial data'
+  const titleGeo = 'Using geospatial data'
 
-  const dataKeys = Object.keys(dataNonGeo[0]);
-  const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
+  const dataKeys = Object.keys(dataNonGeo[0])
+  const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }))
 
-  const [histoXAttr, setHistoXAttr] = useState('ID');
+  const [histoXAttr, setHistoXAttr] = useState('ID')
   //Below is the html code (return value)
   return (
     <>
@@ -28,18 +28,18 @@ function SampleDataUse() {
           A sample usage of the mock data and react components
         </HeaderText>
 
-        <div className='flex flex-wrap justify-between'>
-          <div className='rounded overflow-hidden shadow-lg m-auto p-4'>
+        <div className="flex flex-wrap justify-between">
+          <div className="rounded overflow-hidden shadow-lg m-auto p-4">
             <Histogram
               data={dataNonGeo}
               xAxisAttribute={histoXAttr}
               title={`People from Different ${histoXAttr}`}
             ></Histogram>
-            <div className=' text-center border-t-2 px-6 py-2'>
-              <div className=' font-bold text-xl py-2'>
+            <div className=" text-center border-t-2 px-6 py-2">
+              <div className=" font-bold text-xl py-2">
                 Histogram of Non-Geo Data
               </div>
-              <div className='m-auto w-64'>
+              <div className="m-auto w-64">
                 <SelectBox
                   data={selectBoxData}
                   onValueChange={setHistoXAttr}
@@ -66,7 +66,7 @@ function SampleDataUse() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default SampleDataUse;
+export default SampleDataUse
