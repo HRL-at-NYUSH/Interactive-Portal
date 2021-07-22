@@ -1,16 +1,20 @@
-.App {
+.App-home {
   min-height: 100vh;
+  background-color: #f5f0dc;
+  width: 100%;
 }
 
-.App-header {
+.App-header-home {
   background-color: #f5f0dc;
   min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   color: #333333;
   padding-top: 7vh;
   padding-bottom: 7vh;
+}
+
+.header-section {
+  margin-left: 3%;
+  background-color: #f5f0dc;
 }
 
 #background-pic {
@@ -23,12 +27,13 @@
   opacity: 0.4;
 }
 
-h {
+.h-title-home {
   font-size: calc(55px + 3vmin);
   font-family: serif;
   font-style: normal;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-left: 2%;
+  text-align: center;
 }
 
 h1 {
@@ -37,6 +42,7 @@ h1 {
   font-style: nor;
   font-weight: bold;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 h2 {
@@ -53,22 +59,25 @@ h3 {
   text-decoration: none;
 }
 
-p {
+.p-home {
   font-family: serif;
   font-size: calc(12px + 1vmin);
+  padding-top: 5%;
 }
-
 p1 {
   font-size: calc(8px + 1vmin);
 }
-
-#header-text {
-  position: relative;
-  max-width: 45%;
-  margin-left: 20vh;
+.p-home-title {
+  font-family: serif;
+  font-size: calc(12px + 2vmin);
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.header-text-home {
+  text-align: center;
 }
 
-#title {
+#title-home {
   position: absolute;
   text-align: center;
   left: 10%;
@@ -77,16 +86,37 @@ p1 {
   color: #333333;
 }
 
+#parent_div_1 {
+  width: 53%;
+  text-align: center;
+  float: left;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+#parent_div_2 {
+  width: 35%;
+  text-align: center;
+  float: left;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+}
+
 #decoration {
   position: absolute;
   background-color: transparent;
-  right: 0;
   top: 20vh;
 }
+#clear {
+  clear: both;
+}
 
-#logo {
-  width: 70%;
-  height: auto;
+#logo-home {
+  background-color: transparent;
+  top: 20vh;
+  width: 100%;
 }
 
 .App-content {
@@ -108,7 +138,7 @@ p1 {
   flex-direction: row;
   flex-wrap: nowrap;
   color: black;
-  padding-top: 30vh;
+  padding-top: 10vh;
   padding-left: 100px;
   padding-right: 100px;
   overflow: auto;
@@ -145,7 +175,7 @@ p1 {
   background-color: #f5f0dc;
   top: 0;
   z-index: -1;
-  position: sticky;
+  /*position: sticky;*/
   min-height: 92vh;
   padding-top: 15vh;
   padding-bottom: 3vh;
@@ -179,7 +209,7 @@ p1 {
   margin-right: 30px;
 }
 
-.title {
+.title-home {
   color: #333333;
   margin-bottom: 80px;
 }
@@ -196,7 +226,7 @@ p1 {
   margin-bottom: 0px;
 }
 
-#diagram {
+.diagram {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -218,7 +248,7 @@ p1 {
   flex-wrap: wrap;
   justify-content: center;
   color: black;
-  padding-top: 35vh;
+  padding-top: 10vh;
   padding-left: 18%;
   padding-right: 18%;
   padding-bottom: 20vh;
@@ -247,6 +277,7 @@ p1 {
 }
 
 #headshot {
+  max-width: 100%;
   position: relative;
   width: 200px;
   height: 200px;
