@@ -17,10 +17,11 @@ module.exports = {
         'Helvetica Neue',
       ],
       mono: ['ui-monospace', 'Menlo', 'Monaco', 'Consolas', 'Courier New'],
+      backgroundColor: '#3490dc',
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-};
+}
