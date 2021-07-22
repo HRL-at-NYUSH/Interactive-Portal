@@ -53,9 +53,9 @@ passport.use(
           displayName: profile.displayName,
           firstName: profile.name['givenName'],
           lastName: profile.name['familyName'],
-          img: profile.photos['value'],
+          img: profile.photos[0]['value'],
         })
-
+        console.log(user)
         //Save user object to the database
         await user.save()
 
