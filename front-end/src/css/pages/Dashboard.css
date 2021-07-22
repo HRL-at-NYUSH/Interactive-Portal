@@ -55,12 +55,6 @@
     font-size: 22px;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
 body {
   background: #fcfcfc;
 }
@@ -108,4 +102,38 @@ body {
 }
 .dropdown-menu .dropdown-content-menu .dropdown-item-menu:hover {
   background: rgb(206, 238, 218);
+}
+
+.rows {
+  display: flex;
+  flex-direction: row;
+}
+.dash-block {
+  margin-left: 0%;
+}
+
+.drop-label {
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #89c9ac;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #46a98a;
 }

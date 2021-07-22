@@ -10,6 +10,7 @@ import HeatMap from './HeatMap'
 import LineGraph from './LineGraph'
 import ScatterPlot from './ScatterPlot'
 import StackedBarChart from './StackedBarChart'
+import './GraphDisplay.css'
 
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { useState } from 'react'

@@ -1,20 +1,14 @@
 .App-home {
   min-height: 100vh;
-  background-color: #f5f0dc;
+  /*background-color: #f5f0dc;*/
   width: 100%;
 }
 
 .App-header-home {
-  background-color: #f5f0dc;
   min-height: 60vh;
   color: #333333;
   padding-top: 7vh;
   padding-bottom: 7vh;
-}
-
-.header-section {
-  margin-left: 3%;
-  background-color: #f5f0dc;
 }
 
 #background-pic {
@@ -28,7 +22,7 @@
 }
 
 .h-title-home {
-  font-size: calc(55px + 3vmin);
+  font-size: calc(55px + 1vmin);
   font-family: serif;
   font-style: normal;
   font-weight: bold;
@@ -36,16 +30,17 @@
   text-align: center;
 }
 
-h1 {
+.title {
+  margin-top: 20vh;
   font-size: calc(25px + 2vmin);
   font-family: serif;
   font-style: nor;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 1%;
   text-align: center;
 }
 
-h2 {
+.home-h2 {
   font-size: calc(9px + 1vmin);
   font-style: italic;
   font-weight: bold;
@@ -61,7 +56,7 @@ h3 {
 
 .p-home {
   font-family: serif;
-  font-size: calc(12px + 1vmin);
+  font-size: calc(12px + 0.8vmin);
   padding-top: 5%;
 }
 p1 {
@@ -69,9 +64,7 @@ p1 {
 }
 .p-home-title {
   font-family: serif;
-  font-size: calc(12px + 2vmin);
-  padding-left: 20%;
-  padding-right: 20%;
+  font-size: calc(12px + 1.2vmin);
 }
 .header-text-home {
   text-align: center;
@@ -92,16 +85,16 @@ p1 {
   float: left;
   padding-top: 7vh;
   padding-bottom: 7vh;
-  padding-left: 3%;
   padding-right: 3%;
 }
 
 #parent_div_2 {
-  width: 35%;
+  width: 40%;
   text-align: center;
   float: left;
   padding-top: 7vh;
   padding-bottom: 7vh;
+  padding-left: 3%;
 }
 
 #decoration {
@@ -120,19 +113,17 @@ p1 {
 }
 
 .App-content {
-  background-color: #f5f0dc;
   min-height: 70vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  padding-top: 4vh;
   align-content: center;
   justify-content: center;
   color: black;
-  padding-top: 20vh;
 }
 
 .App-content-2 {
-  background-color: #f5f0dc;
   min-height: 60vh;
   display: flex;
   flex-direction: row;
@@ -172,12 +163,10 @@ p1 {
 }
 
 .App-content-3 {
-  background-color: #f5f0dc;
   top: 0;
   z-index: -1;
   /*position: sticky;*/
-  min-height: 92vh;
-  padding-top: 15vh;
+  padding-top: 10vh;
   padding-bottom: 3vh;
   text-align: center;
 }
@@ -196,7 +185,6 @@ p1 {
 }
 
 .textBox {
-  position: absolute;
   width: 100%;
   padding-top: 50px;
   display: flex;
@@ -231,16 +219,15 @@ p1 {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
+  display: inline;
 }
 
 #develop-info {
   width: 200px;
-  line-height: 0%;
   color: #333333;
 }
 
 .App-content-4 {
-  background-color: #f5f0dc;
   min-height: 60vh;
   max-height: min-content;
   display: flex;

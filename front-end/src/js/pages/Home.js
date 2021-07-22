@@ -125,28 +125,8 @@ function Home() {
 
   return (
     <div className="App-home">
-      {/*
-      <div className="header-section">
-        <header className="App-header-home">
-          
-          <h className="header-text-home">History beyond the New York City</h>
-          <p className="header-text-home">
-            History Beyond gives undergraduate students experiences in
-            undertaking independent historical research. The course encourages
-            students to think creatively and boldly, to negotiate past
-            difficulties in collaboration, and to learn from setbacks.
-          </p>
-        </header>
-
-        <div id="decoration">
-          <img src={logo} id="logo-home"></img>
-        </div>
-      </div>
-     */}
       <div className="header-section">
         <div id="parent_div_1">
-          {/* <img src={pic} id="background-pic"></img> */}
-
           <h className="h-title-home">History beyond the New York City</h>
           <br />
           <p className="p-home-title">
@@ -162,8 +142,8 @@ function Home() {
         </div>
         <div id="clear"></div>
       </div>
-      <div id="title-home">
-        <h1>What is HRL?</h1>
+      <div>
+        <h1 className="title">What is HRL?</h1>
       </div>
       <div className="App-content">
         <div>
@@ -198,14 +178,14 @@ function Home() {
         </div>
       </div>
 
-      <div className="title">
-        <h1>Course & Highlights</h1>
+      <div>
+        <h1 className="title">Course & Highlights</h1>
       </div>
       <div className="App-content-2">
         <div class="gallery-cell">
           <img src={highlight1} id="eventImg"></img>
           <div id="event-info">
-            <h2>revisit the history</h2>
+            <h2 className="home-h2">revisit the history</h2>
             <p1>
               {' '}
               those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
@@ -216,7 +196,7 @@ function Home() {
         <div class="gallery-cell">
           <img src={highlight2} id="eventImg"></img>
           <div id="event-info">
-            <h2>man of the time</h2>
+            <h2 className="home-h2">man of the time</h2>
             <p1>
               {' '}
               those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
@@ -227,7 +207,7 @@ function Home() {
         <div class="gallery-cell">
           <img src={highlight3} id="eventImg"></img>
           <div id="event-info">
-            <h2>revisit the history</h2>
+            <h2 className="home-h2">revisit the history</h2>
             <p1>
               {' '}
               those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
@@ -238,7 +218,7 @@ function Home() {
         <div class="gallery-cell">
           <img src={highlight4} id="eventImg"></img>
           <div id="event-info">
-            <h2>man of the time</h2>
+            <h2 className="home-h2">man of the time</h2>
             <p1>
               {' '}
               those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
@@ -249,11 +229,11 @@ function Home() {
       </div>
 
       <section>
+        <div>
+          <h1 className="title">Development & Information</h1>
+        </div>
         <div className="App-content-3">
           <div className="diagram-layout">
-            <div className="title">
-              <h1>Development & Information</h1>
-            </div>
             <img src={diagram1} className="diagram"></img>
             <img src={diagram2} className="diagram"></img>
             <img src={diagram3} className="diagram"></img>
@@ -282,70 +262,71 @@ function Home() {
               <p> platforms</p>
             </div>
           </div>
-
-          <div className="diagram-d3"></div>
         </div>
       </section>
 
-      <div className="title">
-        <h1>Team Members</h1>
+      <div>
+        <h1 className="title">Team Members</h1>
       </div>
 
       <div className="App-content-4">
         <div id="profile">
           <img src={headshot1} id="headshot"></img>
           <div id="introduction">
-            <h2>Carmen</h2>
+            <h2 className="home-h2">Carmen</h2>
             <p1> Data Scientist</p1>
           </div>
         </div>
         <div id="profile">
           <img src={headshot2} id="headshot"></img>
           <div id="introduction">
-            <h2>Bob</h2>
+            <h2 className="home-h2">Bob</h2>
             <p1> Decision Support Analyst</p1>
           </div>
         </div>
         <div id="profile">
           <img src={headshot3} id="headshot"></img>
           <div id="introduction">
-            <h2>Lisa</h2>
+            <h2 className="home-h2">Lisa</h2>
             <p1>Network Management Specialist</p1>
           </div>
         </div>
         <div id="profile">
           <img src={headshot4} id="headshot"></img>
           <div id="introduction">
-            <h2>Alex</h2>
+            <h2 className="home-h2">Alex</h2>
             <p1> Software Product Manager</p1>
           </div>
         </div>
         <div id="profile">
           <img src={headshot5} id="headshot"></img>
           <div id="introduction">
-            <h2>Cara</h2>
+            <h2 className="home-h2">Cara</h2>
             <p1> UX Designer</p1>
           </div>
         </div>
         <div id="profile">
           <img src={headshot6} id="headshot"></img>
           <div id="introduction">
-            <h2>Jenny</h2>
+            <h2 className="home-h2">Jenny</h2>
             <p1>Tech Intern</p1>
           </div>
         </div>
       </div>
-
-      <div className="App-footer">
-        <div id="left-box">
-          <h1>
-            NYU <br></br>Shanghai
-          </h1>
+      {
+        //put it later in the footer
+        /*
+          
+          <div className="App-footer">
+          <div id="left-box">
+            <h1 className="title">NYU Shanghai</h1>
+          </div>
+          <div id="right-box">
+            <h2 className="home-h2">copyright@2021</h2>
+          </div>
         </div>
-        <div id="right-box">
-          <h2>copyright@2021</h2>
-        </div>
-      </div>
+          */
+      }
     </div>
   )
 }

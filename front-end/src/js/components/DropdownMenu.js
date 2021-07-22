@@ -4,7 +4,7 @@ function DropdownMenu({ selected, setSelected, label, options }) {
   const [isActive, setIsActive] = useState(false)
   return (
     <div className="dropdown-menu">
-      <p>{label}</p>
+      <p className="drop-label">{label}</p>
       <div
         className="dropdown-btn-menu"
         onClick={(e) => setIsActive(!isActive)}
