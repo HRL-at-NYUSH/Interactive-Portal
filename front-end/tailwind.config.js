@@ -2,7 +2,20 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        accent: {
+          DEFAULT: '#7FCFD6', // CYAN - for button, bar, underline
+          darker: '#51A0D6', // CYAN-BLUE - hover
+        },
+        tertiary: {
+          1: '#4FD37E', // TEALISH GREEN
+          2: '#FBE105', // YELLOW
+          3: '#FB8B0C', // ORANGE
+          4: '#6F3DCA', // BLUISH PURPLE
+        },
+      },
+    },
     fontFamily: {
       sans: [
         'ui-sans-serif',
@@ -17,11 +30,10 @@ module.exports = {
         'Helvetica Neue',
       ],
       mono: ['ui-monospace', 'Menlo', 'Monaco', 'Consolas', 'Courier New'],
-      backgroundColor: '#3490dc',
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};
