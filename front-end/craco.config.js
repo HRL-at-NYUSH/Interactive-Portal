@@ -10,6 +10,10 @@ module.exports = {
         aliases: {
           '@components': './src/components',
           '@pages': './src/pages',
+          '@data': './src/data',
+          '@assets': './src/assets',
+          '@graphs': './src/graphs',
+          '@utils': './src/utils',
 
           // you can alias packages too
           // "@material-ui": "./node_modules/@material-ui-ie10"

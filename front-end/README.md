@@ -1,14 +1,14 @@
 # Front-end notes
 
-## Week 1:
+## Week 1
 
 Welcome to the HRL Interactive Portal team! You are contributing to a high impact project with potentially hundreds of users from NYU Shanghai community and beyond! This will look great on your CV ^-^ Good luck!
 
 View git workflow recorded tutorial, install React and complete the exercise. For troubleshooting, reach out to Alma or Sarah.
 
-## Week 2:
+## Week 2
 
-**Mock JS data**
+### Mock JS data
 
 Mock JS data is uploaded in the [utils](https://docs.google.com/forms/d/e/1FAIpQLScHZWErUzf4Va2pIp-jfaT0APpLI42g3VxjmACjSkuPjB2OMQ/viewform?usp=sf_link) folder - you can start playing with the data!
 There are two files: MockNonGeo.js and MockGeo.js. <br/>
