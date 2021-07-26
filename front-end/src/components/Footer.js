@@ -4,20 +4,13 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/solid';
 
 function Footer() {
   return (
-    <footer className='sticky bottom-0 py-6'>
-      <div className='ml-auto flex items-center justify-end text-base '>
-        <Link
-          href='/questions'
-          className='group whitespace-nowrap inline-flex items-center justify-center px-4 py-4 border border-transparent rounded-full shadow-lg bg-gray-200'
-        >
-          <QuestionMarkCircleIcon className='w-8 h-8 fill-current text-accent group-hover:text-accent-darker'></QuestionMarkCircleIcon>
-          <div className='hidden sm:block lg:hidden ml-2 text-base font-medium text-gray-500 group-hover:text-gray-600'>
-            FAQs
-          </div>
-          <div className='hidden lg:block ml-2 text-base font-medium text-gray-500 group-hover:text-gray-600'>
-            Frequently Asked Questions
-          </div>
-        </Link>
+    <footer className='mt-6 px-4 md:px-32 py-12 bg-gray-200 '>
+      <div className='grid grid-cols-2 pb-8'>
+        <div>Logo</div>
+        <div>
+          <div>New York University Shanghai</div>
+          <div>1555 Century Avenue, Shanghai, China</div>
+        </div>
       </div>
     </footer>
   );
