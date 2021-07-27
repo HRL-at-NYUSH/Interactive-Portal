@@ -25,4 +25,5 @@ You should see the line 'Connected to the MongoDB database' in your terminal aft
 - Then, navigate to the 'Collections' tab and choose the 'mockdata' collection. 
 - Inside the 'mockdata' collection, choose the 'usersG' subcollection.
 - Finally, inside the 'usersG' subcollection, you should be able to see a user object with your provided nyu email address (see an example account below):
-[example object image](./images/example_profile.png)
+
+[example object image](./images/example_object.png)
