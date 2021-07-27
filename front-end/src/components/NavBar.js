@@ -2,7 +2,7 @@ import React from 'react';
 import Link from './Link';
 import headerNavLinks from '@data/headerNavLinks';
 import MobileNav from './MobileNav';
-import { useLocation } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router-dom';
 
 const NavBar = ({ isFixed }) => {
   const location = useLocation();
@@ -54,7 +54,7 @@ const NavBar = ({ isFixed }) => {
               href={link.href}
               className={`transition p-1 sm:p-4 whitespace-nowrap
               ${
-                location.pathname === link.href
+                !!matchPath(location.pathname, link.href)
                   ? 'text-gray-900 font-bold'
                   : 'text-gray-600 font-medium'
               } 
