@@ -1,40 +1,27 @@
-const DefaultTable = ({ data }) => {
-  const dataKeys = Object.keys(data[0]);
+// table usage, see https://www.npmjs.com/package/react-data-table-component
+import DataTable from 'react-data-table-component';
 
-  return (
-    // <table className='min-w-max w-full table-fixed'>
-    <table className='min-w-max w-full table-fixed'>
-      {/* table head */}
-      <thead>
-        <tr className='bg-gray-200 text-gray-600 uppercase text-sm leading-normal'>
-          {dataKeys.map((key) => (
-            <th className='py-3 px-1 text-center'>{key}</th>
-          ))}
-        </tr>
-      </thead>
+const DefaultTable = (props) => {
+  let newProps = { ...props };
 
-      <tbody className='text-gray-600 text-sm font-semibold'>
-        {/* iterate through data items for each row*/}
-        {data.map((datum, i) => {
-          return (
-            <tr
-              key={`data-${i}`}
-              className='border-b border-gray-200 hover:bg-gray-100'
-            >
-              {/* iterate through data attributes each cell in each row*/}
-              {dataKeys.map((dataKey) => {
-                return (
-                  <td key={`data-${i}-${dataKey}`} className='py-1 text-center'>
-                    {datum[dataKey]}
-                  </td>
-                );
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  );
+  // if there is no columns passed
+  // create a columns prop with the keys of #1 element in data
+  if (!props.columns && props.data) {
+    newProps.columns = Object.keys(props.data[0]).map((k) => ({
+      name: k,
+      selector: k,
+      wrap: true,
+      overflow: false,
+      sortable: true,
+    }));
+  }
+
+  // by DEFAULT, we enable pagination
+  if (typeof newProps.pagination === 'undefined') {
+    newProps.pagination = true;
+  }
+
+  return <DataTable {...newProps}></DataTable>;
 };
 
 export default DefaultTable;
