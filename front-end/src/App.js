@@ -57,9 +57,9 @@ const App = () => {
               <Route path='/visualize' component={Visualize} />
               <Route path='/login' component={Login} />
               <Route path='/signup' component={Signup} />
-              <Route path='/SampleDataUse' component={SampleDataUse} />
-              <Route path='/Questions' component={Questions} />
-              <Route path='/Resources' component={Resources} />
+              <Route path='/sample-data-use' component={SampleDataUse} />
+              <Route path='/questions' component={Questions} />
+              <Route path='/resources' component={Resources} />
               <Route path='/dashboard' component={Dashboard} />
               <Route path='/graphDisplay' component={GraphDisplay} />
             </Switch>
