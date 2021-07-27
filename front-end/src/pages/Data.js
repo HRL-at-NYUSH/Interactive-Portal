@@ -2,7 +2,7 @@ import { useState } from 'react';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '../components/SelectBox.js';
 import { Switch, Route, useRouteMatch } from 'react-router';
-import CustomLink from '@components/Link';
+import Link from '@components/Link';
 import { dataGeo, dataNonGeo } from '../utils/MockData.js';
 import DefaultTable from '../components/DefaultTable.js';
 
@@ -45,12 +45,12 @@ const Description = () => {
       </div>
 
       <div className='mt-4'>
-        <CustomLink
+        <Link
           className=' text-lg  m-auto border-2 rounded p-2 hover:text-gray-400'
           href='#'
         >
           Learn More
-        </CustomLink>
+        </Link>
       </div>
     </div>
   );
@@ -122,12 +122,12 @@ const DatasetProduction = () => {
             <div className='text-lg leading-8 font-bold'>{method.name}</div>
             {method.description}
             <div className='m-4'>
-              <CustomLink
+              <Link
                 className=' m-auto border-2 rounded p-2 hover:text-gray-400'
                 href={method.url}
               >
                 Learn More
-              </CustomLink>
+              </Link>
             </div>
           </div>
         );
@@ -178,12 +178,12 @@ const Variables = () => {
         );
       })}
       <div className='m-4'>
-        <CustomLink
+        <Link
           className=' m-auto border-2 rounded p-2 hover:text-gray-400'
           href='#'
         >
           Learn More
-        </CustomLink>
+        </Link>
       </div>
     </div>
   );
@@ -210,30 +210,30 @@ const Data = ({ match: { path, url } }) => {
 
       <div className='flex flex-col flex-wrap text-center border-2 rounded shadow-md p-4 m-4'>
         <div className='flex justify-around border-b-2'>
-          <CustomLink
+          <Link
             className='text-lg p-4 leading-4 hover:text-gray-400'
             href={url + '/description'}
           >
             Description
-          </CustomLink>
-          <CustomLink
+          </Link>
+          <Link
             className='text-lg p-4 leading-4 m-auto hover:text-gray-400'
             href={url + '/data-sources'}
           >
             Data Sources
-          </CustomLink>
-          <CustomLink
+          </Link>
+          <Link
             className='text-lg p-4 leading-4 m-auto hover:text-gray-400'
             href={url + '/dataset-production'}
           >
             Dataset Production
-          </CustomLink>
-          <CustomLink
+          </Link>
+          <Link
             className='text-lg p-4 leading-4 m-auto hover:text-gray-400'
             href={url + '/variables'}
           >
             Variables
-          </CustomLink>
+          </Link>
         </div>
 
         <div className='mt-4'>
