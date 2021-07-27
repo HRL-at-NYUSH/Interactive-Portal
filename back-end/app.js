@@ -29,6 +29,12 @@ app.options('*', cors())
 //home route
 app.get('/', (req, res) => {
   res.send(
+    "Welcome to HRL Express app!",
+  )
+})
+
+app.get('/login', (req, res) => {
+  res.send(
     "<div>Welcome to HRL!</div> <a href='/google'>Authenticate Here!</a>",
   )
 })
