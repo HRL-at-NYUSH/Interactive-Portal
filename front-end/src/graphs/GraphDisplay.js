@@ -77,12 +77,12 @@ function GraphDisplay() {
                 BoxPlot of Non-Geo Data
               </div>
               <div className='m-auto w-64'>
-                Set X Attribute
+                Set X Attribute <br></br>(should be qualitative)
                 <SelectBox
                   data={selectBoxData}
                   onValueChange={setBoxPlotXAttr}
                 />
-                Set Y Attribute
+                Set Y Attribute <br></br> (should be quantitative)
                 <SelectBox
                   data={selectBoxData}
                   onValueChange={setBoxPlotYAttr}
