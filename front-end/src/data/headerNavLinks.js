@@ -4,7 +4,8 @@ const headerNavLinks = [
   { href: '/visualize', title: 'Visualize' },
   { href: '/dashboard', title: 'Dashboard' },
   { href: '/resources', title: 'Resources' },
-  { href: '/sample-data-use', title: 'Sample Data Use' },
+  { href: '/questions', title: 'FAQs' },
+  { href: '/sample-data-use', title: 'Sample' },
   { href: '/graphDisplay', title: 'Graphs' },
 ];
 

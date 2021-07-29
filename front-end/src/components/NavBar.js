@@ -47,7 +47,7 @@ const NavBar = ({ isFixed }) => {
         </Link>
       </div>
       <div className='flex items-center flex-wrap text-lg leading-5'>
-        <div className='hidden sm:block'>
+        <div className='hidden lg:block'>
           {headerNavLinks.map((link) => (
             <Link
               key={link.title}
