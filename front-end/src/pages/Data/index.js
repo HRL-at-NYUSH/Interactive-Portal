@@ -53,9 +53,9 @@ const Data = ({ match: { path, url } }) => {
         ></SelectBox>
       </div>
 
-      <div className='flex flex-col flex-wrap text-center border-2 rounded shadow-md p-4 m-4'>
+      <div className='flex flex-col flex-wrap text-center border-2 border-gray-200 border-solid rounded shadow-md p-4 m-4'>
         {/* links to different tab routes */}
-        <div className='flex justify-around border-b-2'>
+        <div className='flex justify-around pb-2 border-b-2 border-gray-200 border-solid'>
           {localRoutes.map((route) => {
             console.log(path, url + route.href);
 
