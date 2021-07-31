@@ -112,14 +112,16 @@ function GraphDisplay() {
                 BoxPlot of Non-Geo Data
               </div>
               <div className='m-auto w-64'>
-                Set X Attribute <br></br>(should be qualitative)
-                <SelectBox
-                  data={selectBoxData}
+                <DataSelection
+                  title={'Set X Attribute'}
+                  options={USCensusMetadata}
+                  dataType={'categorical'}
                   onValueChange={setBoxPlotXAttr}
                 />
-                Set Y Attribute <br></br> (should be quantitative)
-                <SelectBox
-                  data={selectBoxData}
+                <DataSelection
+                  title={'Set Y Attribute'}
+                  options={USCensusMetadata}
+                  dataType={'numerical'}
                   onValueChange={setBoxPlotYAttr}
                 />
               </div>
