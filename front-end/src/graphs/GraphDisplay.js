@@ -1,9 +1,11 @@
 import React from 'react';
 //Important! Below the mock data is imported from the utils folder
-import { dataGeo, dataNonGeo } from '../utils/MockData.js';
+import { USCensusMetadata, dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
+
+import DataSelection from '@graphs/components/DataSelection.js';
 
 import BarChart from './BarChart';
 import BoxPlot from './BoxPlot';
@@ -27,7 +29,7 @@ function GraphDisplay() {
   const [histoXAttr, setHistoXAttr] = useState('ID');
 
   const [boxPlotXAttr, setBoxPlotXAttr] = useState('ID');
-  const [boxPlotYAttr, setBoxPlotYAttr] = useState('ID');
+  const [boxPlotYAttr, setBoxPlotYAttr] = useState('Time');
 
   //Below is the html code (return value)
   return (
@@ -77,14 +79,16 @@ function GraphDisplay() {
                 BoxPlot of Non-Geo Data
               </div>
               <div className='m-auto w-64'>
-                Set X Attribute <br></br>(should be qualitative)
-                <SelectBox
-                  data={selectBoxData}
+                <DataSelection
+                  title={'Set X Attribute'}
+                  options={USCensusMetadata}
+                  dataType={'categorical'}
                   onValueChange={setBoxPlotXAttr}
                 />
-                Set Y Attribute <br></br> (should be quantitative)
-                <SelectBox
-                  data={selectBoxData}
+                <DataSelection
+                  title={'Set Y Attribute'}
+                  options={USCensusMetadata}
+                  dataType={'numerical'}
                   onValueChange={setBoxPlotYAttr}
                 />
               </div>
