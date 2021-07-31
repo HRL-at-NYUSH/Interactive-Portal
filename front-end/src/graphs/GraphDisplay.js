@@ -55,10 +55,11 @@ function GraphDisplay() {
                 Histogram of Non-Geo Data
               </div>
               <div className='m-auto w-64'>
-                <SelectBox
-                  data={selectBoxData}
+                <DataSelection
+                  options={USCensusMetadata}
+                  type={''}
                   onValueChange={setHistoXAttr}
-                ></SelectBox>
+                ></DataSelection>
               </div>
             </div>
           </div>
