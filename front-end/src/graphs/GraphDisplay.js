@@ -95,38 +95,6 @@ function GraphDisplay() {
               </div>
             </div>
           </div>
-
-          <div className='rounded-lg overflow-hidden shadow-lg m-auto p-4 bg-white'>
-            <div className='w-1/2 text-3xl text-center font-bold border-b-2 p-2 m-auto'>
-              Box Plot
-            </div>
-            <BoxPlot
-              data={dataNonGeo}
-              xAxisAttribute={boxPlotXAttr}
-              yAxisAttribute={boxPlotYAttr}
-              title={`People with Different ${boxPlotYAttr} in Different ${boxPlotXAttr} Groups`}
-            ></BoxPlot>
-
-            <div className='text-center border-t-2 py-2'>
-              <div className='font-bold text-xl py-2'>
-                BoxPlot of Non-Geo Data
-              </div>
-              <div className='m-auto w-64'>
-                <DataSelection
-                  title={'Set X Attribute'}
-                  options={USCensusMetadata}
-                  dataType={'categorical'}
-                  onValueChange={setBoxPlotXAttr}
-                />
-                <DataSelection
-                  title={'Set Y Attribute'}
-                  options={USCensusMetadata}
-                  dataType={'numerical'}
-                  onValueChange={setBoxPlotYAttr}
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>
