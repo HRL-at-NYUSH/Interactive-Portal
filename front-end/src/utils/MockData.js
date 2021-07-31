@@ -1,3 +1,20 @@
+const USCensusMetadata = [
+  { name: 'ID', type: 'categorical' },
+  { name: 'Time', type: 'numerical' },
+  { name: 'Person', type: 'categorical' },
+  { name: 'Company', type: 'categorical' },
+  { name: 'Name', type: 'categorical' },
+  { name: 'Occupation', type: 'categorical' },
+  { name: 'Address', type: 'categorical' },
+  { name: 'Birthplace', type: 'categorical' },
+  { name: 'State', type: 'categorical' },
+  { name: 'Gender', type: 'categorical' },
+  { name: 'Age', type: 'numerical' },
+  { name: 'Immigration_year', type: 'numerical' },
+  { name: 'Latitude', type: 'numerical' },
+  { name: 'Longitude', type: 'numerical' },
+];
+
 const dataGeo = [
   {
     ID: 7168958,
@@ -483,7 +500,7 @@ const dataGeo = [
     Latitude: 40.72075707,
     Longitude: -73.99948285,
   },
-]
+];
 
 const dataNonGeo = [
   {
@@ -908,6 +925,6 @@ const dataNonGeo = [
     Age: null,
     Immigration_year: 1923,
   },
-]
+];
 
-export { dataGeo, dataNonGeo }
+export { USCensusMetadata, dataGeo, dataNonGeo };
