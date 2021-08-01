@@ -1,26 +1,31 @@
-import React from 'react'
+import React from "react";
 //Important! Below the mock data is imported from the utils folder
-import { dataGeo, dataNonGeo } from '../js/utils/MockData.js'
-import Histogram from './Histogram'
-import BarChart from './BarChart'
-import BoxPlot from './BoxPlot'
-import Correlation from './Correlation'
-import AreaChart from './AreaChart'
-import HeatMap from './HeatMap'
-import LineGraph from './LineGraph'
-import ScatterPlot from './ScatterPlot'
-import StackedBarChart from './StackedBarChart'
-import './GraphDisplay.css'
+import { dataGeo, dataNonGeo } from "../js/utils/MockData.js";
+import Histogram from "./Histogram";
+import BarChart from "./BarChart";
+import BoxPlot from "./BoxPlot";
+import Correlation from "./Correlation";
+import AreaChart from "./AreaChart";
+import HeatMap from "./HeatMap";
+import LineGraph from "./LineGraph";
+import ScatterPlot from "./ScatterPlot";
+import StackedBarChart from "./StackedBarChart";
+import "./GraphDisplay.css";
 
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import { useState } from 'react'
+import { ChevronDownIcon } from "@heroicons/react/solid";
+import { useState } from "react";
 
 //Main component that displays your created graph
 //Components in React can be in the form of functions, classes etc.
 //and consist of both javascript code and html code (html is the return value)
 function GraphDisplay() {
-  const dataKeys = Object.keys(dataNonGeo[0])
-  const [histoXAttr, setHistoXAttr] = useState('ID')
+  const dataKeys = Object.keys(dataNonGeo[0]);
+  const [histoXAttr, setHistoXAttr] = useState("ID");
+
+  //scatter plot attributes
+  const [ScatoXAttr, setScatoXAttr] = useState("ID");
+  const [ScatoYAttr, setScatoYAttr] = useState("ID");
+
   //Below is the html code (return value)
   return (
     <>
@@ -60,10 +65,51 @@ function GraphDisplay() {
               </div>
             </div>
           </div>
+
+          <div className="rounded overflow-hidden shadow-lg m-auto p-4">
+            <p>Scatter Plot</p>
+            <ScatterPlot
+              data={dataNonGeo}
+              xAxisAttribute={ScatoXAttr}
+              yAxisAttribute={ScatoYAttr}
+            ></ScatterPlot>
+            <div className="flex space-x-2 text-center border-t-2 px-1 py-2">
+              <div class="flex-1">
+                <div className="font-bold text-xl py-2">X Axis</div>
+                <div className="inline-block relative w-60">
+                  <select
+                    className="block appearance-none w-full h-10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    onChange={(e) => setScatoXAttr(e.target.value)}
+                  >
+                    {dataKeys.map((key) => (
+                      <option key={key} value={key}>
+                        {key}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div class="flex-1">
+                <div className="font-bold text-xl py-2">Y Axis</div>
+                <div className="inline-block relative w-60">
+                  <select
+                    className="block appearance-none w-full h-10 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    onChange={(e) => setScatoYAttr(e.target.value)}
+                  >
+                    {dataKeys.map((key) => (
+                      <option key={key} value={key}>
+                        {key}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 function HeaderText({ children }) {
@@ -71,7 +117,7 @@ function HeaderText({ children }) {
     <h2 className="my-8 text-4xl text-center font-medium leading-10">
       {children}
     </h2>
-  )
+  );
 }
 
-export default GraphDisplay
+export default GraphDisplay;
