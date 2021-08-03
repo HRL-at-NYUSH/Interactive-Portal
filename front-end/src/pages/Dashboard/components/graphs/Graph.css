@@ -1,0 +1,23 @@
+.graph {
+  display: inline-block;
+  width: 300px;
+  height: 250px;
+  margin: 10px;
+  border: 1px solid darkgrey;
+  border-width: 2px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.graph-title {
+  font-size: 0.8em;
+  color: rgb(77, 73, 73);
+}
+
+/* temporary override */
+.lineoverride {
+  position: relative;
+  top: -274px;
+  left: 648px;
+}

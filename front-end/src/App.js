@@ -1,17 +1,22 @@
-import './css/App.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './js/pages/Home.js';
-import Data from './js/pages/Data.js';
-import Visualize from './js/pages/Visualize.js';
-import Questions from './js/pages/Questions.js';
-import Profile from './js/pages/Profile.js';
-import Login from './js/pages/Login.js';
-import Signup from './js/pages/Signup.js';
-import SampleDataUse from './js/pages/SampleDataUse.js';
-import Dashboard from './js/pages/Dashboard';
 
-import LayoutWrapper from './js/components/LayoutWrapper';
+import { LayoutWrapper } from '@components';
+
+import {
+  Home,
+  Data,
+  Visualize,
+  Questions,
+  Resources,
+  Profile,
+  Login,
+  Signup,
+  SampleDataUse,
+  GraphDisplay,
+  Dashboard,
+} from '@pages';
+
 require('dotenv').config();
 
 export const AuthContext = React.createContext();
@@ -50,14 +55,13 @@ const App = () => {
               <Route path='/profile' component={Profile} />
               <Route path='/data' component={Data} />
               <Route path='/visualize' component={Visualize} />
-              <Route path='/dashboard' component={Dashboard} />
-
               <Route path='/login' component={Login} />
               <Route path='/signup' component={Signup} />
-
               <Route path='/SampleDataUse' component={SampleDataUse} />
-
-              <Route path='/questions' component={Questions} />
+              <Route path='/Questions' component={Questions} />
+              <Route path='/Resources' component={Resources} />
+              <Route path='/dashboard' component={Dashboard} />
+              <Route path='/graphDisplay' component={GraphDisplay} />
             </Switch>
           </LayoutWrapper>
         </Router>
