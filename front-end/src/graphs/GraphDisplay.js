@@ -24,8 +24,12 @@ import { useState } from 'react';
 function GraphDisplay() {
   const dataKeys = Object.keys(dataNonGeo[0]);
   const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
-
   const [histoXAttr, setHistoXAttr] = useState('ID');
+
+  //bar chart attributes
+  const [BarXAttr, setBarXAttr] = useState("ID");
+  const [BarYAttr, setBarYAttr] = useState("ID");
+
   //Below is the html code (return value)
   return (
     <>
@@ -56,8 +60,24 @@ function GraphDisplay() {
                 ></SelectBox>
               </div>
             </div>
+            <div className='w-1/2 text-3xl text-center font-bold border-b-2 p-2 m-auto'>
+              Bar Chart
+            </div>
+            <BarChart data={dataNonGeo}
+              xAxisAttribute={BarXAttr}
+              yAxisAttribute={BarYAttr}
+              title={`People from Different ${BarXAttr}`}></BarChart>
+            <div className='text-center border-t-2 py-2'>
+              <div className='font-bold text-xl py-2'>
+                Bar Chart of Non-Geo Data
+              </div>
+            <SelectBox
+                  data={selectBoxData}
+                  onValueChange={setBarXAttr}
+            ></SelectBox>
+            </div>
+            </div>
           </div>
-        </div>
       </div>
     </>
   );
