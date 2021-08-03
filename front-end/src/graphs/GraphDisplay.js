@@ -18,6 +18,7 @@ import './GraphDisplay.css';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 
+
 //Main component that displays your created graph
 //Components in React can be in the form of functions, classes etc.
 //and consist of both javascript code and html code (html is the return value)
@@ -26,6 +27,9 @@ function GraphDisplay() {
   const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
 
   const [histoXAttr, setHistoXAttr] = useState('ID');
+  //area chart attribute
+  const [areaXattr, setAreaXattr] = useState('ID');
+  const [areaYattr, setAreaYattr] = useState('ID');
   //Below is the html code (return value)
   return (
     <>
@@ -57,8 +61,37 @@ function GraphDisplay() {
               </div>
             </div>
           </div>
+          
         </div>
+        <div className="rounded overflow-hidden shadow-lg m-auto p-4">
+             <p>Area Chart</p>
+             <AreaChart
+               data={dataNonGeo}
+               xAxisAttribute={areaXattr}
+               yAxisAttribute={areaYattr}
+             ></AreaChart>
+             </div>
+        
       </div>
+      <div className='font-bold text-xl py-2'>
+                Area Chart X Axis Data of Non-Geo Data
+              </div>
+              <div className='m-auto w-64'>
+                <SelectBox
+                  data={selectBoxData}
+                  onValueChange={setAreaXattr}
+                ></SelectBox>
+        </div>
+        <div className='font-bold text-xl py-2'>
+                Area Chart Y Axis Data of Non-Geo Data
+              </div>
+              <div className='m-auto w-64'>
+                <SelectBox
+                  data={selectBoxData}
+                  onValueChange={setAreaYattr}
+                ></SelectBox>
+        </div>
+
     </>
   );
 }
