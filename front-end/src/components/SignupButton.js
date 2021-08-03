@@ -4,9 +4,9 @@ import '../../css/components/SignupButton.css'
 
 function SignupButton() {
   return (
-    <Link to="/Signup">
+    <a href="http://localhost:4000/google/">
       <button className="signupButton"> Sign Up</button>
-    </Link>
+    </a>
   )
 }
 

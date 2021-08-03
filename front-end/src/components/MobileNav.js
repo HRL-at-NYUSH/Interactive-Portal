@@ -1,28 +1,28 @@
-import { useState } from 'react';
-import Link from './Link';
-import headerNavLinks from '@data/headerNavLinks';
-import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { useState } from 'react'
+import Link from './Link'
+import headerNavLinks from '@data/headerNavLinks'
+import { MenuIcon, XIcon } from '@heroicons/react/solid'
 const MobileNav = () => {
-  const [navShow, setNavShow] = useState(false);
+  const [navShow, setNavShow] = useState(false)
 
   const onToggleNav = () => {
     setNavShow((status) => {
       if (status) {
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = 'auto'
       } else {
         // Prevent scrolling
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'
       }
-      return !status;
-    });
-  };
+      return !status
+    })
+  }
 
   return (
-    <div className='sm:hidden'>
+    <div className="sm:hidden">
       <button
-        type='button'
-        className='w-8 h-8 ml-1 mr-1 rounded'
-        aria-label='Toggle Menu'
+        type="button"
+        className="w-8 h-8 ml-1 mr-1 rounded"
+        aria-label="Toggle Menu"
         onClick={onToggleNav}
       >
         {navShow ? <XIcon></XIcon> : <MenuIcon></MenuIcon>}
@@ -34,46 +34,46 @@ const MobileNav = () => {
         }`}
       >
         <button
-          type='button'
-          aria-label='toggle modal'
-          className='fixed w-full h-full cursor-auto focus:outline-none'
+          type="button"
+          aria-label="toggle modal"
+          className="fixed w-full h-full cursor-auto focus:outline-none"
           onClick={onToggleNav}
         ></button>
-        <nav className='fixed h-full mt-8'>
+        <nav className="fixed h-full mt-8">
           {/* navigation links */}
           {headerNavLinks.map((link) => (
-            <div key={link.title} className='px-12 py-2'>
+            <div key={link.title} className="px-12 py-2">
               <Link
                 href={link.href}
-                className='text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100'
+                className="text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
                 onClick={onToggleNav}
               >
                 {link.title}
               </Link>
             </div>
           ))}
-          <div className='mt-2 px-12 py-2'>
+          <div className="px-12 py-2">
             <Link
-              href='/login'
-              className='text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100'
+              href="http://localhost:4000/google/"
+              className="text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
               onClick={onToggleNav}
             >
-              Login
+              Sign In
             </Link>
           </div>
-          <div className='px-12 py-2'>
+          <div className="px-12 py-2">
             <Link
-              href='/signup'
-              className='text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100'
+              href="http://localhost:4000/logout"
+              className="text-xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
               onClick={onToggleNav}
             >
-              Sign up
+              Log Out
             </Link>
           </div>
         </nav>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MobileNav;
+export default MobileNav
