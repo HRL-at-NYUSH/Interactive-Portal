@@ -1,6 +1,11 @@
 import SelectBox from '@components/SelectBox';
 
-const DataSelection = ({ title, options, dataType, onValueChange }) => {
+const DataSelectBox = ({
+  title = 'Untitled Select Box',
+  options = [],
+  dataType = '',
+  onValueChange = () => {},
+}) => {
   // if there is a data type specified
   if (dataType) options = options.filter((o) => o.type.includes(dataType));
 
@@ -13,11 +18,11 @@ const DataSelection = ({ title, options, dataType, onValueChange }) => {
   return (
     <div className='m-2'>
       <div className='text-left m-auto pl-2 text-lg'>{title}</div>
-      <div className='m-auto w-64'>
+      <div className='m-auto w-full'>
         <SelectBox data={selectBoxOptions} onValueChange={onValueChange} />
       </div>
     </div>
   );
 };
 
-export default DataSelection;
+export default DataSelectBox;

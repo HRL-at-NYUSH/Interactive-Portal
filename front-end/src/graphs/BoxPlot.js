@@ -1,10 +1,16 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 
-function BoxPlot({ data, xAxisAttribute, yAxisAttribute, title }) {
+function BoxPlot({
+  data,
+  xAxisAttribute,
+  yAxisAttribute,
+  title = 'Untitled Box Plot',
+  options = {},
+}) {
   let layout = {
-    autosize: true,
-    // width: 500,
+    // autosize: true,
+    width: 1280,
     // height: 500,
     // margin: {
     //   l: 50,
@@ -17,25 +23,33 @@ function BoxPlot({ data, xAxisAttribute, yAxisAttribute, title }) {
     yaxis: { title: yAxisAttribute },
   };
 
+  let config = { responsive: true };
+
   let xKeys = data.map((d) => d[xAxisAttribute]).filter(onlyUnique);
 
   let traces = xKeys.map((key, i) => {
+    let result = {
+      name: stringifyValue(key),
+    };
+
     let yData = data
       .filter((d) => d[xAxisAttribute] === key)
       .map((d) => d[yAxisAttribute])
       .map(stringifyValue);
 
+    if (options.horizontal) result.x = yData;
+    else result.y = yData;
+
+    if (options.displayPoints) result.boxpoints = 'all';
+
     return {
-      y: yData,
-      name: stringifyValue(key),
-      boxpoints: 'all',
+      ...result,
       jitter: 0.3,
       pointpos: -1.8,
       type: 'box',
     };
   });
-
-  console.log(traces);
+  // console.log(traces);
 
   // an example trace of Box Plot
   // {
