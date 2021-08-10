@@ -43,5 +43,5 @@ module.exports = {
       transitionProperty: ['hover', 'focus'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
