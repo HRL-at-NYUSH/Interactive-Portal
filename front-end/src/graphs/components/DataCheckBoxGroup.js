@@ -21,8 +21,8 @@ const DataCheckBoxGroup = ({
       (checkBoxStates[option.stateName || option.title] = option.defaultChecked)
   );
 
-  // passing initial states to parent component
   useEffect(() => {
+    // passing initial states to parent component
     onStatesChange(checkBoxStates);
   }, []);
 
