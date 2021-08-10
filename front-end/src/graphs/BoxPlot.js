@@ -19,12 +19,13 @@ function BoxPlot({
     //   t: 100,
     //   pad: 6,
     // },
-    title: title || 'Untitled',
-    yaxis: { title: yAxisAttribute },
+    title: title.length > 0 ? title : 'Untitled Box Plot',
   };
 
-  let config = { responsive: true };
-
+  // options
+  layout[options.horizontal ? 'xaxis' : 'yaxis'] = { title: yAxisAttribute };
+  layout.showlegend = options.showLegend;
+  // extract unique keys
   let xKeys = data.map((d) => d[xAxisAttribute]).filter(onlyUnique);
 
   let traces = xKeys.map((key, i) => {
@@ -37,10 +38,10 @@ function BoxPlot({
       .map((d) => d[yAxisAttribute])
       .map(stringifyValue);
 
-    if (options.horizontal) result.x = yData;
-    else result.y = yData;
-
+    // options
+    result[options.horizontal ? 'x' : 'y'] = yData;
     if (options.displayPoints) result.boxpoints = 'all';
+    if (options.displayMeanAndStandardDeviation) result.boxmean = 'sd';
 
     return {
       ...result,
