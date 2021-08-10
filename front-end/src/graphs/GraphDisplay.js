@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //Important! Below the mock data is imported from the utils folder
 import { USCensusMetadata, dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from './Histogram';
@@ -18,7 +18,6 @@ import ScatterPlot from './ScatterPlot';
 import StackedBarChart from './StackedBarChart';
 
 import { ChevronDownIcon } from '@heroicons/react/solid';
-import { useState } from 'react';
 
 //Main component that displays your created graph
 //Components in React can be in the form of functions, classes etc.
@@ -32,6 +31,8 @@ function GraphDisplay() {
   const [boxPlotXAttr, setBoxPlotXAttr] = useState('ID');
   const [boxPlotYAttr, setBoxPlotYAttr] = useState('Time');
   const [boxPlotOptions, setBoxPlotOptions] = useState();
+
+  console.log(boxPlotOptions, 'page');
 
   //Below is the html code (return value)
   return (
@@ -87,13 +88,13 @@ function GraphDisplay() {
                   title={'Set X Attribute'}
                   options={USCensusMetadata}
                   dataType={'categorical'}
-                  onValueChange={setBoxPlotXAttr}
+                  onChange={setBoxPlotXAttr}
                 />
                 <DataSelectBox
                   title={'Set Y Attribute'}
                   options={USCensusMetadata}
                   dataType={'numerical'}
-                  onValueChange={setBoxPlotYAttr}
+                  onChange={setBoxPlotYAttr}
                 />
 
                 <DataCheckBoxGroup
@@ -109,8 +110,9 @@ function GraphDisplay() {
                       defaultChecked: false,
                     },
                   ]}
-                  onStatesChange={(states) => {
+                  onChange={(states) => {
                     setBoxPlotOptions(states);
+                    console.log(states, 'nonchange');
                   }}
                 ></DataCheckBoxGroup>
               </div>
