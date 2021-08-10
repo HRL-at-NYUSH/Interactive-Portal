@@ -1,5 +1,5 @@
 import CheckBox from '@/components/CheckBox';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 /*  Sample options for a data checkbox group
 /*  Note that the title of the option has to be UNIQUE
@@ -12,18 +12,22 @@ const options = [
 const DataCheckBoxGroup = ({
   title = 'Untitled Checkbox Group',
   options = [],
-  onStatesChange = () => {},
+  onChange = () => {},
 }) => {
   // parsing options to check box states
-  let checkBoxStates = {};
+  let initialCheckBoxStates = {};
   options.forEach(
     (option) =>
-      (checkBoxStates[option.stateName || option.title] = option.defaultChecked)
+      (initialCheckBoxStates[option.stateName || option.title] =
+        option.defaultChecked)
   );
+
+  const [checkBoxStates, setCheckBoxStates] = useState(initialCheckBoxStates);
 
   useEffect(() => {
     // passing initial states to parent component
-    onStatesChange(checkBoxStates);
+    onChange(checkBoxStates);
+    console.log('useeffect in check box');
   }, []);
 
   return (
@@ -36,9 +40,10 @@ const DataCheckBoxGroup = ({
             stateName={option.stateName}
             defaultChecked={option.defaultChecked}
             onStateChange={(stateName, value) => {
-              checkBoxStates[stateName] = value;
+              let newStates = { ...checkBoxStates, [stateName]: value };
+              setCheckBoxStates(newStates);
               // passing states to parent component
-              onStatesChange(checkBoxStates);
+              onChange(newStates);
             }}
           ></CheckBox>
         ))}
