@@ -1,7 +1,7 @@
 import Plot from 'react-plotly.js';
 
 const Histogram = ({ data, xAxisAttribute, title }) => {
-  console.log(data);
+  // console.log(data);
   let layout = {
     autosize: true,
     // width: 500,
@@ -24,8 +24,8 @@ const Histogram = ({ data, xAxisAttribute, title }) => {
     }
     return d[xAxisAttribute];
   });
-  console.log(data);
-  console.log(xData);
+  // console.log(data);
+  // console.log(xData);
 
   return (
     <Plot
