@@ -18,6 +18,8 @@ import ScatterPlot from './ScatterPlot';
 import StackedBarChart from './StackedBarChart';
 
 import { ChevronDownIcon } from '@heroicons/react/solid';
+import TextField from '@/components/TextField.js';
+import DataTextField from './components/DataTextField.js';
 
 //Main component that displays your created graph
 //Components in React can be in the form of functions, classes etc.
@@ -28,11 +30,10 @@ function GraphDisplay() {
 
   const [histoXAttr, setHistoXAttr] = useState('ID');
 
+  const [boxPlotTitle, setBoxPlotTitle] = useState();
   const [boxPlotXAttr, setBoxPlotXAttr] = useState('ID');
   const [boxPlotYAttr, setBoxPlotYAttr] = useState('Time');
   const [boxPlotOptions, setBoxPlotOptions] = useState();
-
-  console.log(boxPlotOptions, 'page');
 
   //Below is the html code (return value)
   return (
@@ -75,7 +76,7 @@ function GraphDisplay() {
               data={dataNonGeo}
               xAxisAttribute={boxPlotXAttr}
               yAxisAttribute={boxPlotYAttr}
-              title={`People with Different ${boxPlotYAttr} in Different ${boxPlotXAttr} Groups`}
+              title={boxPlotTitle}
               options={boxPlotOptions}
             ></BoxPlot>
 
@@ -83,7 +84,11 @@ function GraphDisplay() {
               <div className='font-bold text-xl py-2'>
                 BoxPlot of Non-Geo Data
               </div>
-              <div className='m-auto w-80'>
+              <div className='m-auto w-96'>
+                <DataTextField
+                  title='Graph Title'
+                  onChange={setBoxPlotTitle}
+                ></DataTextField>
                 <DataSelectBox
                   title={'Set X Attribute'}
                   options={USCensusMetadata}
@@ -98,6 +103,7 @@ function GraphDisplay() {
                 />
 
                 <DataCheckBoxGroup
+                  title='Visualization Options'
                   options={[
                     {
                       title: 'Horizontal',
@@ -109,11 +115,18 @@ function GraphDisplay() {
                       stateName: 'displayPoints',
                       defaultChecked: false,
                     },
+                    {
+                      title: 'Display Mean & Standard Deviation',
+                      stateName: 'displayMeanAndStandardDeviation',
+                      defaultChecked: false,
+                    },
+                    {
+                      title: 'Show Legend',
+                      stateName: 'showLegend',
+                      defaultChecked: true,
+                    },
                   ]}
-                  onChange={(states) => {
-                    setBoxPlotOptions(states);
-                    console.log(states, 'nonchange');
-                  }}
+                  onChange={setBoxPlotOptions}
                 ></DataCheckBoxGroup>
               </div>
             </div>

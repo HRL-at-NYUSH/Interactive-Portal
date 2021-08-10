@@ -12,7 +12,9 @@ const options = [
 const DataCheckBoxGroup = ({
   title = 'Untitled Checkbox Group',
   options = [],
-  onChange = () => {},
+  onChange = (checkBoxStates) => {
+    console.log(checkBoxStates);
+  },
 }) => {
   // parsing options to check box states
   let initialCheckBoxStates = {};
@@ -27,7 +29,6 @@ const DataCheckBoxGroup = ({
   useEffect(() => {
     // passing initial states to parent component
     onChange(checkBoxStates);
-    console.log('useeffect in check box');
   }, []);
 
   return (
