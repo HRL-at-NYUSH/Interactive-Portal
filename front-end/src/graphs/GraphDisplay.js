@@ -5,7 +5,8 @@ import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
 
-import DataSelection from '@graphs/components/DataSelection.js';
+import DataSelectBox from '@graphs/components/DataSelectBox.js';
+import DataCheckBoxGroup from './components/DataCheckBoxGroup.js';
 
 import BarChart from './BarChart';
 import BoxPlot from './BoxPlot';
@@ -30,6 +31,7 @@ function GraphDisplay() {
 
   const [boxPlotXAttr, setBoxPlotXAttr] = useState('ID');
   const [boxPlotYAttr, setBoxPlotYAttr] = useState('Time');
+  const [boxPlotOptions, setBoxPlotOptions] = useState();
 
   //Below is the html code (return value)
   return (
@@ -55,11 +57,11 @@ function GraphDisplay() {
                 Histogram of Non-Geo Data
               </div>
               <div className='m-auto w-64'>
-                <DataSelection
+                <DataSelectBox
                   options={USCensusMetadata}
                   type={''}
                   onValueChange={setHistoXAttr}
-                ></DataSelection>
+                ></DataSelectBox>
               </div>
             </div>
           </div>
@@ -73,25 +75,44 @@ function GraphDisplay() {
               xAxisAttribute={boxPlotXAttr}
               yAxisAttribute={boxPlotYAttr}
               title={`People with Different ${boxPlotYAttr} in Different ${boxPlotXAttr} Groups`}
+              options={boxPlotOptions}
             ></BoxPlot>
 
             <div className='text-center border-t-2 py-2'>
               <div className='font-bold text-xl py-2'>
                 BoxPlot of Non-Geo Data
               </div>
-              <div className='m-auto w-64'>
-                <DataSelection
+              <div className='m-auto w-80'>
+                <DataSelectBox
                   title={'Set X Attribute'}
                   options={USCensusMetadata}
                   dataType={'categorical'}
                   onValueChange={setBoxPlotXAttr}
                 />
-                <DataSelection
+                <DataSelectBox
                   title={'Set Y Attribute'}
                   options={USCensusMetadata}
                   dataType={'numerical'}
                   onValueChange={setBoxPlotYAttr}
                 />
+
+                <DataCheckBoxGroup
+                  options={[
+                    {
+                      title: 'Horizontal',
+                      stateName: 'horizontal',
+                      defaultChecked: false,
+                    },
+                    {
+                      title: 'Display All Points',
+                      stateName: 'displayPoints',
+                      defaultChecked: false,
+                    },
+                  ]}
+                  onStatesChange={(states) => {
+                    setBoxPlotOptions(states);
+                  }}
+                ></DataCheckBoxGroup>
               </div>
             </div>
           </div>
