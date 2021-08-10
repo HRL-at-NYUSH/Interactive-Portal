@@ -11,7 +11,7 @@ export default function CheckBox({
       <input
         type='checkbox'
         defaultChecked={defaultChecked}
-        className='rounded my-auto focus:outline-none focus:shadow-outline'
+        className='rounded my-auto border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50'
         onChange={(e) => onStateChange(stateName || title, e.target.checked)}
       ></input>
       <span className='ml-2 my-auto'>{title}</span>
