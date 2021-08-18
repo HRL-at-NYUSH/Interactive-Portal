@@ -39,9 +39,10 @@ function GraphDisplay() {
   const [histoXAttr, setHistoXAttr] = useState('ID');
 
   //scatter plot attributes
-  const [ScatoXAttr, setScatoXAttr] = useState("Time");
-  const [ScatoYAttr, setScatoYAttr] = useState("Time");
-  const [ScatoColor, setScatoColor] = useState("Company");
+  const [ScatoXAttr, setScatoXAttr] = useState("PRESGL");
+  const [ScatoYAttr, setScatoYAttr] = useState("OCCSCORE");
+  const [ScatoColor, setScatoColor] = useState("RACE");
+  const [ScatoSymbol, setScatoSymbol] = useState("SEX");
   const [ScatoLine, setScatoLine] = useState("");
   const [ScatoBg, setScatoBg] = useState("");
 
@@ -86,6 +87,7 @@ function GraphDisplay() {
                 xAxisAttribute={ScatoXAttr}
                 yAxisAttribute={ScatoYAttr}
                 colorAttribute={ScatoColor}
+                symbolAttribute={ScatoSymbol}
                 lineAttribute={ScatoLine}
                 backgroundAttribute={ScatoBg}
               ></ScatterPlot>
@@ -96,9 +98,13 @@ function GraphDisplay() {
                   <div className="font-bold text-xl py-2">X Axis</div>
                   <div className="relative">
                     <form>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[1]}<br></br>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[10]}<br></br>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[11]}<br></br>
+                      <input type="radio" name="game" class="mx-2" value={dataKeys[16]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[16]}<br></br>
+                      <input type="radio" name="game" class="mx-2" value={dataKeys[22]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[22]}<br></br>
+                      <input type="radio" name="game" class="mx-2" value={dataKeys[21]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[21]}<br></br>
+                      <input type="radio" name="game" class="mx-2" value={dataKeys[27]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[27]}<br></br>
+                      {/* <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[1]}<br></br> */}
+                      {/* <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[10]}<br></br> */}
+                      {/* <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[11]}<br></br> */}
                     </form>
                   </div>
                 </div>
@@ -106,9 +112,13 @@ function GraphDisplay() {
                 <div className="font-bold text-xl py-2">Y Axis</div>
                 <div className="relative">
                   <form>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[1]}<br></br>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[10]}<br></br>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[11]}<br></br>
+                    <input type="radio" name="game" class="mx-2" value={dataKeys[16]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[16]}<br></br>
+                    <input type="radio" name="game" class="mx-2" value={dataKeys[22]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[22]}<br></br>
+                    <input type="radio" name="game" class="mx-2" value={dataKeys[21]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[21]}<br></br>
+                    <input type="radio" name="game" class="mx-2" value={dataKeys[27]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[27]}<br></br>
+                    {/* <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[1]}<br></br> */}
+                    {/* <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[10]}<br></br> */}
+                    {/* <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[11]}<br></br> */}
                   </form>
                  </div>
               </div>
@@ -120,9 +130,38 @@ function GraphDisplay() {
                   className="block appearance-none h-9 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                   onChange={(e) => setScatoColor(e.target.value)}
                 >
+                    <option key={dataKeys[4]} value={dataKeys[4]}>{dataKeys[4]}</option>
                     <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option>
-                    <option key={dataKeys[7]} value={dataKeys[7]}>{dataKeys[7]}</option>
-                    <option key={dataKeys[9]} value={dataKeys[9]}>{dataKeys[9]}</option>
+                    <option key={dataKeys[8]} value={dataKeys[8]}>{dataKeys[8]}</option>
+                    <option key={dataKeys[15]} value={dataKeys[15]}>{dataKeys[15]}</option>
+                    <option key={dataKeys[18]} value={dataKeys[18]}>{dataKeys[18]}</option>
+                    <option key={dataKeys[17]} value={dataKeys[17]}>{dataKeys[17]}</option>
+                    <option key={dataKeys[24]} value={dataKeys[24]}>{dataKeys[24]}</option>
+                    {/* <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option> */}
+                    {/* <option key={dataKeys[7]} value={dataKeys[7]}>{dataKeys[7]}</option> */}
+                    {/* <option key={dataKeys[9]} value={dataKeys[9]}>{dataKeys[9]}</option> */}
+                  {/* {dataKeys.map((key) => (
+                    <option key={key} value={key}>
+                      {key}
+                    </option>
+                  ))} */}
+                </select>
+              </div>
+              <div className="px-20 py-8">
+                <select
+                  className="block appearance-none h-9 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={(e) => setScatoSymbol(e.target.value)}
+                >
+                    <option key={dataKeys[4]} value={dataKeys[4]}>{dataKeys[4]}</option>
+                    <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option>
+                    <option key={dataKeys[8]} value={dataKeys[8]}>{dataKeys[8]}</option>
+                    <option key={dataKeys[15]} value={dataKeys[15]}>{dataKeys[15]}</option>
+                    <option key={dataKeys[18]} value={dataKeys[18]}>{dataKeys[18]}</option>
+                    <option key={dataKeys[17]} value={dataKeys[17]}>{dataKeys[17]}</option>
+                    <option key={dataKeys[24]} value={dataKeys[24]}>{dataKeys[24]}</option>
+                    {/* <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option> */}
+                    {/* <option key={dataKeys[7]} value={dataKeys[7]}>{dataKeys[7]}</option> */}
+                    {/* <option key={dataKeys[9]} value={dataKeys[9]}>{dataKeys[9]}</option> */}
                   {/* {dataKeys.map((key) => (
                     <option key={key} value={key}>
                       {key}

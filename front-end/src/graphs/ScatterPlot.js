@@ -1,6 +1,11 @@
 import React from 'react'
 import Plot from 'react-plotly.js'
 
+let symbols = [
+  "circle", "star-open", "arrow-right", "pentagon", "x", "bowtie", "diamond", "star-triangle-up", 
+  "square", "x", "cross", "hexagon", "octagon", "hexagram", "star-diamond", "arrow-left", 
+];
+
 let randomColors= 
   ["#1bb699", "#c79bc2", "#d02e29", "#1ae6db", "#3e464c", "#a84a8f",
   "#911e7e", "#3f16d9", "#0f525f", "#ac7c0a", "#b4c086", "#c9d730", "#30cc49",
@@ -9,7 +14,7 @@ let randomColors=
   "#7ad236", "#7260d8", "#1deaa7", "#06f43a", "#823c59", "#e3d94c", "#dc1c06",
   "#f53b2a", "#b46238", "#2dfff6", "#a82b89", "#1a8011", "#436a9f", "#1a806a"];
 
-const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lineAttribute, backgroundAttribute }) => { 
+const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, symbolAttribute, lineAttribute, backgroundAttribute }) => { 
 
 //<-------get a list of non-numeric variable values, non-repeated------>
   let xData = data.map((d, i) => {
@@ -30,6 +35,12 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
       }
       return d[colorAttribute];
     });
+  let symbolData = data.map((d, i) => {
+    if (d[symbolAttribute] === undefined || d[symbolAttribute] === "NULL") {
+      return "UNKOWN";
+    }
+    return d[symbolAttribute];
+  });
 
   function getValues(a){
     var array = [];
@@ -49,12 +60,29 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
     }
   }
 
-  var values = getValues(colorData); 
-  // console.log(colorData);
+  let values = getValues(colorData);
+  let valueS = getValues(symbolData);
+
+
+  // for (var i = 0; i < valueC.length; i++) {
+  //   var v = {color: valueC[i]} 
+  //   values.push(v); 
+  // }
+  //   for (var j = 0; j < valueS.length; j++) {
+  //     var m = {symbol: valueS[j]}
+  //     values.push(m); 
+  //   }
+  // // console.log(colorData);
   // console.log(values)
 
   // function checkValue(a){
   //     return a == colorData[j];
+  // }
+
+  // let symbol = [];
+  // for (var j = 0; j < symbolData.length; j++) {
+  //   var index = valueS.findIndex(checkValue)
+  //   symbolData.push(symbols[index]);
   // }
 
   // let fillColor = [];
@@ -63,7 +91,10 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
   //   fillColor.push(randomColors[index]);
   // }
 //<-------get a list of non-numeric variable values, non-repeated------>
+var j = 0;
   let traces = values.map((key, i) => {
+  j++;
+    // console.log(key)
     xData = data
       .filter((d) => d[colorAttribute] === key)
       .map((d) => d[xAxisAttribute]);
@@ -75,6 +106,18 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
     colorData = data
       .filter((d) => d[colorAttribute] === key)
       .map((d) => d[colorAttribute]);
+    
+    symbolData = data.map((d, j) => {
+      if (d[symbolAttribute] === 1){
+        return symbols[0]
+      } else if (d[symbolAttribute] === 2){
+        return symbols[1]
+      } else {
+        return symbols[2]
+      }
+    });
+
+
 
     return {
       x: xData,
@@ -84,18 +127,18 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
       type: "scatter",
       name: setName(key),
       marker: {
-        size: 7,
+        // symbol: symbolData,
+        size: 8,
         color: randomColors[i],
         opacity: 0.3
       },
       hovertemplate:
         "<b>" + xAxisAttribute + "</b>: %{x}" +
         "<br><b>" + yAxisAttribute + "</b>: %{y}<br>" +
-        "<b>" + colorAttribute + "</b>: %{text}"
+        "<b>" + colorAttribute + "</b>: %{text}" 
         + "<extra></extra>",
     };
-  });
-  
+  });  
 
   //<------new arrays for sorting x/y data > get min/max------>
   let xDataSorted = data.map((d, i) => {
@@ -109,7 +152,7 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
     return element !== "UNKOWN";
   });
 
-  console.log(xDataSorted);
+  // console.log(xDataSorted);
 
   let yDataSorted = data.map((d, i) => {
     if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === "NULL") {
@@ -122,7 +165,7 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
     return element !== "UNKOWN";
   });
 
-  console.log(yDataSorted);
+  // console.log(yDataSorted);
 
   function myFunction(total, value, index, array) {
     return total + value;
@@ -133,8 +176,6 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
   yDataSorted.sort(function(a, b){return a-b});
    //<------new arrays for sorting x/y data > get min/max------>
 
-
-
   function show(l){
     if (l == true){
       return 1;
@@ -143,7 +184,6 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, lin
     }
   }
 
-  console.log(lineAttribute)
 
   let layout = {
       height: 600,
