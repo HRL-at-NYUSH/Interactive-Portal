@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link as ReactLink } from 'react-router-dom';
 
-const CustomLink = ({ href, ...rest }) => {
+const Link = ({ href, ...rest }) => {
   const isInternalLink = href && href.startsWith('/');
   const isAnchorLink = href && href.startsWith('#');
 
   if (isInternalLink) {
     return (
-      <Link to={href}>
+      <ReactLink to={href}>
         <a {...rest} />
-      </Link>
+      </ReactLink>
     );
   }
 
@@ -19,4 +19,4 @@ const CustomLink = ({ href, ...rest }) => {
   return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />;
 };
 
-export default CustomLink;
+export default Link;
