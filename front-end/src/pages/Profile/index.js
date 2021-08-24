@@ -1,6 +1,7 @@
 import Tabs from './components/Tabs';
 import React from 'react';
 import Popup from 'reactjs-popup';
+import { HeaderText, SelectBox, DefaultTable, Link } from '@components';
 
 const titleCase = (string) => {
   return string[0].toUpperCase() + string.slice(1).toLowerCase();
@@ -47,9 +48,8 @@ const Profile = ({ match }) => {
   console.log(match);
   return (
     <>
-      <h2 className='m-4 text-4xl text-center font-medium leading-10'>
-        Profile
-      </h2>
+      <HeaderText>Profile</HeaderText>
+
       <div className='border '>
         <Tabs>
           <div label='Preferences'>
