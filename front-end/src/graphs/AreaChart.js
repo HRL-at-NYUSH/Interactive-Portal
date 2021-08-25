@@ -7,21 +7,49 @@ const PlotlyComponent = createPlotlyComponent(Plotly);
 const AreaChart = ({ data, xAxisAttribute, yAxisAttribute }) => {
   console.log(data);
   
-  let xData = data.map((d) => {
+  let xDataTemp = data.map((d) => {
     if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === 'NULL') {
-      return 'UNKOWN';
+      // return 'UNKOWN';
+      return;
     }
     return d[xAxisAttribute];
   });
   
-  let yData = data.map((d) => {
-    if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === 'NULL') {
-      return 'UNKOWN';
+  // let yData = data.map((d) => {
+  //   if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === 'NULL') {
+  //     return; // this means continue, don't need unknown as a category
+  //   }
+  //   return d[yAxisAttribute];
+  // });
+
+  // console.log("xData"+" "+xData);
+  // console.log("yData" +" "+yData);
+  var tempResult = {}
+
+  for(let key1 of xDataTemp)
+    tempResult[key1] = { 
+      key1, 
+      key2: tempResult[key1] ? tempResult[key1].key2 + 1 : 1
+    }      
+
+  function keysAndValues(obj) {
+    var keys = [], values = [];
+    for (var p in obj) {
+        keys.push(p);
+        values.push(obj[p]['key2']);
     }
-    return d[yAxisAttribute];
-  });
-  console.log(xData);
-  console.log(yData);
+    return [keys, values];
+}
+  
+  let xyData = keysAndValues(tempResult)
+  let xData = xyData[0]
+  let yData = xyData[1]
+  let yData2 = xyData[0]
+  let xData2 = xyData[1]
+  
+  console.log("xData"+xData)
+  console.log("yData"+yData)
+
   let dataKeys=[
      {
           fill: 'tozeroy',
@@ -46,7 +74,7 @@ const AreaChart = ({ data, xAxisAttribute, yAxisAttribute }) => {
   let layout = {
     autosize: true,
     xaxis: { title: xAxisAttribute },
-    yaxis: { title: yAxisAttribute },
+    yaxis: { title: yAxisAttribute + "Count"},
     // yaxis: { title: 'Count' },
   };
   let config = {
