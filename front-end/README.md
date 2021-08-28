@@ -75,7 +75,7 @@ export default function () {
 
 ### Get started with real data
 
-#### Look a look first
+#### Take a look first
 
 If the Mock JS Data doesn't seem to be enough, or you simply want to see how your graph might look in application, it is a good idea to get started with the real data and further develop your design 👻
 
@@ -83,6 +83,8 @@ Prior to joining the team, all of you already had access to the [product data](h
 
 ![product-data](./images/product-data.png)
 
+<br>
+<br>
 To better understand the big data in front of you, open [variable codebook](https://drive.google.com/drive/u/0/folders/1SWSNZYz0JwZycDfM1-fB48ic513riQrU) file. The codebook walks you through each variables in the datasheet. If you want to make notes, **make a copy** of the codebook and **name** it for yourself. 
 
 For example, I made a copy and color coded the `numerical` and `categorical` variable for further use. 
