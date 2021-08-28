@@ -1,6 +1,6 @@
 import React from 'react';
 //Important! Below the mock data is imported from the utils folder
-import { dataGeo, dataNonGeo } from '../utils/MockData.js';
+import { dataGeo, dataNonGeo } from '../utils/MockData-Winny.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
@@ -23,28 +23,25 @@ import { useState } from 'react';
 //and consist of both javascript code and html code (html is the return value)
 
 function selectOnce(checkbox) {//for checkbox
-  var checkboxes = document.getElementsByName('game')
+  var checkboxes = document.getElementsByName('button')
   checkboxes.forEach((item) => {
     if (item !== checkbox) item.checked =  false
   })
 }
 
 
-
-
 function GraphDisplay() {
   const dataKeys = Object.keys(dataNonGeo[0]);
   const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
 
-  const [histoXAttr, setHistoXAttr] = useState('ID');
+  const [histoXAttr, setHistoXAttr] = useState('YEAR');
 
   //scatter plot attributes
-  const [ScatoXAttr, setScatoXAttr] = useState("PRESGL");
-  const [ScatoYAttr, setScatoYAttr] = useState("OCCSCORE");
-  const [ScatoColor, setScatoColor] = useState("RACE");
-  const [ScatoSymbol, setScatoSymbol] = useState("SEX");
-  const [ScatoLine, setScatoLine] = useState("");
-  const [ScatoBg, setScatoBg] = useState("");
+  const [ScatoXAttr, setScatoXAttr] = useState("YEAR");
+  const [ScatoYAttr, setScatoYAttr] = useState("YEAR");
+  const [ScatoColor, setScatoColor] = useState("None");
+  const [ScatoSymbol, setScatoSymbol] = useState("None");
+  const [ScatoLine, setScatoLine] = useState("0");
 
   //Below is the html code (return value)
   return (
@@ -83,95 +80,91 @@ function GraphDisplay() {
             <div className="flex-auto">
               <p>Scatter Plot</p>
               <ScatterPlot
+              
                 data={dataNonGeo}
                 xAxisAttribute={ScatoXAttr}
                 yAxisAttribute={ScatoYAttr}
                 colorAttribute={ScatoColor}
                 symbolAttribute={ScatoSymbol}
                 lineAttribute={ScatoLine}
-                backgroundAttribute={ScatoBg}
               ></ScatterPlot>
             </div>
             <div className="flex-auto text-left">
-              <div className="flex flex-row mx-16 my-10">
+              <div className="flex flex-row m-16">
                 <div class="space-x-2 mx-5">
-                  <div className="font-bold text-xl py-2">X Axis</div>
-                  <div className="relative">
-                    <form>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[16]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[16]}<br></br>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[22]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[22]}<br></br>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[21]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[21]}<br></br>
-                      <input type="radio" name="game" class="mx-2" value={dataKeys[27]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[27]}<br></br>
-                      {/* <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[1]}<br></br> */}
-                      {/* <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[10]}<br></br> */}
-                      {/* <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[11]}<br></br> */}
-                    </form>
+                  <div className="font-bold text-xl py-5">X Axis</div>
+                    <div className="relative">
+                      <form>
+                        <input type="radio" name="button" class="mx-2" value={dataKeys[0]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>Year of report<br></br>
+                        <input type="radio" name="button" class="mx-2" value={dataKeys[12]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>Immigration Year<br></br>
+                        <input type="radio" name="button" class="mx-2" value={dataKeys[16]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>Income scores<br></br>
+                        <input type="radio" name="button" class="mx-2" value={dataKeys[17]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>Siegel score<br></br>
+                        {/* <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[1]}<br></br> */}
+                        {/* <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[10]}<br></br> */}
+                        {/* <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoXAttr(e.target.value)}></input>{dataKeys[11]}<br></br> */}
+                      </form>
+                    </div>
                   </div>
-                </div>
                 <div class="space-x-2 mx-5">
-                <div className="font-bold text-xl py-2">Y Axis</div>
+              <div className="font-bold text-xl py-5">Y Axis</div>
                 <div className="relative">
                   <form>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[16]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[16]}<br></br>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[22]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[22]}<br></br>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[21]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[21]}<br></br>
-                    <input type="radio" name="game" class="mx-2" value={dataKeys[27]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[27]}<br></br>
-                    {/* <input type="radio" name="game" class="mx-2" value={dataKeys[1]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[1]}<br></br> */}
-                    {/* <input type="radio" name="game" class="mx-2" value={dataKeys[10]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[10]}<br></br> */}
-                    {/* <input type="radio" name="game" class="mx-2" value={dataKeys[11]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>{dataKeys[11]}<br></br> */}
+                      <input type="radio" name="button" class="mx-2" value={dataKeys[0]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>Year of report<br></br>
+                      <input type="radio" name="button" class="mx-2" value={dataKeys[12]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>Immigration Year<br></br>
+                      <input type="radio" name="button" class="mx-2" value={dataKeys[16]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>Income scores<br></br>
+                      <input type="radio" name="button" class="mx-2" value={dataKeys[17]} onclick="selectOnce(this)" onChange={(e) => setScatoYAttr(e.target.value)}></input>Siegel score<br></br>
                   </form>
                  </div>
               </div>
               </div>
-              {/* <div className="text-center my-5"><input type="range" min="1" max="500" value="50"></input></div> */}
-              <div className="text-center my-5"><input type="range" min="1" max="500" value="50"></input></div>
-              <div className="px-20 py-8">
-                <select
-                  className="block appearance-none h-9 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                  onChange={(e) => setScatoColor(e.target.value)}
-                >
-                    <option key={dataKeys[4]} value={dataKeys[4]}>{dataKeys[4]}</option>
-                    <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option>
-                    <option key={dataKeys[8]} value={dataKeys[8]}>{dataKeys[8]}</option>
-                    <option key={dataKeys[15]} value={dataKeys[15]}>{dataKeys[15]}</option>
-                    <option key={dataKeys[18]} value={dataKeys[18]}>{dataKeys[18]}</option>
-                    <option key={dataKeys[17]} value={dataKeys[17]}>{dataKeys[17]}</option>
-                    <option key={dataKeys[24]} value={dataKeys[24]}>{dataKeys[24]}</option>
-                    {/* <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option> */}
-                    {/* <option key={dataKeys[7]} value={dataKeys[7]}>{dataKeys[7]}</option> */}
-                    {/* <option key={dataKeys[9]} value={dataKeys[9]}>{dataKeys[9]}</option> */}
-                  {/* {dataKeys.map((key) => (
-                    <option key={key} value={key}>
-                      {key}
-                    </option>
-                  ))} */}
-                </select>
+                  
+            <div class="relative m-10 z-20 flex-col hidden md:flex md:justify-end  md:flex-col">
+              <div class="flex flex-row mx-10">
+                <div class="px-4 py-2 font-bold bg-green-500 text-white cursor-defaultfocus:outline-none">
+                  Explore Insight by Color
+                </div>
+                <div class="px-4 py-2 appearance-none font-bold bg-transperant border-2 border-green-500 text-black cursor-pointer focus:outline-none">
+                  <select class="focus:outline-none"
+                    onChange={(e) => setScatoColor(e.target.value)}>
+                    <option className="block w-full py-3 cursor-pointer" key={"no color"} value={1}></option>
+                    <option className="block w-full py-3 cursor-pointer" key={dataKeys[2]} value={dataKeys[2]}>Race</option>
+                    <option className="block w-full py-3 cursor-pointer" key={dataKeys[13]} value={dataKeys[13]}>Literacy</option>
+                  </select>
+                </div>
               </div>
-              <div className="px-20 py-8">
-                <select
-                  className="block appearance-none h-9 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                  onChange={(e) => setScatoSymbol(e.target.value)}
-                >
-                    <option key={dataKeys[4]} value={dataKeys[4]}>{dataKeys[4]}</option>
-                    <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option>
-                    <option key={dataKeys[8]} value={dataKeys[8]}>{dataKeys[8]}</option>
-                    <option key={dataKeys[15]} value={dataKeys[15]}>{dataKeys[15]}</option>
-                    <option key={dataKeys[18]} value={dataKeys[18]}>{dataKeys[18]}</option>
-                    <option key={dataKeys[17]} value={dataKeys[17]}>{dataKeys[17]}</option>
-                    <option key={dataKeys[24]} value={dataKeys[24]}>{dataKeys[24]}</option>
-                    {/* <option key={dataKeys[3]} value={dataKeys[3]}>{dataKeys[3]}</option> */}
-                    {/* <option key={dataKeys[7]} value={dataKeys[7]}>{dataKeys[7]}</option> */}
-                    {/* <option key={dataKeys[9]} value={dataKeys[9]}>{dataKeys[9]}</option> */}
-                  {/* {dataKeys.map((key) => (
-                    <option key={key} value={key}>
-                      {key}
-                    </option>
-                  ))} */}
-                </select>
+
+              <div class="flex flex-row mt-5 mx-10">
+                <div class="px-4 py-2 font-bold bg-yellow-400 text-white cursor-defaultfocus:outline-none">
+                  Explore Insight by Symbol
+                </div>
+                <div class="px-4 py-2 appearance-none font-bold bg-transperant border-2 border-yellow-400 text-black cursor-pointer focus:outline-none">
+                  <select class="focus:outline-none"
+                    onChange={(e) => setScatoSymbol(e.target.value)}>
+                    <option className="block w-full py-3 cursor-pointer" key={"no color"} value={1}></option>
+                    <option className="block w-full py-3 cursor-pointer" key={dataKeys[1]} value={dataKeys[1]}>Sex</option>
+                    <option className="block w-full py-3 cursor-pointer" key={dataKeys[19]} value={dataKeys[19]}>Employment</option>
+                  </select>
+                </div>
               </div>
-              <div className="text-center my-3"><input type="checkbox" onClick={(e) => setScatoLine(e.target.checked)}></input>    Average Line</div>
-              <div className="text-center my-3"><input type="checkbox" onClick={(e) => setScatoBg(e.target.checked)}></input>    Background Color</div>
-              <div className="rounded text-center mx-20 my-10 h-20 bg-gray-200"></div>
+
+              <div class="flex flex-row mt-5 mx-10">
+                <div class="px-4 py-2 font-bold bg-purple-400 text-white cursor-defaultfocus:outline-none">
+                  Explore Insight by RefLine
+                </div>
+                <div class="px-4 py-2 appearance-none font-bold bg-transperant border-2 border-purple-400 text-black cursor-pointer focus:outline-none">
+                  <select class="focus:outline-none"
+                    onChange={(e) => setScatoLine(e.target.value)}>
+                    <option className="block w-full py-3 cursor-pointer" value={0}></option>
+                    <option className="block w-full py-3 cursor-pointer" value={1}>Average Line - X Axis</option>
+                    {/* <option className="block w-full py-3 cursor-pointer" value={2}>Average Line - Y Axis</option> */}
+                  </select>
+                </div>
+              </div>
+
+            </div>
+              {/* <div className="text-center my-3"><input type="checkbox" onClick={(e) => setScatoLine(e.target.checked)}></input>    Average Line</div> */}
+              {/* <div className="text-center my-3"><input type="checkbox" onClick={(e) => setScatoBg(e.target.checked)}></input>    Background Color</div> */}
+              <div className="rounded text-center mx-20 my-10 h-20 bg-gray-200"></div> 
             </div>
             
           </div>

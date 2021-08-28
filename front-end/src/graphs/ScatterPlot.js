@@ -2,41 +2,42 @@ import React from 'react'
 import Plot from 'react-plotly.js'
 
 let symbols = [
-  "circle", "star-open", "arrow-right", "pentagon", "x", "bowtie", "diamond", "star-triangle-up", 
-  "square", "x", "cross", "hexagon", "octagon", "hexagram", "star-diamond", "arrow-left", 
+  "circle",  "x", "arrow-right-open", "hexagram", 
+  "hexagon",   "cross", "octagon", "star-diamond", "arrow-left", 
 ];
 
 let randomColors= 
-  ["#1bb699", "#c79bc2", "#d02e29", "#1ae6db", "#3e464c", "#a84a8f",
-  "#911e7e", "#3f16d9", "#0f525f", "#ac7c0a", "#b4c086", "#c9d730", "#30cc49",
-  "#3d6751", "#fb4c03", "#640fc1", "#62c03e", "#d3493a", "#88aa0b", "#406df9",
-  "#615af0", "#4be47", "#2a3434", "#4a543f", "#79bca0", "#a8b8d4", "#00efd4",
-  "#7ad236", "#7260d8", "#1deaa7", "#06f43a", "#823c59", "#e3d94c", "#dc1c06",
-  "#f53b2a", "#b46238", "#2dfff6", "#a82b89", "#1a8011", "#436a9f", "#1a806a"];
+[
+  '#2dbc96',
+  '#ffa600',
+    '#58508d',
+    '#bc5090'
+];
 
 const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, symbolAttribute, lineAttribute, backgroundAttribute }) => { 
 
 //<-------get a list of non-numeric variable values, non-repeated------>
   let xData = data.map((d, i) => {
-    if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === "NULL") {
+    if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === "NULL" || d[xAxisAttribute] === "") {
      return "UNKOWN"
     }
      return d[xAxisAttribute];
   });
   let yData = data.map((d, i) => {
-    if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === "NULL") {
+    if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === "NULL" || d[yAxisAttribute] === "") {
       return "UNKOWN"
     }
       return d[yAxisAttribute];
   });
   let colorData = data.map((d, i) => {
-      if (d[colorAttribute] === undefined || d[colorAttribute] === "NULL") {
-        return "UNKOWN";
+      if (d[colorAttribute] === undefined || d[colorAttribute] === "NULL" || d[colorAttribute] === "") {
+        return ;
       }
       return d[colorAttribute];
     });
+
   let symbolData = data.map((d, i) => {
-    if (d[symbolAttribute] === undefined || d[symbolAttribute] === "NULL") {
+    if (d[symbolAttribute] === undefined || d[symbolAttribute] === "NULL" || d[symbolAttribute] === "") {
       return "UNKOWN";
     }
     return d[symbolAttribute];
@@ -62,7 +63,7 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
 
   let values = getValues(colorData);
   let valueS = getValues(symbolData);
-
+  
 
   // for (var i = 0; i < valueC.length; i++) {
   //   var v = {color: valueC[i]} 
@@ -91,10 +92,10 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
   //   fillColor.push(randomColors[index]);
   // }
 //<-------get a list of non-numeric variable values, non-repeated------>
-var j = 0;
+  var j = 0;
   let traces = values.map((key, i) => {
-  j++;
-    // console.log(key)
+    j++;
+
     xData = data
       .filter((d) => d[colorAttribute] === key)
       .map((d) => d[xAxisAttribute]);
@@ -108,16 +109,16 @@ var j = 0;
       .map((d) => d[colorAttribute]);
     
     symbolData = data.map((d, j) => {
-      if (d[symbolAttribute] === 1){
-        return symbols[0]
-      } else if (d[symbolAttribute] === 2){
+      if (d[symbolAttribute] === 'Male' || d[symbolAttribute] === 'Employed' ){
         return symbols[1]
-      } else {
+      } else if ( d[symbolAttribute] === 'Unemployed' ){
         return symbols[2]
+      } else if (d[symbolAttribute] === 'NULL'){
+        return symbols[3]
+      } else {
+        return symbols[0]
       }
     });
-
-
 
     return {
       x: xData,
@@ -127,10 +128,10 @@ var j = 0;
       type: "scatter",
       name: setName(key),
       marker: {
-        // symbol: symbolData,
+        symbol: symbolData,
         size: 8,
         color: randomColors[i],
-        opacity: 0.3
+        opacity: 0.7
       },
       hovertemplate:
         "<b>" + xAxisAttribute + "</b>: %{x}" +
@@ -143,26 +144,24 @@ var j = 0;
   //<------new arrays for sorting x/y data > get min/max------>
   let xDataSorted = data.map((d, i) => {
     if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === "NULL") {
-      return "UNKOWN";
+      return "";
      } 
       return d[xAxisAttribute];
   });
 
   xDataSorted = xDataSorted.filter(function( element ) {
-    return element !== "UNKOWN";
+    return element !== "";
   });
-
-  // console.log(xDataSorted);
 
   let yDataSorted = data.map((d, i) => {
     if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === "NULL") {
-      return "UNKOWN";
+      return "";
      } 
       return d[yAxisAttribute];
   });
 
   yDataSorted = yDataSorted.filter(function( element ) {
-    return element !== "UNKOWN";
+    return element !== "";
   });
 
   // console.log(yDataSorted);
@@ -176,27 +175,105 @@ var j = 0;
   yDataSorted.sort(function(a, b){return a-b});
    //<------new arrays for sorting x/y data > get min/max------>
 
-  function show(l){
-    if (l == true){
-      return 1;
-    } else {
-      return 0;
-    }
+
+  // var step = Math.round((xDataSorted[xDataSorted.length-1]-xDataSorted[0])/9);
+  // // console.log(xDataSorted[xDataSorted.length-1], xDataSorted[0], step)
+  // var sliderSteps = [];
+  // for (var i = 0; i < 10; i++) {
+  //   sliderSteps.push({
+  //     method: 'relayout',
+  //     label: xDataSorted[0]+step*i,
+  //     args: [[xDataSorted[0]+step*i], {
+  //       mode: 'immediate',
+  //       transition: {duration: 300},
+  //       frame: {duration: 300, redraw: false},
+  //     }]
+  //   });
+  // }
+  var trash = document.getElementById("trash");
+  var figurecontainer = document.getElementById("figurecontainer");
+
+  function clamp(x, lower, upper) {
+    return Math.max(lower, Math.min(x, upper));
   }
 
+  function startDragBehavior() {
+    var d3 = Plot.d3;
+    var drag = d3.behavior.drag();
+    drag.origin(function() {
+        var transform = d3.select(this).attr("transform");
+        var translate = transform.substring(10, transform.length-1).split(/,| /);
+        return {x: translate[0], y: translate[1]};
+    });
+    drag.on("dragstart", function() {
+        // if (this.handle.type != 'spawn') {
+            trash.setAttribute("display", "inline");
+            trash.style.fill = "rgb(254, 200, 154)";
+            // destroyHandle(points[0].handle);
+        //}
+    });
+    drag.on("drag", function() {
+        var xmouse = d3.event.x, ymouse = d3.event.y;
+        d3.select(this).attr("transform", "translate(" + [xmouse, ymouse] + ")");
+        var xaxis = figurecontainer._fullLayout.xaxis;
+        var yaxis = figurecontainer._fullLayout.yaxis;
+        var handle = this.handle;
+        if (handle.type != 'endpoint') handle.x = clamp(xaxis.p2l(xmouse), xaxis.range[0], xaxis.range[1] - 1e-9);
+        //if (handle.type == 'spawn' && handle.x > handles[1].x) {
+            trash.setAttribute("display", "inline");
+            trash.style.fill = "rgb(254, 200, 154)";
+            handle.type = 'normal';
+        //}
+        handle.y = clamp(yaxis.p2l(ymouse), yaxis.range[0], yaxis.range[1]);
+        // if (handle.x < firstx) {    // release from the interpolation if dragged beyond the leftmost breakpoint
+        //     handle.type = 'spawn';
+        //     trash.style.fill = "#a00";              
+        // }
+        // updateFigure();
+    });
+    drag.on("dragend", function() {
+        // if (this.handle.x < firstx) destroyHandle(this.handle);
+        // addHandle('spawn');
+        // updateFigure();
+        // updatePointHandles();
+        trash.setAttribute("display", "none");
+        d3.select(".scatterlayer .trace:last-of-type .points path:last-of-type").call(drag);    
+    });
+    d3.selectAll(".scatterlayer .trace:last-of-type .points path").call(drag);
+}
+
+  // var showLine1;
+  // var showLine2;
+
+  // function showLine(l){
+  //   if (lineAttribute == 1){
+  //     showLine1 = 1;
+  //     showLine2 = 0;
+  //   } else if (lineAttribute == 2){
+  //     showLine1 = 0;
+  //     showLine2 = 1;
+  //   } else {
+  //     showLine1 = 0;
+  //     showLine2 = 0;
+  //   }
+  // }
+console.log(lineAttribute)
 
   let layout = {
-      height: 600,
+      height: 650,
       margin: {
         pad: 5,
       },
-      // transition: {
-      //   duration: 500,
-      // },
       showlegend: true,
+      legend: {
+        x: 0,
+        y: 1,
+        // 'itemsizing': 'constant',
+      },
       xaxis: { 
         // range: [xDataSorted[0]-2, xDataSorted[xDataSorted.length-1]+2],
         // dtick: 5,
+        rangeslider: {},
         showgrid: true,
         showticklabels: true },
       yaxis: { 
@@ -209,48 +286,48 @@ var j = 0;
       shapes: [
         {
           type: 'line',
-          name: 'Average Line',
+          name: 'Average Line - X Axis',
           x0: xAverage,
           y0: yDataSorted[0],
           x1: xAverage,
           y1: yDataSorted[yDataSorted.length-1],
           line: {
-            color: '#fec89a',
+            color: 'grey',
             width: 2,
           },
-          opacity: show(lineAttribute)*0.8
+          opacity: lineAttribute,
+          editable: true
         },
-        {
-          type: 'line',
-          name: 'Average Line',
-          x0: xDataSorted[0],
-          y0: yAverage,
-          x1: xDataSorted[xDataSorted.length-1],
-          y1: yAverage,
-          line: {
-            color: '#fec89a',
-            width: 2,
-          },
-          opacity: show(lineAttribute)*0.8
-        },
-        {
-          type: 'rect',
-          x0: xAverage,
-          y0: yAverage,
-          x1: xDataSorted[xDataSorted.length-1],
-          y1: yDataSorted[yDataSorted.length-1],
-          fillcolor: '#fec89a',
-          opacity: show(backgroundAttribute)*0.1,
-          line: {
-            width: 0
-          }
-      },
-      ]
-    };
+        // {
+        //   type: 'line',
+        //   name: 'Average Line',
+        //   x0: xDataSorted[0],
+        //   y0: yAverage,
+        //   x1: xDataSorted[xDataSorted.length-1],
+        //   y1: yAverage,
+        //   line: {
+        //     color: 'grey',
+        //     width: 2,
+        //   },
+        //   opacity: (lineAttribute-1)+1,
+        //   editable: true
+        // }
+      ],
+      // sliders: [{
+      //   pad: {l: 5, t: 10},
+      //   currentvalue: {
+      //     visible: true,
+      //     prefix: 'Year:',
+      //     xanchor: 'left',
+      //     font: {size: 10, color: '#000'}
+      //   },
+      //   steps: sliderSteps
+      // }]
+      };
 
   return (
     <>
-      <Plot className="" data={traces} layout={layout} />
+      <Plot className="" divId="figurecontainer" data={traces} layout={layout} editable={true} />
     </>
   );
 };

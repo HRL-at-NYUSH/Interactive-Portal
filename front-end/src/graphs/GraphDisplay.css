@@ -18,3 +18,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #46a98a;
 }
+
+/* This is necessary to make Plotly points selectable. */
+.scatterlayer .trace:last-child path {
+  pointer-events: all;
+}
+
