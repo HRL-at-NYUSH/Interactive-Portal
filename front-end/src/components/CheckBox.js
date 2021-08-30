@@ -7,7 +7,7 @@ export default function CheckBox({
   },
 }) {
   return (
-    <label className='inline-flex justify-items-start flex-row flex-nowrap relative pr-4'>
+    <label className='inline-flex justify-items-start flex-row flex-nowrap relative pr-4 my-1'>
       <input
         type='checkbox'
         defaultChecked={defaultChecked}
