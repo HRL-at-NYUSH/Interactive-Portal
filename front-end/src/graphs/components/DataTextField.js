@@ -6,7 +6,7 @@ const DataTextField = ({
   placeholder,
   defaultValue,
   onChange = (textInput) => {
-    console.log(textInput, 'ok');
+    console.log(textInput);
   },
 }) => {
   const [textInput, setTextInput] = useState(defaultValue || placeholder || '');
@@ -14,8 +14,6 @@ const DataTextField = ({
   useEffect(() => {
     // passing initial states to parent component
     setTextInput(textInput || placeholder);
-    console.log(textInput);
-
     onChange(textInput);
   }, []);
 
@@ -24,6 +22,7 @@ const DataTextField = ({
       <div className='text-left m-auto pl-2 text-lg'>{title}</div>
       <TextField
         placeholder={placeholder}
+        defaultValue={defaultValue}
         onValueChange={(text) => {
           setTextInput(text || placeholder);
           onChange(text || placeholder);
