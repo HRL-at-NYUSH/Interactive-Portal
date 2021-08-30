@@ -9,9 +9,9 @@ function BoxPlot({
   options = {},
 }) {
   let layout = {
-    // autosize: true,
+    autosize: true,
     width: 1280,
-    // height: 500,
+    height: 800,
     // margin: {
     //   l: 50,
     //   r: 50,
@@ -22,12 +22,13 @@ function BoxPlot({
     title: title.length > 0 ? title : 'Untitled Box Plot',
   };
 
-  // options
+  // layout options
   layout[options.horizontal ? 'xaxis' : 'yaxis'] = { title: yAxisAttribute };
   layout.showlegend = options.showLegend;
+
   // extract unique keys
   let xKeys = data.map((d) => d[xAxisAttribute]).filter(onlyUnique);
-
+  // composing the traces
   let traces = xKeys.map((key, i) => {
     let result = {
       name: stringifyValue(key),
@@ -52,16 +53,36 @@ function BoxPlot({
   });
   // console.log(traces);
 
-  // an example trace of Box Plot
-  // {
-  //   y: yData,
-  //   boxpoints: 'all',
-  //   jitter: 0.3,
-  //   pointpos: -1.8,
-  //   type: 'box',
-  // }
+  // optional overlay scatter plot
+  if (options.overlayScatterPlot) {
+    let scatterTraces = traces.map((trace) => ({
+      x: Array(trace.y.length).fill(trace.name),
+      y: trace.y,
+      name: trace.name,
+      mode: 'markers',
+      type: 'scatter',
+    }));
+    traces = traces.concat(scatterTraces);
+  }
+  // optional overlay violin plot
+  if (options.overlayViolinPlot) {
+    let violinTraces = traces.map((trace) => ({
+      x: trace.x,
+      y: trace.y,
+      name: trace.name,
+      type: 'violin',
+    }));
+    traces = traces.concat(violinTraces);
+  }
 
-  return <Plot data={traces} layout={layout}></Plot>;
+  let config = {
+    modeBarButtonsToRemove: ['zoomIn', 'zoomOut'],
+    editable: true,
+    scrollZoom: true,
+    // responsive: true,
+  };
+
+  return <Plot data={traces} layout={layout} config={config}></Plot>;
 }
 
 function onlyUnique(value, index, self) {
