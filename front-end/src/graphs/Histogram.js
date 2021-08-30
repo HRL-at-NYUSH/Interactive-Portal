@@ -1,6 +1,11 @@
 import Plot from 'react-plotly.js';
 
-const Histogram = ({ data, xAxisAttribute, title }) => {
+const Histogram = ({
+  data,
+  xAxisAttribute,
+  title = 'Untitled Histogram',
+  options = {},
+}) => {
   // console.log(data);
   let layout = {
     autosize: true,
@@ -15,8 +20,9 @@ const Histogram = ({ data, xAxisAttribute, title }) => {
     // },
     title: title || 'Untitled',
     xaxis: { title: xAxisAttribute },
-    yaxis: { title: 'Count' },
   };
+
+  layout.yaxis = { title: options.cumulative ? 'Cumulated Count' : 'Count' };
 
   let xData = data.map((d) => {
     if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === 'NULL') {
@@ -27,26 +33,26 @@ const Histogram = ({ data, xAxisAttribute, title }) => {
   // console.log(data);
   // console.log(xData);
 
-  return (
-    <Plot
-      className=''
-      data={[
-        {
-          x: xData,
-          type: 'histogram',
-          marker: {
-            color: 'rgba(255, 100, 102, 0.7)',
-            line: {
-              color: 'rgba(255, 100, 102, 1)',
-              width: 1,
-            },
-          },
-          histnorm: 'count',
+  let traces = [
+    {
+      x: xData,
+      type: 'histogram',
+      marker: {
+        color: 'rgba(255, 100, 102, 0.7)',
+        line: {
+          color: 'rgba(255, 100, 102, 1)',
+          width: 1,
         },
-      ]}
-      layout={layout}
-    />
-  );
+      },
+      histnorm: 'count',
+    },
+  ];
+
+  if (options.horizontal) traces = [{ ...traces[0], y: traces[0].x, x: null }];
+
+  if (options.cumulative) traces[0].cumulative = { enabled: true };
+
+  return <Plot className='' data={traces} layout={layout} />;
 };
 
 export default Histogram;
