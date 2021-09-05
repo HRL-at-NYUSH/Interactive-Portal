@@ -8,13 +8,13 @@ let symbols = [
 
 let randomColors= 
 [
-  '#2dbc96',
-  '#ffa600',
+    '#2dbc96',
+    '#ffa600',
     '#58508d',
     '#bc5090'
 ];
 
-const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, symbolAttribute, lineAttribute, backgroundAttribute }) => { 
+const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, symbolAttribute, lineAttribute }) => { 
 
 //<-------get a list of non-numeric variable values, non-repeated------>
   let xData = data.map((d, i) => {
@@ -62,39 +62,15 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
   }
 
   let values = getValues(colorData);
-  let valueS = getValues(symbolData);
+  let valuesSymbol = getValues(symbolData);
   
-
-  // for (var i = 0; i < valueC.length; i++) {
-  //   var v = {color: valueC[i]} 
-  //   values.push(v); 
-  // }
-  //   for (var j = 0; j < valueS.length; j++) {
-  //     var m = {symbol: valueS[j]}
-  //     values.push(m); 
-  //   }
-  // // console.log(colorData);
-  // console.log(values)
-
-  // function checkValue(a){
-  //     return a == colorData[j];
-  // }
-
-  // let symbol = [];
-  // for (var j = 0; j < symbolData.length; j++) {
-  //   var index = valueS.findIndex(checkValue)
-  //   symbolData.push(symbols[index]);
-  // }
-
-  // let fillColor = [];
-  // for (var j = 0; j < colorData.length; j++) {
-  //   var index = values.findIndex(checkValue)
-  //   fillColor.push(randomColors[index]);
-  // }
-//<-------get a list of non-numeric variable values, non-repeated------>
-  var j = 0;
-  let traces = values.map((key, i) => {
-    j++;
+//<-------get traces by color groups------->
+    var j = 0;
+    var h = 0;
+    let symbolText;
+    let traces = values.map((key, i) => {
+      j++;
+      h++;
 
     xData = data
       .filter((d) => d[colorAttribute] === key)
@@ -110,20 +86,28 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
     
     symbolData = data.map((d, j) => {
       if (d[symbolAttribute] === 'Male' || d[symbolAttribute] === 'Employed' ){
+        // symbolText.push(d[symbolAttribute]);
         return symbols[1]
       } else if ( d[symbolAttribute] === 'Unemployed' ){
+        // symbolText.push(d[symbolAttribute]);
         return symbols[2]
       } else if (d[symbolAttribute] === 'NULL'){
+        // symbolText.push(d[symbolAttribute]);
         return symbols[3]
       } else {
+
         return symbols[0]
       }
+    });
+
+    symbolText = data.map((d, h) => {
+      return d[symbolAttribute];
     });
 
     return {
       x: xData,
       y: yData,
-      text: colorData,
+      text: symbolText,
       mode: "markers",
       type: "scatter",
       name: setName(key),
@@ -136,7 +120,8 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
       hovertemplate:
         "<b>" + xAxisAttribute + "</b>: %{x}" +
         "<br><b>" + yAxisAttribute + "</b>: %{y}<br>" +
-        "<b>" + colorAttribute + "</b>: %{text}" 
+        // "<b>" + colorAttribute + "</b>: %{text}" 
+        "<b>" + symbolAttribute + "</b>: %{text}" 
         + "<extra></extra>",
     };
   });  
@@ -173,24 +158,12 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
   let yAverage = yDataSorted.reduce(myFunction) / yDataSorted.length;
   xDataSorted.sort(function(a, b){return a-b});
   yDataSorted.sort(function(a, b){return a-b});
-   //<------new arrays for sorting x/y data > get min/max------>
 
 
-  // var step = Math.round((xDataSorted[xDataSorted.length-1]-xDataSorted[0])/9);
-  // // console.log(xDataSorted[xDataSorted.length-1], xDataSorted[0], step)
-  // var sliderSteps = [];
-  // for (var i = 0; i < 10; i++) {
-  //   sliderSteps.push({
-  //     method: 'relayout',
-  //     label: xDataSorted[0]+step*i,
-  //     args: [[xDataSorted[0]+step*i], {
-  //       mode: 'immediate',
-  //       transition: {duration: 300},
-  //       frame: {duration: 300, redraw: false},
-  //     }]
-  //   });
-  // }
-  var trash = document.getElementById("trash");
+
+   //<------movable reference line------>
+
+  var refLine = document.getElementById("refLine");
   var figurecontainer = document.getElementById("figurecontainer");
 
   function clamp(x, lower, upper) {
@@ -206,11 +179,7 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
         return {x: translate[0], y: translate[1]};
     });
     drag.on("dragstart", function() {
-        // if (this.handle.type != 'spawn') {
-            trash.setAttribute("display", "inline");
-            trash.style.fill = "rgb(254, 200, 154)";
-            // destroyHandle(points[0].handle);
-        //}
+      refLine.setAttribute("display", "inline");
     });
     drag.on("drag", function() {
         var xmouse = d3.event.x, ymouse = d3.event.y;
@@ -218,45 +187,13 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
         var xaxis = figurecontainer._fullLayout.xaxis;
         var yaxis = figurecontainer._fullLayout.yaxis;
         var handle = this.handle;
-        if (handle.type != 'endpoint') handle.x = clamp(xaxis.p2l(xmouse), xaxis.range[0], xaxis.range[1] - 1e-9);
-        //if (handle.type == 'spawn' && handle.x > handles[1].x) {
-            trash.setAttribute("display", "inline");
-            trash.style.fill = "rgb(254, 200, 154)";
-            handle.type = 'normal';
-        //}
-        handle.y = clamp(yaxis.p2l(ymouse), yaxis.range[0], yaxis.range[1]);
-        // if (handle.x < firstx) {    // release from the interpolation if dragged beyond the leftmost breakpoint
-        //     handle.type = 'spawn';
-        //     trash.style.fill = "#a00";              
-        // }
-        // updateFigure();
-    });
+        });
     drag.on("dragend", function() {
-        // if (this.handle.x < firstx) destroyHandle(this.handle);
-        // addHandle('spawn');
-        // updateFigure();
-        // updatePointHandles();
-        trash.setAttribute("display", "none");
+        refLine.setAttribute("display", "none");
         d3.select(".scatterlayer .trace:last-of-type .points path:last-of-type").call(drag);    
     });
-    d3.selectAll(".scatterlayer .trace:last-of-type .points path").call(drag);
+        d3.selectAll(".scatterlayer .trace:last-of-type .points path").call(drag);
 }
-
-  // var showLine1;
-  // var showLine2;
-
-  // function showLine(l){
-  //   if (lineAttribute == 1){
-  //     showLine1 = 1;
-  //     showLine2 = 0;
-  //   } else if (lineAttribute == 2){
-  //     showLine1 = 0;
-  //     showLine2 = 1;
-  //   } else {
-  //     showLine1 = 0;
-  //     showLine2 = 0;
-  //   }
-  // }
 console.log(lineAttribute)
 
   let layout = {
@@ -268,17 +205,12 @@ console.log(lineAttribute)
       legend: {
         x: 0,
         y: 1,
-        // 'itemsizing': 'constant',
       },
       xaxis: { 
-        // range: [xDataSorted[0]-2, xDataSorted[xDataSorted.length-1]+2],
-        // dtick: 5,
         rangeslider: {},
         showgrid: true,
         showticklabels: true },
       yaxis: { 
-        // range: [yDataSorted[0]-2, yDataSorted[yDataSorted.length-1]+2],
-        // dtick: 5,
         showgrid: true,
         showticklabels: true },
       title: "Scatter Plot Graph",
@@ -287,6 +219,7 @@ console.log(lineAttribute)
         {
           type: 'line',
           name: 'Average Line - X Axis',
+          divId: "refLine",
           x0: xAverage,
           y0: yDataSorted[0],
           x1: xAverage,
@@ -297,32 +230,7 @@ console.log(lineAttribute)
           },
           opacity: lineAttribute,
           editable: true
-        },
-        // {
-        //   type: 'line',
-        //   name: 'Average Line',
-        //   x0: xDataSorted[0],
-        //   y0: yAverage,
-        //   x1: xDataSorted[xDataSorted.length-1],
-        //   y1: yAverage,
-        //   line: {
-        //     color: 'grey',
-        //     width: 2,
-        //   },
-        //   opacity: (lineAttribute-1)+1,
-        //   editable: true
-        // }
-      ],
-      // sliders: [{
-      //   pad: {l: 5, t: 10},
-      //   currentvalue: {
-      //     visible: true,
-      //     prefix: 'Year:',
-      //     xanchor: 'left',
-      //     font: {size: 10, color: '#000'}
-      //   },
-      //   steps: sliderSteps
-      // }]
+        }]
       };
 
   return (
