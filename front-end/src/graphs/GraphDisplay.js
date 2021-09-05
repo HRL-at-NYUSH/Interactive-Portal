@@ -53,9 +53,8 @@ function GraphDisplay() {
                     onValueChange={setBarXAttr}
               ></SelectBox>
 
-
           </div>
-        </div>
+          </div>
       </div>
     </>
   );
