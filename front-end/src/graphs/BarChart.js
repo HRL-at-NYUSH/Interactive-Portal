@@ -61,7 +61,6 @@ const BarChart = ({data, xAxisAttribute}) => {
 }
   
   let xyData = keysAndValues(tempResult)
-  let xyData2 = keysAndValues(tempResult2)
 
   let xData = xyData[0]
   let yData = xyData[1]
