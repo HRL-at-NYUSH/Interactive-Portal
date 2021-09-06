@@ -13,9 +13,9 @@ Summer 2021:
 
 Fall 2021:
 
-TBD
+Sarah Tahir, Alma Kapan, Tim Wu, TBD
 
-### Team Members
+### Team Members 
 
 - [Sarah Tahir](https://github.com/saraaahh63)
 - [Alma Kapan](https://github.com/almazhankapan)
