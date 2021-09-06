@@ -2,4 +2,4 @@ Name: Alma
 
 Favorite color: Blue
 
-Favorite movie: Parasites
+Favorite movie: Parasite
