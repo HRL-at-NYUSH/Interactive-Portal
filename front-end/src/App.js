@@ -10,8 +10,6 @@ import {
   Questions,
   Resources,
   Profile,
-  Logout,
-  Signup,
   SampleDataUse,
   GraphDisplay,
   Dashboard,
@@ -55,8 +53,6 @@ const App = () => {
               <Route path="/profile" component={Profile} />
               <Route path="/data" component={Data} />
               <Route path="/visualize" component={Visualize} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/logout" component={Logout} />
               <Route path="/SampleDataUse" component={SampleDataUse} />
               <Route path="/Questions" component={Questions} />
               <Route path="/Resources" component={Resources} />

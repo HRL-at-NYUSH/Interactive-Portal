@@ -4,7 +4,6 @@ import Visualize from '@pages/Visualize.js'
 import Questions from '@pages/Questions.js'
 import Resources from '@pages/Resources.js'
 import Profile from '@pages/Profile/index.js'
-import Signup from '@pages/Signup.js'
 import Logout from '@pages/Logout.js'
 import SampleDataUse from '@pages/SampleDataUse.js'
 import Dashboard from '@pages/Dashboard'
@@ -17,8 +16,6 @@ export {
   Questions,
   Resources,
   Profile,
-  Signup,
-  Logout,
   SampleDataUse,
   GraphDisplay,
   Dashboard,
