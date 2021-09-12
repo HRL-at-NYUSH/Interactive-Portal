@@ -3,8 +3,8 @@ const autoIncrement = require('mongoose-sequence')(mongoose)
 const UserSchemaG = new mongoose.Schema(
   {
     idG: { type: Number },
-    google_id: { type: String },
-    displayName: { type: String },
+    google_id: { type: String, required: true },
+    displayName: { type: String, required: true },
     firstName: { type: String },
     lastName: { type: String },
     img: { type: String },
