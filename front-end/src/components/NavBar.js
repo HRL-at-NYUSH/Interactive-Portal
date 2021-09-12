@@ -95,7 +95,8 @@ const NavBar = ({ isFixed }) => {
             </Link>
           ))}
 
-          {loggedIn ? (
+          {
+            //loggedIn ? (
             <Link
               href="/profile"
               className="transition whitespace-nowrap inline-flex items-center justify-center
@@ -105,9 +106,10 @@ text-gray-900 hover:text-gray-500 bg-gray-200"
             >
               Profile
             </Link>
-          ) : (
-            ''
-          )}
+            //) : (
+            // ''
+            // )
+          }
         </div>
         <div className="hidden items-center text-base leading-5 sm:flex">
           {showloginButton ? (

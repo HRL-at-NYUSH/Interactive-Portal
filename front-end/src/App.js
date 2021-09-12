@@ -53,7 +53,7 @@ const App = () => {
               <Route path="/profile" component={Profile} />
               <Route path="/data" component={Data} />
               <Route path="/visualize" component={Visualize} />
-              <Route path="/SampleDataUse" component={SampleDataUse} />
+              <Route path="/sample-data-use" component={SampleDataUse} />
               <Route path="/Questions" component={Questions} />
               <Route path="/Resources" component={Resources} />
               <Route path="/dashboard" component={Dashboard} />

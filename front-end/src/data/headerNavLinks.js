@@ -6,6 +6,6 @@ const headerNavLinks = [
   { href: '/questions', title: 'FAQs' },
   { href: '/sample-data-use', title: 'Sample' },
   { href: '/graphDisplay', title: 'Graphs' },
-];
+]
 
-export default headerNavLinks;
+export default headerNavLinks
