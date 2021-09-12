@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@data/headerNavLinks'
 import MobileNav from './MobileNav'
-import { useLocation } from 'react-router-dom'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
+import { useLocation, matchPath } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({ isFixed }) => {
+  const location = useLocation()
   const clientId =
-    '838596502010-0p0p11r3amea5qojgot7j52n2pb4saf7.apps.googleusercontent.com'
+    '870556349856-iglk9aoidksnrqvj60vnv2mt1fei9lj0.apps.googleusercontent.com'
   const [showloginButton, setShowloginButton] = useState(true)
   const [showlogoutButton, setShowlogoutButton] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
@@ -30,80 +30,55 @@ const NavBar = () => {
     setShowloginButton(true)
     setShowlogoutButton(false)
   }
-
-  const location = useLocation()
   if (loggedIn && showloginButton) {
-    // return <Redirect to={`/profile/${loggedInUser.id}`} />
+    // return <Redirect to={`/profile/${loggedInU
     return <Redirect to={`/profile`} />
   }
   if (!loggedIn && !showloginButton) {
-    // return <Redirect to={`/profile/${loggedInUser.id}`} />
+    // return <Redirect to={`/profile/${loggedInU
     return <Redirect to={`/`} />
   }
-  return (
-    <header className="flex items-center justify-between py-6 z-10">
-      <div>
-        <Link
-          href="/"
-          aria-label="Humanities Research Lab"
-          className="mr-3 font-bold text-xl"
-=======
-import React from 'react';
-import Link from './Link';
-import headerNavLinks from '@data/headerNavLinks';
-import MobileNav from './MobileNav';
-import { useLocation, matchPath } from 'react-router-dom';
-
-const NavBar = ({ isFixed }) => {
-  const location = useLocation();
-
   const fixedHeader = ({ children }) => {
     return (
       <header
-        className='fixed left-0 z-10
+        className="fixed left-0 z-10
           py-4 shadow-md w-full
           px-2 sm:px-6 xl:px-8 
-      '
+      "
       >
-        <div className='flex items-center justify-between'>{children}</div>
+        <div className="flex items-center justify-between">{children}</div>
       </header>
-    );
-  };
+    )
+  }
 
   const normalHeader = ({ children }) => {
     return (
       <header
-        className='flex items-center justify-between z-10
+        className="flex items-center justify-between z-10
        py-6 border-solid border-b-0 border-black shadow-lg
        px-2 sm:px-6 xl:px-8 
-      '
+      "
       >
         {children}
       </header>
-    );
-  };
+    )
+  }
 
-  const UsedHeader = isFixed ? fixedHeader : normalHeader;
+  const UsedHeader = isFixed ? fixedHeader : normalHeader
 
   return (
     <UsedHeader>
       <div>
         <Link
-          href='/'
-          aria-label='Humanities Research Lab'
-          className='mr-3 font-bold text-2xl'
->>>>>>> b888ac0d9be7823075adc881c42375c0ca930061
+          href="/"
+          aria-label="Humanities Research Lab"
+          className="mr-3 font-bold text-2xl"
         >
           Humanities Research Lab
         </Link>
       </div>
-<<<<<<< HEAD
-      <div className="flex items-center text-base leading-5">
-        <div className="hidden sm:block">
-=======
-      <div className='flex items-center flex-wrap text-lg leading-5'>
-        <div className='hidden lg:block'>
->>>>>>> b888ac0d9be7823075adc881c42375c0ca930061
+      <div className="flex items-center flex-wrap text-lg leading-5">
+        <div className="hidden lg:block">
           {headerNavLinks.map((link) => (
             <Link
               key={link.title}
@@ -119,15 +94,14 @@ const NavBar = ({ isFixed }) => {
               {link.title}
             </Link>
           ))}
-<<<<<<< HEAD
+
           {loggedIn ? (
             <Link
               href="/profile"
-              className={`p-1  ${
-                location.pathname === '/profile'
-                  ? 'text-gray-900 font-bold'
-                  : 'text-gray-600 font-medium'
-              }  sm:p-4 hover:text-gray-500 whitespace-nowrap`}
+              className="transition whitespace-nowrap inline-flex items-center justify-center
+ml-4 px-4 py-3
+rounded-lg border border-transparent shadow-sm
+text-gray-900 hover:text-gray-500 bg-gray-200"
             >
               Profile
             </Link>
@@ -138,7 +112,11 @@ const NavBar = ({ isFixed }) => {
         <div className="hidden items-center text-base leading-5 sm:flex">
           {showloginButton ? (
             <GoogleLogin
-              className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-accent hover:bg-accent-darker"
+              className="transition
+              whitespace-nowrap inline-flex items-center justify-center
+              ml-4 px-4 py-3
+              rounded-lg border border-transparent shadow-sm
+              text-gray-900 hover:text-gray-500 bg-gray-200"
               clientId={clientId}
               buttonText="Sign In"
               onSuccess={onLoginSuccess}
@@ -149,51 +127,22 @@ const NavBar = ({ isFixed }) => {
           ) : null}
           {showlogoutButton ? (
             <GoogleLogout
-              className="ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-accent hover:bg-accent-darker"
+              className="transition
+              whitespace-nowrap inline-flex items-center justify-center
+              ml-4 px-4 py-3
+              rounded-lg border border-transparent shadow-sm
+              text-gray-900 hover:text-gray-500 bg-gray-200"
               clientId={clientId}
               buttonText="Sign Out"
               onLogoutSuccess={onSignoutSuccess}
             ></GoogleLogout>
           ) : null}
-=======
-
-          <Link
-            href='/login'
-            className='
-            transition
-            whitespace-nowrap inline-flex items-center justify-center
-            ml-4 px-4 py-3
-            rounded-lg border border-transparent shadow-sm
-            text-gray-900 hover:text-gray-500 bg-gray-200'
-          >
-            Login
-          </Link>
-          <Link
-            href='/signup'
-            className='
-            transition
-            whitespace-nowrap inline-flex items-center justify-center
-            ml-4 px-4 py-3
-            rounded-lg border border-transparent shadow-sm
-           text-gray-900 hover:text-gray-200
-           bg-accent hover:bg-accent-darker
-           '
-          >
-            Sign up
-          </Link>
->>>>>>> b888ac0d9be7823075adc881c42375c0ca930061
         </div>
 
         <MobileNav />
       </div>
-<<<<<<< HEAD
-    </header>
+    </UsedHeader>
   )
 }
-=======
-    </UsedHeader>
-  );
-};
->>>>>>> b888ac0d9be7823075adc881c42375c0ca930061
 
 export default NavBar
