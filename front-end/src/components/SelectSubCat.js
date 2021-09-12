@@ -14,6 +14,10 @@ const onValueChange = ()=>{
 }
 */
 
+function unpack(cat, subcat) {
+    return cat.map(function(cat) { return cat[subcat]; });
+}
+
 export default function SelectBox({ data, onValueChange }) {
   return (
     <div className='inline-block relative w-full'>
@@ -24,10 +28,11 @@ export default function SelectBox({ data, onValueChange }) {
         {data.map((datum, i) => (
           <option key={i} value={datum.value}>
             {datum.fieldName}
+
           </option>
         ))}
       </select>
-      <ChevronDownIcon className='w-9 h-9 pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'></ChevronDownIcon>
+      <ChevronDownIcon className='w-9 h-9 pointer-events-none absolute inset-y-0 right-4 flex items-center px-2 text-gray-700'></ChevronDownIcon>
     </div>
   );
 }

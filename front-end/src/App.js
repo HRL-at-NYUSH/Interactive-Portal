@@ -49,6 +49,7 @@ const App = () => {
         <Router>
           <LayoutWrapper>
             <Switch>
+<<<<<<< HEAD
               <Route exact path="/" component={Home} />
               <Route path="/profile" component={Profile} />
               <Route path="/data" component={Data} />
@@ -58,6 +59,19 @@ const App = () => {
               <Route path="/Resources" component={Resources} />
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/graphDisplay" component={GraphDisplay} />
+=======
+              <Route exact path='/' component={Home} />
+              <Route path='/profile' component={Profile} />
+              <Route path='/data' component={Data} />
+              <Route path='/visualize' component={Visualize} />
+              <Route path='/login' component={Login} />
+              <Route path='/signup' component={Signup} />
+              <Route path='/sample-data-use' component={SampleDataUse} />
+              <Route path='/questions' component={Questions} />
+              <Route path='/resources' component={Resources} />
+              <Route path='/dashboard' component={Dashboard} />
+              <Route path='/graphDisplay' component={GraphDisplay} />
+>>>>>>> b888ac0d9be7823075adc881c42375c0ca930061
             </Switch>
           </LayoutWrapper>
         </Router>

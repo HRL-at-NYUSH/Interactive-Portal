@@ -4,7 +4,7 @@ In this exercise, you will practice git workflow and make your first contributio
 
 View more information about git workflow and version control with Git [here](https://knowledge.kitchen/Version_control_with_Git_and_GitHub)
 
-You should complete the exercise by Friday, June 11th. Please follow the steps below and watch the tutorial to complete the exercise.
+You should complete the exercise by Tuesday, Sept 14th. Please follow the steps below and watch the tutorial to complete the exercise.
 
 1. In Visual Studio Code, clone the repository from your forked folder following the steps below outlined in the [Readme](https://github.com/HRL-at-NYUSH/Interactive-Portal#readme) file and [project setup tutorial](link).
 
@@ -29,8 +29,8 @@ git checkout -b issue-XX-git-workflow
 ```
 cd exercise
 ```
-6. In this folder, you will see files with the format 'gitworkflow-name.md' - select the file corresponding to your name (i.e. if I'm Sarah, I will select the file 'gitworkflow-Sarah.md')
-Edit the file that you selected by typing your answers. See an example below:
+6. In this folder, you will see file with the format 'gitworkflow.md' 
+Edit the file by adding your name, favorite color and favorite movie. See an example below:
 ```
 Name: Sarah
 
@@ -57,6 +57,6 @@ git push origin issue-XX-git-workflow
 
 9. Now, go to the [pull requests](https://github.com/HRL-at-NYUSH/Interactive-Portal/pulls) and press 'Create pull request'. For 'base', select main branch and for 'compare', select your new branch that you have just created.
 
-10. Add Alma and Sarah as reviewers.
+10. Add Sarah,Alma,Yufeng,Winny as reviewers.
 
 11. Thanks for completing the exercise! Welcome to the project!

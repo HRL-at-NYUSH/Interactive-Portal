@@ -2,6 +2,7 @@
 
 ## Week 1
 
+
 Welcome to the HRL Interactive Portal team! You are contributing to a high impact project with potentially hundreds of users from NYU Shanghai community and beyond! This will look great on your CV ^-^ Good luck!
 
 View git workflow recorded tutorial, install React and complete the exercise. For troubleshooting, reach out to Alma or Sarah.
