@@ -4,6 +4,7 @@ import { USCensusMetadata, dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
+import DropdownMenu from '@components/DropdownMenu.js';
 
 import DataSelectBox from '@graphs/components/DataSelectBox.js';
 import DataCheckBoxGroup from './components/DataCheckBoxGroup.js';
@@ -20,45 +21,49 @@ import StackedBarChart from './StackedBarChart';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import DataTextField from './components/DataTextField.js';
 
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+
 //Main component that displays your created graph
 //Components in React can be in the form of functions, classes etc.
 //and consist of both javascript code and html code (html is the return value)
 function GraphDisplay() {
   const dataKeys = Object.keys(dataNonGeo[0]);
-  const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
-  const [BarXAttr, setBarXAttr] = useState('ID');
+ 
+
+  
+  const test = ['Year', 'Age', 'Family Size', 'Immigration Year', 'EDSCORE50', 'OCCSCORE', 'PRESGL']
+  const testKeys = test.map((d) => ({ label: d, value: d }));
+  const [selectedOption, setSelectedOption] = useState('0');
+  const animatedComponents = makeAnimated();
 
   //Below is the html code (return value)
   return (
+    
     <>
-      <div>
+      <div> 
         <HeaderText>A page that displays your graph component</HeaderText>
 
         <div className='flex flex-col justify-between'>
-          {/* Put your graph component below the Histogram Card */}
-
-
           <div className='w-1/2 text-3xl text-center font-bold border-b-2 p-2 m-auto'>
-              Bar Chart
-            </div>
-            <BarChart data={dataNonGeo}
-              xAxisAttribute={BarXAttr}></BarChart>
-            
-            <div className='text-center border-t-2 py-2'>
-              <div className='font-bold text-xl py-2'>
-              X variable for Bar Chart of Non-Geo Data
-              </div>
-              <SelectBox
-                    data={selectBoxData}
-                    onValueChange={setBarXAttr}
-              ></SelectBox>
-
-
+              Correlation Graph
           </div>
-        </div>
+            <Correlation data={dataNonGeo}
+               bothAxisAttribute={selectedOption}></Correlation>
+            <Select
+              // defaultValue={[testKeys[0]]}
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              isMulti
+              options={testKeys}
+              onChange={setSelectedOption}
+            />
+        </div> 
       </div>
     </>
   );
 }
 
 export default GraphDisplay;
+
+
