@@ -1,12 +1,11 @@
 const headerNavLinks = [
-  { href: '/profile', title: 'Profile' },
   { href: '/data', title: 'Data' },
   { href: '/visualize', title: 'Visualize' },
   { href: '/dashboard', title: 'Dashboard' },
-  { href: '/Questions', title: 'FAQ' },
-  { href: '/Resources', title: 'Resources' },
-  { href: '/SampleDataUse', title: 'Sample Data Use' },
-  { href: '/GraphDisplay', title: 'Graphs' },
+  { href: '/resources', title: 'Resources' },
+  { href: '/questions', title: 'FAQs' },
+  { href: '/sample-data-use', title: 'Sample' },
+  { href: '/graphDisplay', title: 'Graphs' },
 ]
 
 export default headerNavLinks

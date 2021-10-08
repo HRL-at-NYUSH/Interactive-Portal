@@ -1,15 +1,21 @@
 # Interactive Data Portal for Humanities Research Lab Summer 2021
 
-### Project Description
+### Project Description. 
 
 The IDP is a flexible, real-time data visualization tool for historical research. The IDP was built for internal use at NYU Shanghai.
 
 ### Team Leaders
 
+Summer 2021:
+
 [Sarah Tahir](https://github.com/saraaahh63) and [Alma Kapan](https://github.com/almazhankapan) are Full-stack developers leading the development cycle both on the front-end (ReactJS, UX Design) and back-end (ExpressJS).
 [Tim Wu](https://github.com/TimWGY) is leading the team on Data Visualization and Research, Data Mining
 
-### Team Members
+Fall 2021:
+
+Sarah Tahir, Alma Kapan, Tim Wu, TBD
+
+### Team Members 
 
 - [Sarah Tahir](https://github.com/saraaahh63)
 - [Alma Kapan](https://github.com/almazhankapan)
