@@ -20,12 +20,37 @@ import StackedBarChart from './StackedBarChart';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import DataTextField from './components/DataTextField.js';
 
+
 //Main component that displays your created graph
 //Components in React can be in the form of functions, classes etc.
 //and consist of both javascript code and html code (html is the return value)
 function GraphDisplay() {
   const dataKeys = Object.keys(dataNonGeo[0]);
   const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
+  
+  //Y axis values that makes sense: Gender, Immigration Year, 
+  const selectBoxDataAreaYaxis = [dataKeys[9],dataKeys[11]].map((d) => ({ fieldName: d, value: d }));
+  const selectBoxDataAreaXaxis=  [dataKeys[1]].map((d) => ({ fieldName: d, value: d }));
+  console.log("selectBox"+" "+selectBoxData);
+  console.log("dataKeys:"+dataKeys);
+  const [histoXAttr, setHistoXAttr] = useState('ID');
+  //area chart attribute
+  const [areaXattr, setAreaXattr] = useState('Time');
+  const [areaYattr, setAreaYattr] = useState('Gender');
+  const result = new Map();
+  // var nowYear = new Date().getYear();
+
+  dataNonGeo.forEach(e => {
+    var item = result.get(e.ID) || { ID: e.ID, count: 0, female: 0, male: 0 };
+    item.count++;
+    item.female += e.Gender === "female";
+    item.male += e.Gender ==="male"
+    result.set(item.code, item);
+  })
+
+  // for ([male, femlae] of result.entries()) {
+  //   console.log(value);
+  // }
   const [BarXAttr, setBarXAttr] = useState('ID');
 
   //Below is the html code (return value)
@@ -55,8 +80,39 @@ function GraphDisplay() {
 
 
           </div>
+          
         </div>
+        <div className="rounded overflow-hidden shadow-lg m-auto p-4">
+          <p>Area Chart</p>
+          <AreaChart
+            data={dataNonGeo}
+            xAxisAttribute={areaXattr}
+            yAxisAttribute={areaYattr}
+          ></AreaChart>
+        </div>
+
       </div>
+      <div className='font-bold text-xl py-2'>
+        Area Chart X Axis Data of Non-Geo Data
+      </div>
+      <div className='m-auto w-64'>
+        <SelectBox
+          // data={selectBoxDataAreaXaxis}
+          data={selectBoxDataAreaXaxis}
+          onValueChange={setAreaXattr}
+        ></SelectBox>
+      </div>
+      <div className='font-bold text-xl py-2'>
+        Area Chart Y Axis Data of Non-Geo Data
+      </div>
+      <div className='m-auto w-64'>
+        <SelectBox
+          // data={selectBoxDataAreaYaxis}
+          data={selectBoxDataAreaYaxis}
+          onValueChange={setAreaYattr}
+        ></SelectBox>
+      </div>
+      
     </>
   );
 }
