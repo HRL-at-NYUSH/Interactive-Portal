@@ -7,18 +7,19 @@ import { MenuIcon, XIcon } from '@heroicons/react/solid'
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
   const clientId =
-    '19020811693-n13doc4h0psjhjarneqql0nlfae1c0ot.apps.googleusercontent.com'
+    '19020811693-c1t177n9unicn0vbsrgo2vro6btforv4.apps.googleusercontent.com'
   const [showloginButton, setShowloginButton] = useState(true)
   const [showlogoutButton, setShowlogoutButton] = useState(false)
-  const onLoginSuccess = (res) => {
+  const responseGoogle = (res) => {
     console.log('Login Success:', res.profileObj)
     setShowloginButton(false)
     setShowlogoutButton(true)
   }
-
+  /*
   const onLoginFailure = (res) => {
     console.log('Login Failed:', res)
   }
+  */
 
   const onSignoutSuccess = () => {
     alert('You have been logged out successfully')
@@ -77,10 +78,12 @@ const MobileNav = () => {
           <div className="px-12 py-2">
             {showloginButton ? (
               <GoogleLogin
-                clientId={clientId}
+                clientId={
+                  '19020811693-c1t177n9unicn0vbsrgo2vro6btforv4.apps.googleusercontent.com'
+                }
                 buttonText="Sign In"
-                onSuccess={onLoginSuccess}
-                onFailure={onLoginFailure}
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
               />
