@@ -7,7 +7,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/solid'
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
   const clientId =
-    '838596502010-0p0p11r3amea5qojgot7j52n2pb4saf7.apps.googleusercontent.com'
+    '19020811693-n13doc4h0psjhjarneqql0nlfae1c0ot.apps.googleusercontent.com'
   const [showloginButton, setShowloginButton] = useState(true)
   const [showlogoutButton, setShowlogoutButton] = useState(false)
   const onLoginSuccess = (res) => {
@@ -15,9 +15,11 @@ const MobileNav = () => {
     setShowloginButton(false)
     setShowlogoutButton(true)
   }
+
   const onLoginFailure = (res) => {
     console.log('Login Failed:', res)
   }
+
   const onSignoutSuccess = () => {
     alert('You have been logged out successfully')
     console.clear()
