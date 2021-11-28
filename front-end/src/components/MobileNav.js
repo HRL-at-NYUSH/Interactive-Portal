@@ -5,19 +5,30 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import headerNavLinks from '@data/headerNavLinks'
 import { MenuIcon, XIcon } from '@heroicons/react/solid'
 const MobileNav = () => {
+  const [user, setUser] = useState('')
   const [navShow, setNavShow] = useState(false)
   const clientId =
-    '838596502010-0p0p11r3amea5qojgot7j52n2pb4saf7.apps.googleusercontent.com'
+    '19020811693-c1t177n9unicn0vbsrgo2vro6btforv4.apps.googleusercontent.com'
   const [showloginButton, setShowloginButton] = useState(true)
   const [showlogoutButton, setShowlogoutButton] = useState(false)
-  const onLoginSuccess = (res) => {
+  const responseGoogle = (res) => {
     console.log('Login Success:', res.profileObj)
     setShowloginButton(false)
     setShowlogoutButton(true)
+    /*
+    setUser(res.profileObj)
+    this.props.user.push({
+      pathname: '/profile',
+      state: res.profileObj, // your data array of objects
+    })
+    */
   }
+  /*
   const onLoginFailure = (res) => {
     console.log('Login Failed:', res)
   }
+  */
+
   const onSignoutSuccess = () => {
     alert('You have been logged out successfully')
     console.clear()
@@ -77,8 +88,8 @@ const MobileNav = () => {
               <GoogleLogin
                 clientId={clientId}
                 buttonText="Sign In"
-                onSuccess={onLoginSuccess}
-                onFailure={onLoginFailure}
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
               />
