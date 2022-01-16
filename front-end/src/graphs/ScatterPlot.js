@@ -125,10 +125,7 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
         + "<extra></extra>",
     };
   });  
-
-
-
-
+  
   let layout = {
       height: 650,
       margin: {
