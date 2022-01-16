@@ -1,6 +1,6 @@
 import React from 'react';
 //Important! Below the mock data is imported from the utils folder
-import { dataGeo, dataNonGeo } from '../utils/MockData-Winny.js';
+import { dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
