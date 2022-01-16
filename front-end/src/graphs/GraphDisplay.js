@@ -1,6 +1,6 @@
 import React from 'react';
 //Important! Below the mock data is imported from the utils folder
-import { dataGeo, dataNonGeo } from '../utils/MockData.js';
+import { dataGeo, dataNonGeo } from '../utils/MockData-Winny.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
@@ -37,11 +37,11 @@ function GraphDisplay() {
   const [histoXAttr, setHistoXAttr] = useState('YEAR');
 
   //scatter plot attributes
-  const [ScatoXAttr, setScatoXAttr] = useState("YEAR");
-  const [ScatoYAttr, setScatoYAttr] = useState("YEAR");
+  const [ScatoXAttr, setScatoXAttr] = useState("");
+  const [ScatoYAttr, setScatoYAttr] = useState("");
   const [ScatoColor, setScatoColor] = useState("None");
   const [ScatoSymbol, setScatoSymbol] = useState("None");
-  const [ScatoLine, setScatoLine] = useState("0");
+
 
   //Below is the html code (return value)
   return (
@@ -86,7 +86,6 @@ function GraphDisplay() {
                 yAxisAttribute={ScatoYAttr}
                 colorAttribute={ScatoColor}
                 symbolAttribute={ScatoSymbol}
-                lineAttribute={ScatoLine}
               ></ScatterPlot>
             </div>
             <div className="flex-auto text-left">
@@ -147,24 +146,7 @@ function GraphDisplay() {
                 </div>
               </div>
 
-              <div class="flex flex-row mt-5 mx-10">
-                <div class="px-4 py-2 font-bold bg-purple-400 text-white cursor-defaultfocus:outline-none">
-                  Explore Insight by RefLine
-                </div>
-                <div class="px-4 py-2 appearance-none font-bold bg-transperant border-2 border-purple-400 text-black cursor-pointer focus:outline-none">
-                  <select class="focus:outline-none"
-                    onChange={(e) => setScatoLine(e.target.value)}>
-                    <option className="block w-full py-3 cursor-pointer" value={0}></option>
-                    <option className="block w-full py-3 cursor-pointer" value={1}>Average Line - X Axis</option>
-                    {/* <option className="block w-full py-3 cursor-pointer" value={2}>Average Line - Y Axis</option> */}
-                  </select>
-                </div>
-              </div>
-
             </div>
-              {/* <div className="text-center my-3"><input type="checkbox" onClick={(e) => setScatoLine(e.target.checked)}></input>    Average Line</div> */}
-              {/* <div className="text-center my-3"><input type="checkbox" onClick={(e) => setScatoBg(e.target.checked)}></input>    Background Color</div> */}
-              <div className="rounded text-center mx-20 my-10 h-20 bg-gray-200"></div> 
             </div>
             
           </div>

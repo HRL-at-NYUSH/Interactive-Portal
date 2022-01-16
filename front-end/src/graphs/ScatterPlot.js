@@ -126,75 +126,8 @@ const ScatterPlot = ({ data, xAxisAttribute, yAxisAttribute, colorAttribute, sym
     };
   });  
 
-  //<------new arrays for sorting x/y data > get min/max------>
-  let xDataSorted = data.map((d, i) => {
-    if (d[xAxisAttribute] === undefined || d[xAxisAttribute] === "NULL") {
-      return "";
-     } 
-      return d[xAxisAttribute];
-  });
-
-  xDataSorted = xDataSorted.filter(function( element ) {
-    return element !== "";
-  });
-
-  let yDataSorted = data.map((d, i) => {
-    if (d[yAxisAttribute] === undefined || d[yAxisAttribute] === "NULL") {
-      return "";
-     } 
-      return d[yAxisAttribute];
-  });
-
-  yDataSorted = yDataSorted.filter(function( element ) {
-    return element !== "";
-  });
-
-  // console.log(yDataSorted);
-
-  function myFunction(total, value, index, array) {
-    return total + value;
-  }
-  let xAverage = xDataSorted.reduce(myFunction) / xDataSorted.length;
-  let yAverage = yDataSorted.reduce(myFunction) / yDataSorted.length;
-  xDataSorted.sort(function(a, b){return a-b});
-  yDataSorted.sort(function(a, b){return a-b});
 
 
-
-   //<------movable reference line------>
-
-  var refLine = document.getElementById("refLine");
-  var figurecontainer = document.getElementById("figurecontainer");
-
-  function clamp(x, lower, upper) {
-    return Math.max(lower, Math.min(x, upper));
-  }
-
-  function startDragBehavior() {
-    var d3 = Plot.d3;
-    var drag = d3.behavior.drag();
-    drag.origin(function() {
-        var transform = d3.select(this).attr("transform");
-        var translate = transform.substring(10, transform.length-1).split(/,| /);
-        return {x: translate[0], y: translate[1]};
-    });
-    drag.on("dragstart", function() {
-      refLine.setAttribute("display", "inline");
-    });
-    drag.on("drag", function() {
-        var xmouse = d3.event.x, ymouse = d3.event.y;
-        d3.select(this).attr("transform", "translate(" + [xmouse, ymouse] + ")");
-        var xaxis = figurecontainer._fullLayout.xaxis;
-        var yaxis = figurecontainer._fullLayout.yaxis;
-        var handle = this.handle;
-        });
-    drag.on("dragend", function() {
-        refLine.setAttribute("display", "none");
-        d3.select(".scatterlayer .trace:last-of-type .points path:last-of-type").call(drag);    
-    });
-        d3.selectAll(".scatterlayer .trace:last-of-type .points path").call(drag);
-}
-console.log(lineAttribute)
 
   let layout = {
       height: 650,
@@ -215,22 +148,6 @@ console.log(lineAttribute)
         showticklabels: true },
       title: "Scatter Plot Graph",
       hoverlabel: { bgcolor: "#FFF" },
-      shapes: [
-        {
-          type: 'line',
-          name: 'Average Line - X Axis',
-          divId: "refLine",
-          x0: xAverage,
-          y0: yDataSorted[0],
-          x1: xAverage,
-          y1: yDataSorted[yDataSorted.length-1],
-          line: {
-            color: 'grey',
-            width: 2,
-          },
-          opacity: lineAttribute,
-          editable: true
-        }]
       };
 
   return (
