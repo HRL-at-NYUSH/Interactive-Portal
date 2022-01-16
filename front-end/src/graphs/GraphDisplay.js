@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-//import { dataGeo, dataNonGeo } from '../utils/MockData-Winny.js';
-import { USCensusMetadata, dataGeo, dataNonGeo } from '../utils/MockData.js';
+import { dataGeo, dataNonGeo } from '../utils/MockData-Winny.js';
+//import { USCensusMetadata, dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
 import SelectBox from '@components/SelectBox.js';
@@ -42,7 +42,6 @@ function GraphDisplay() {
   const [ScatoColor, setScatoColor] = useState("None");
   const [ScatoSymbol, setScatoSymbol] = useState("None");
 
-
   //Below is the html code (return value)
   return (
     <>
@@ -53,7 +52,6 @@ function GraphDisplay() {
             <div className="flex-auto">
               <p>Scatter Plot</p>
               <ScatterPlot
-              
                 data={dataNonGeo}
                 xAxisAttribute={ScatoXAttr}
                 yAxisAttribute={ScatoYAttr}
@@ -61,6 +59,7 @@ function GraphDisplay() {
                 symbolAttribute={ScatoSymbol}
               ></ScatterPlot>
             </div>
+
             <div className="flex-auto text-left">
               <div className="flex flex-row m-16">
                 <div class="space-x-2 mx-5">
@@ -89,7 +88,7 @@ function GraphDisplay() {
                  </div>
               </div>
               </div>
-                  
+
             <div class="relative m-10 z-20 flex-col hidden md:flex md:justify-end  md:flex-col">
               <div class="flex flex-row mx-10">
                 <div class="px-4 py-2 font-bold bg-green-500 text-white cursor-defaultfocus:outline-none">
