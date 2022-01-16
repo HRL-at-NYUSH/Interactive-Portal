@@ -1,12 +1,22 @@
 import './Menu.css';
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ToggleSwitch from './ToggleSwitch';
 import DropdownMenu from './DropdownMenu';
+import GraphMenu from './GraphMenu';
 import ViewInsights from './ViewInsights';
 import CloseBtn from './CloseBtn';
 import { InboxIcon } from '@heroicons/react/solid';
+
+//universal data
+let info = "";
+let previousInfo = "";
+const display = false;
+let id = "graph #1";
+
+
+
 //next steps: get the user object
 
 function Search() {
@@ -15,19 +25,20 @@ function Search() {
     setToggle(checked);
   };
   const labelDS = 'Select a Dataset';
-  const labelGraph = 'Select a Graph';
-  const labelX = 'X-axis';
-  const labelY = 'Y-axis';
+  const labelVariables = 'Select Variables';
+  const labelFilters = 'Select Filters';
+
   const [database, setDS] = useState('');
-  const [graph, setGraph] = useState('');
   const [x, setX] = useState('');
   const [y, setY] = useState('');
-  const [selectedVariables, setVariables] = useState('');
+  const [selectedFilters, setFilters] = useState('');
+
   const [variableArray, setVariableArray] = useState([]);
-  const chartNames = ['Graph1', 'Graph2']; //need to add titles to graphs
-  const variables = ['age', 'year', 'birthplace'];
-  const display = false;
+  const chartNames = ['Histogram', 'BarChart', 'Boxplot']; //need to add titles to graphs
+  const variables = ['Time', 'Age', 'Birthplace'];
+  const filters = ['filter A', 'filter B', 'filter C'];
   const datasetNames = ['US Census', 'Restaurant Data'];
+
   function showVariables(array) {
     for (let x in array) {
       <CloseBtn variable={x} />;
@@ -63,121 +74,118 @@ function Search() {
     setVariableArray(correct)
     */
   }
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const graphObject = { graph, database, x, y };
-    console.log(graphObject);
-  };
+    e.preventDefault()
+    const submitObject = {
+      id,
+      database,
+      x,
+      y,
+      selectedFilters
+    }
+    info = submitObject;
+    console.log(info);
+  }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <ToggleSwitch id='switch' checked={isToggleOn} onChange={onChange} />
-        {display ? <p>Toggle: {isToggleOn ? 'select' : 'query'}</p> : ''}
+      <form>
+        {/* <ToggleSwitch id='switch' checked={isToggleOn} onChange={onChange} />
+        {display ? <p>Toggle: {isToggleOn ? 'select' : 'query'}</p> : ''} */}
         <br />
 
-        <DropdownMenu
-          selected={graph}
-          setSelected={setGraph}
-          label={labelGraph}
-          options={chartNames}
-        />
-        <br />
-        {display ? <p>Selected Graph is {graph}</p> : ''}
-        <br />
         <DropdownMenu
           selected={database}
           setSelected={setDS}
           label={labelDS}
           options={datasetNames}
         />
-        <br />
         {display ? <p>Selected Dataset is {database}</p> : ''}
-        <br />
-        <p>
-          Enter Variable names <br />
-          <i id='comment'>For example: age, year, gender</i>
-        </p>
-        <input
-          id='search-input'
-          type='text'
-          value={selectedVariables}
-          onChange={(e) => setVariables(e.target.value)}
-        ></input>
-        {/*
-        isToggleOn ? (
-          <input
-            id="search-input"
-            type="text"
-            value={selectedVariables}
-            onChange={(e) => setVariables(e.target.value)}
-          ></input>
-        ) : (
-          <DropdownMenu
-            selected={database}
-            setSelected={setDS}
-            label={labelDS}
-            options={datasetNames}
-          />
-        )
-        */}
-        <div>
-          <p>Selected Variables are {selectedVariables}</p>
-          {
-            //selectedVariables !== '' ? getVariables(selectedVariables) : ''
-          }
-        </div>
-        <br />
+
         <DropdownMenu
           selected={x}
           setSelected={setX}
-          label={'Select Variable for the X-axis'}
-          options={
-            variables //to be replaced with variableArray
-          }
-        />
-        <br />
-        <DropdownMenu
-          className='drop-axis'
-          selected={y}
-          setSelected={setY}
-          label={'Select Variable for the Y-axis'}
+          label={labelVariables}
           options={variables}
         />
+          <DropdownMenu
+          selected={y}
+          setSelected={setY}
+          options={variables}
+        />
+        {display ? <p>Selected variables are {x}</p> : ''}
+
+        <DropdownMenu
+          selected={selectedFilters}
+          setSelected={setFilters}
+          label={labelFilters}
+          options={filters}
+        />
+        {display ? <p>Selected filters are {selectedFilters}</p> : ''}
         <br />
-        <button className='btn'>Visualize</button>
+        <button class='bg-green-500 hover:bg-green-700 mt-10 px-7 py-3 shadow-ml rounded-lg text-white'
+        onClick={handleSubmit}>Create Graph</button>
       </form>
     </>
   );
 }
-function Menu() {
-  return (
-    <>
-      <div className='Menu'>
-        <Tabs>
-          <TabList>
-            <Tab>
-              <p className='menu-p'>Search</p>
-            </Tab>
-            <Tab>
-              <p className='menu-p'>View Insights</p>
-            </Tab>
-          </TabList>
 
-          <TabPanel>
-            <div className='panel-content'>
-              <br />
-              <Search />
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div className='panel-content'>
-              <ViewInsights />
-            </div>
-          </TabPanel>
-        </Tabs>
-      </div>
-    </>
-  );
+class Menu extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        data: this.props.dataParentToChild
+    }
+  }
+
+  // send info to graph
+    childFunction=(e)=>{
+      console.log('send')
+      e.preventDefault();
+      this.props.functionCallFromParent(info);
+    }
+  ///////////
+  
+
+  render (){
+    return (
+      <>
+        <div className='Menu'  onClick={this.childFunction.bind(this)}>
+          <Tabs>
+            <TabList>
+              <Tab >
+                <p className='menu-p' >Select</p>
+              </Tab>
+              <Tab>
+                <p className='menu-p'>Modify</p>
+              </Tab>
+              <Tab>
+                <p className='menu-p'>Summarize</p>
+              </Tab>
+            </TabList>
+
+            <TabPanel>
+              <div className='panel-content'>
+                <br />
+                <Search/>
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className='panel-content'>
+                <ViewInsights />
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className='panel-content'>
+                <ViewInsights />
+              </div>
+            </TabPanel>
+          </Tabs>
+        </div>
+      </>
+    );
+  }
 }
 export default Menu;
