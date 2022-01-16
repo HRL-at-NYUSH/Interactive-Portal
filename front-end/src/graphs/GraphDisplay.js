@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //Important! Below the mock data is imported from the utils folder
 import { dataGeo, dataNonGeo } from '../utils/MockData-Winny.js';
 import Histogram from './Histogram';
@@ -31,6 +31,7 @@ function selectOnce(checkbox) {//for checkbox
 
 
 function GraphDisplay() {
+
   const dataKeys = Object.keys(dataNonGeo[0]);
   const selectBoxData = dataKeys.map((d) => ({ fieldName: d, value: d }));
 

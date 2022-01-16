@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      spacing: {
+        128: '32rem',
+        144: '36rem',
+      },
       colors: {
         accent: {
           DEFAULT: '#7FCFD6', // CYAN - for button, bar, underline
@@ -15,26 +19,29 @@ module.exports = {
           4: '#6F3DCA', // BLUISH PURPLE
         },
       },
-    },
-    fontFamily: {
-      sans: [
-        'ui-sans-serif',
-        'system-ui',
-        'Segoe UI',
-        'Roboto',
-        'Oxygen',
-        'Ubuntu',
-        'Cantarell',
-        'Fira Sans',
-        'Droid Sans',
-        'Helvetica Neue',
-      ],
-      mono: ['ui-monospace', 'Menlo', 'Monaco', 'Consolas', 'Courier New'],
+      fontFamily: {
+        sans: [
+          'ui-sans-serif',
+          'system-ui',
+          'Segoe UI',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          'Fira Sans',
+          'Droid Sans',
+          'Helvetica Neue',
+        ],
+        serif: ['ui-serif', 'serif'],
+        mono: ['ui-monospace', 'Menlo', 'Monaco', 'Consolas', 'Courier New'],
+      },
     },
   },
+
   variants: {
-    extend: {},
-    display: ['responsive', 'group-hover', 'group-focus'],
+    extend: {
+      transitionProperty: ['hover', 'focus'],
+    },
   },
   plugins: [],
 };
