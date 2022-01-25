@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+//Important! Below the mock data is imported from the utils folder
 import { USCensusMetadata, dataGeo, dataNonGeo } from '../utils/MockData.js';
 import Histogram from './Histogram';
 import HeaderText from '@components/HeaderText.js';
@@ -33,15 +34,6 @@ function selectOnce(checkbox) {//for checkbox
 
 function GraphDisplay() {
 
-  const dataKeys = Object.keys(dataNonGeo[0]);
- 
-
-  
-  const test = ['Year', 'Age', 'Family Size', 'Immigration Year', 'EDSCORE50', 'OCCSCORE', 'PRESGL']
-  const testKeys = test.map((d) => ({ label: d, value: d }));
-  const [selectedOption, setSelectedOption] = useState('0');
-  const animatedComponents = makeAnimated();
-
   //scatter plot attributes
   const dataKeys = Object.keys(dataNonGeo[0]);
 
@@ -55,22 +47,6 @@ function GraphDisplay() {
     <>
       <div>
         <HeaderText>A page that displays your graph component</HeaderText>
-
-        <div className='flex flex-col justify-between'>
-          <div className='w-1/2 text-3xl text-center font-bold border-b-2 p-2 m-auto'>
-              Correlation Graph
-          </div>
-            <Correlation data={dataNonGeo}
-               bothAxisAttribute={selectedOption}></Correlation>
-            <Select
-              // defaultValue={[testKeys[0]]}
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
-              options={testKeys}
-              onChange={setSelectedOption}
-            />
-        </div> 
       
         <div className="flex rounded-lg overflow-hidden shadow-lg m-auto p-4">
             <div className="flex-auto">
