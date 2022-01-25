@@ -72,6 +72,47 @@ export default function () {
   );
 }
 ```
+## Week 4
+
+### Get started with real data
+
+#### Take a look first
+
+If the Mock JS Data doesn't seem to be enough, or you simply want to see how your graph might look in application, it is a good idea to get started with the real data and further develop your design 👻
+
+Prior to joining the team, all of you already had access to the [product data](https://drive.google.com/drive/u/0/folders/1SWSNZYz0JwZycDfM1-fB48ic513riQrU) folder. Inside, you can find csv files of nyc census data. Take a look at the files and see if you can figure out what is the difference between `coded` and `decoded` data.
+
+![product-data](./images/product-data.png)
+
+To better understand the big data in front of you, open [variable codebook](https://drive.google.com/drive/u/0/folders/1SWSNZYz0JwZycDfM1-fB48ic513riQrU) file. The codebook walks you through each variables in the datasheet. If you want to make notes, **make a copy** of the codebook and **name** it for yourself. 
+
+For example, I made a copy and color coded the `numerical` and `categorical` variable for further use. 
+
+![test-codebook](./images/test-codebook.png)
+
+***
+
+#### import (part of) the real data
+
+Firstly, the real data is _huge_. A simple way to just give the real data a try is to convert part of the **csv** data to **json**. You can easily do that with online converter. I use [this](https://csvjson.com/) online converter to convert 2000 datapoints into json. 
+
+![online-converter](./images/online-converter.png)
+
+Then, create a new file in  `front-end/src/utils/`, e.g.  `../utils/MockData-Winny.js`. Refer to `MockData.js` to structure your test data as below. 
+
+```javascript
+const data = [...
+];
+
+export { data };
+```
+
+Don't forget to import it in `GraphDisplay.js` file, and done!
+
+```javascript
+import { data } from '../utils/MockData-Winny.js';
+```
+
 
 ## Resources
 
