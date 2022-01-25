@@ -7,10 +7,8 @@
 .tabs {
   display: inline;
   position: relative;
-  top: -40px;
   width: 100px;
-  background: rgba(0, 0, 0, 0);
-  height: 10px;
+  height: 30px;
   list-style: none;
   margin: 0;
   min-width: 85%;
@@ -31,19 +29,19 @@ ul {
 }
 
 .current {
-  /* background-color: ; */
-  background: #f1f3f5;
-  color: blue;
+  background: rgb(206, 238, 218);
   font-weight: bold;
 }
 
 .content {
-  width: 1000px;
+  /* width: 10vw; */
   height: max-content;
-  background: white;
-  padding: 10px;
-  padding-left: 60px;
+  background-color: transparent;
+  justify-content: center;
+  padding-left: 150px;
 }
+
 .DashTabs_tabs__3a-Le li {
-  border: 1px solid darkgrey;
+  background-color: green;
+  /* border: 1px solid darkgrey; */
 }
